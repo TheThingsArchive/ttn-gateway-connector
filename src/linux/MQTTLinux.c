@@ -165,3 +165,33 @@ void NetworkDisconnect(Network* n)
 {
 	close(n->my_socket);
 }
+
+void MutexInit(Mutex* mutex)
+{
+	pthread_mutex_init(&mutex->m, NULL);
+}
+
+int MutexLock(Mutex* mutex)
+{
+	return pthread_mutex_lock(&mutex->m);
+}
+
+int MutexUnlock(Mutex* mutex)
+{
+	return pthread_mutex_unlock(&mutex->m);
+}
+
+int MutexDestroy(Mutex* mutex)
+{
+	return pthread_mutex_destroy(&mutex->m);
+}
+
+int ThreadStart(Thread* thread, void (*fn)(void*), void* arg)
+{
+	return pthread_create(&thread->t, NULL, (void*)fn, arg);
+}
+
+int ThreadJoin(Thread* thread)
+{
+	return pthread_join(thread->t, NULL);
+}

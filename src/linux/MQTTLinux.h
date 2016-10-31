@@ -41,6 +41,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <fcntl.h>
+#include <pthread.h>
 
 #include <stdlib.h>
 #include <string.h>
@@ -70,5 +71,23 @@ int linux_write(Network*, unsigned char*, int, int);
 DLLExport void NetworkInit(Network*);
 DLLExport int NetworkConnect(Network*, char*, int);
 DLLExport void NetworkDisconnect(Network*);
+
+typedef struct Mutex
+{
+	pthread_mutex_t m;
+} Mutex;
+
+void MutexInit(Mutex*);
+int MutexLock(Mutex*);
+int MutexUnlock(Mutex*);
+int MutexDestroy(Mutex*);
+
+typedef struct Thread
+{
+	pthread_t t;
+} Thread;
+
+int ThreadStart(Thread*, void (*fn)(void*), void* arg);
+int ThreadJoin(Thread*);
 
 #endif

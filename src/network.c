@@ -42,7 +42,13 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
 		connect.password.cstring = (char *)key;
 	}
 
-	return MQTTConnect(&session->client, &connect);
+	err = MQTTConnect(&session->client, &connect);
+	if (err != 0) {
+		return err;
+	}
+
+    return 0;
+	//return MQTTStartTask(&session->client);
 }
 
 int ttngwc_disconnect(TTN *s) {

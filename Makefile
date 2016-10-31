@@ -8,7 +8,7 @@ APIDIR = $(SRCDIR)/github.com/TheThingsNetwork/ttn/api
 
 CFLAGS = -fPIC -Wall -g -O2 -I$(INCDIR) -I$(SRCDIR) -I$(PAHO_SRC)/MQTTClient-C/src -I$(PAHO_SRC)/MQTTPacket/src -I$(SRCDIR)/github.com/gogo/protobuf/protobuf $(shell pkg-config --cflags 'libprotobuf-c >= 1.0.0')
 LDFLAGS =
-LDADD = -lpaho-embed-mqtt3c $(shell pkg-config --libs 'libprotobuf-c >= 1.0.0')
+LDADD = -lpthread -lpaho-embed-mqtt3c $(shell pkg-config --libs 'libprotobuf-c >= 1.0.0')
 RM = rm -f
 NAME = ttn-gateway-connector
 TARGET_LIB = lib$(NAME).so
