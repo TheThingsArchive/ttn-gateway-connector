@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
 
 	// Connect to the test broker. The secret key is NULL for simplicity
 	printf("Connecting...\n");
-	int err = ttngwc_connect(ttn, "test.mosquitto.org", 1883, NULL);
+	int err = ttngwc_connect(ttn, "localhost", 1883, NULL);
 	if (err != 0) {
 		printf("Connect failed: %d\n", err);
 		ttngwc_cleanup(ttn);
