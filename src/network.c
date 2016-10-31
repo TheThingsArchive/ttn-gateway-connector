@@ -70,6 +70,8 @@ int ttngwc_send_status(TTN *s, int64_t time) {
 	struct Session *session = (struct Session *)s;
 	
 	int rc = FAILURE;
+	void *payload = NULL;
+	char *topic = NULL;
 
 	Gateway__Status	status = GATEWAY__STATUS__INIT;
 	status.has_time = 1;
@@ -77,7 +79,7 @@ int ttngwc_send_status(TTN *s, int64_t time) {
 	// TODO: fill out the other fields
 
 	size_t len = gateway__status__get_packed_size(&status);
-	void *payload = malloc(len);
+	payload = malloc(len);
 	if (!payload)
 		goto exit;
 
@@ -90,7 +92,6 @@ int ttngwc_send_status(TTN *s, int64_t time) {
 	message.payload = payload;
 	message.payloadlen = len;
 
-	char *topic;
 	if (asprintf(&topic, "status/%s", session->id) == -1)
 		goto exit;
 
