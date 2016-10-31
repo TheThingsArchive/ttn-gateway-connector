@@ -21,6 +21,9 @@ UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	CFLAGS += -Isrc/linux
 	SRCS += src/linux/MQTTLinux.c
+else ifeq ($(UNAME_S),Darwin)
+	CFLAGS += -Isrc/linux
+	SRCS += src/linux/MQTTLinux.c
 endif
 # TODO: Add include flag and sources of other platforms
 
@@ -40,6 +43,9 @@ $(OBJS): $(OBJDIR)/%.o : $(SRCDIR)/%.c
 .PHONY: update-deps
 update-deps:
 ifeq ($(UNAME_S),Linux)
+	mkdir -p src/linux obj/linux
+	cp $(PAHO_SRC)/MQTTClient-C/src/linux/* src/linux
+else ifeq ($(UNAME_S),Darwin)
 	mkdir -p src/linux obj/linux
 	cp $(PAHO_SRC)/MQTTClient-C/src/linux/* src/linux
 endif

@@ -9,6 +9,12 @@
 	#include <MQTTLinux.h>
 #endif
 
+#if defined(__APPLE__)
+	#define _GNU_SOURCE
+	#include <stdio.h>
+	#include <MQTTLinux.h>
+#endif
+
 // TODO: Include platform specific headers here
 
 #endif

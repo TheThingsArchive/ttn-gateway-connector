@@ -1,8 +1,6 @@
-#if defined(__linux__)
-	#include <stdio.h>
-	#include <signal.h>
-#endif
-
+#include <stdio.h>
+#include <signal.h>
+#include <stdint.h>
 #include "connector.h"
 
 int running = 1;
