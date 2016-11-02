@@ -29,6 +29,7 @@ typedef struct _Google__Protobuf__MethodDescriptorProto Google__Protobuf__Method
 typedef struct _Google__Protobuf__FileOptions Google__Protobuf__FileOptions;
 typedef struct _Google__Protobuf__MessageOptions Google__Protobuf__MessageOptions;
 typedef struct _Google__Protobuf__FieldOptions Google__Protobuf__FieldOptions;
+typedef struct _Google__Protobuf__OneofOptions Google__Protobuf__OneofOptions;
 typedef struct _Google__Protobuf__EnumOptions Google__Protobuf__EnumOptions;
 typedef struct _Google__Protobuf__EnumValueOptions Google__Protobuf__EnumValueOptions;
 typedef struct _Google__Protobuf__ServiceOptions Google__Protobuf__ServiceOptions;
@@ -37,6 +38,8 @@ typedef struct _Google__Protobuf__UninterpretedOption Google__Protobuf__Uninterp
 typedef struct _Google__Protobuf__UninterpretedOption__NamePart Google__Protobuf__UninterpretedOption__NamePart;
 typedef struct _Google__Protobuf__SourceCodeInfo Google__Protobuf__SourceCodeInfo;
 typedef struct _Google__Protobuf__SourceCodeInfo__Location Google__Protobuf__SourceCodeInfo__Location;
+typedef struct _Google__Protobuf__GeneratedCodeInfo Google__Protobuf__GeneratedCodeInfo;
+typedef struct _Google__Protobuf__GeneratedCodeInfo__Annotation Google__Protobuf__GeneratedCodeInfo__Annotation;
 
 
 /* --- enums --- */
@@ -360,10 +363,11 @@ struct  _Google__Protobuf__OneofDescriptorProto
 {
   ProtobufCMessage base;
   char *name;
+  Google__Protobuf__OneofOptions *options;
 };
 #define GOOGLE__PROTOBUF__ONEOF_DESCRIPTOR_PROTO__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&google__protobuf__oneof_descriptor_proto__descriptor) \
-    , NULL }
+    , NULL, NULL }
 
 
 /*
@@ -549,12 +553,6 @@ struct  _Google__Protobuf__FileOptions
    */
   char *csharp_namespace;
   /*
-   * Whether the nano proto compiler should generate in the deprecated non-nano
-   * suffixed package.
-   */
-  protobuf_c_boolean has_javanano_use_deprecated_package;
-  protobuf_c_boolean javanano_use_deprecated_package;
-  /*
    * The parser stores options it doesn't recognize here. See above.
    */
   size_t n_uninterpreted_option;
@@ -562,7 +560,7 @@ struct  _Google__Protobuf__FileOptions
 };
 #define GOOGLE__PROTOBUF__FILE_OPTIONS__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&google__protobuf__file_options__descriptor) \
-    , NULL, NULL, 0,0, 0,0, 0,0, 0,GOOGLE__PROTOBUF__FILE_OPTIONS__OPTIMIZE_MODE__SPEED, NULL, 0,0, 0,0, 0,0, 0,0, 0,0, NULL, NULL, 0,0, 0,NULL }
+    , NULL, NULL, 0,0, 0,0, 0,0, 0,GOOGLE__PROTOBUF__FILE_OPTIONS__OPTIMIZE_MODE__SPEED, NULL, 0,0, 0,0, 0,0, 0,0, 0,0, NULL, NULL, 0,NULL }
 
 
 struct  _Google__Protobuf__MessageOptions
@@ -718,6 +716,20 @@ struct  _Google__Protobuf__FieldOptions
 #define GOOGLE__PROTOBUF__FIELD_OPTIONS__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&google__protobuf__field_options__descriptor) \
     , 0,GOOGLE__PROTOBUF__FIELD_OPTIONS__CTYPE__STRING, 0,0, 0,GOOGLE__PROTOBUF__FIELD_OPTIONS__JSTYPE__JS_NORMAL, 0,0, 0,0, 0,0, 0,NULL }
+
+
+struct  _Google__Protobuf__OneofOptions
+{
+  ProtobufCMessage base;
+  /*
+   * The parser stores options it doesn't recognize here. See above.
+   */
+  size_t n_uninterpreted_option;
+  Google__Protobuf__UninterpretedOption **uninterpreted_option;
+};
+#define GOOGLE__PROTOBUF__ONEOF_OPTIONS__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&google__protobuf__oneof_options__descriptor) \
+    , 0,NULL }
 
 
 struct  _Google__Protobuf__EnumOptions
@@ -1008,6 +1020,58 @@ struct  _Google__Protobuf__SourceCodeInfo
     , 0,NULL }
 
 
+struct  _Google__Protobuf__GeneratedCodeInfo__Annotation
+{
+  ProtobufCMessage base;
+  /*
+   * Identifies the element in the original source .proto file. This field
+   * is formatted the same as SourceCodeInfo.Location.path.
+   */
+  size_t n_path;
+  int32_t *path;
+  /*
+   * Identifies the filesystem path to the original source .proto.
+   */
+  char *source_file;
+  /*
+   * Identifies the starting offset in bytes in the generated code
+   * that relates to the identified object.
+   */
+  protobuf_c_boolean has_begin;
+  int32_t begin;
+  /*
+   * Identifies the ending offset in bytes in the generated code that
+   * relates to the identified offset. The end offset should be one past
+   * the last relevant byte (so the length of the text = end - begin).
+   */
+  protobuf_c_boolean has_end;
+  int32_t end;
+};
+#define GOOGLE__PROTOBUF__GENERATED_CODE_INFO__ANNOTATION__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&google__protobuf__generated_code_info__annotation__descriptor) \
+    , 0,NULL, NULL, 0,0, 0,0 }
+
+
+/*
+ * Describes the relationship between generated code and its original source
+ * file. A GeneratedCodeInfo message is associated with only one generated
+ * source file, but may contain references to different source .proto files.
+ */
+struct  _Google__Protobuf__GeneratedCodeInfo
+{
+  ProtobufCMessage base;
+  /*
+   * An Annotation connects some span of text in generated code to an element
+   * of its generating .proto file.
+   */
+  size_t n_annotation;
+  Google__Protobuf__GeneratedCodeInfo__Annotation **annotation;
+};
+#define GOOGLE__PROTOBUF__GENERATED_CODE_INFO__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&google__protobuf__generated_code_info__descriptor) \
+    , 0,NULL }
+
+
 /* Google__Protobuf__FileDescriptorSet methods */
 void   google__protobuf__file_descriptor_set__init
                      (Google__Protobuf__FileDescriptorSet         *message);
@@ -1242,6 +1306,25 @@ Google__Protobuf__FieldOptions *
 void   google__protobuf__field_options__free_unpacked
                      (Google__Protobuf__FieldOptions *message,
                       ProtobufCAllocator *allocator);
+/* Google__Protobuf__OneofOptions methods */
+void   google__protobuf__oneof_options__init
+                     (Google__Protobuf__OneofOptions         *message);
+size_t google__protobuf__oneof_options__get_packed_size
+                     (const Google__Protobuf__OneofOptions   *message);
+size_t google__protobuf__oneof_options__pack
+                     (const Google__Protobuf__OneofOptions   *message,
+                      uint8_t             *out);
+size_t google__protobuf__oneof_options__pack_to_buffer
+                     (const Google__Protobuf__OneofOptions   *message,
+                      ProtobufCBuffer     *buffer);
+Google__Protobuf__OneofOptions *
+       google__protobuf__oneof_options__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   google__protobuf__oneof_options__free_unpacked
+                     (Google__Protobuf__OneofOptions *message,
+                      ProtobufCAllocator *allocator);
 /* Google__Protobuf__EnumOptions methods */
 void   google__protobuf__enum_options__init
                      (Google__Protobuf__EnumOptions         *message);
@@ -1362,6 +1445,28 @@ Google__Protobuf__SourceCodeInfo *
 void   google__protobuf__source_code_info__free_unpacked
                      (Google__Protobuf__SourceCodeInfo *message,
                       ProtobufCAllocator *allocator);
+/* Google__Protobuf__GeneratedCodeInfo__Annotation methods */
+void   google__protobuf__generated_code_info__annotation__init
+                     (Google__Protobuf__GeneratedCodeInfo__Annotation         *message);
+/* Google__Protobuf__GeneratedCodeInfo methods */
+void   google__protobuf__generated_code_info__init
+                     (Google__Protobuf__GeneratedCodeInfo         *message);
+size_t google__protobuf__generated_code_info__get_packed_size
+                     (const Google__Protobuf__GeneratedCodeInfo   *message);
+size_t google__protobuf__generated_code_info__pack
+                     (const Google__Protobuf__GeneratedCodeInfo   *message,
+                      uint8_t             *out);
+size_t google__protobuf__generated_code_info__pack_to_buffer
+                     (const Google__Protobuf__GeneratedCodeInfo   *message,
+                      ProtobufCBuffer     *buffer);
+Google__Protobuf__GeneratedCodeInfo *
+       google__protobuf__generated_code_info__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   google__protobuf__generated_code_info__free_unpacked
+                     (Google__Protobuf__GeneratedCodeInfo *message,
+                      ProtobufCAllocator *allocator);
 /* --- per-message closures --- */
 
 typedef void (*Google__Protobuf__FileDescriptorSet_Closure)
@@ -1406,6 +1511,9 @@ typedef void (*Google__Protobuf__MessageOptions_Closure)
 typedef void (*Google__Protobuf__FieldOptions_Closure)
                  (const Google__Protobuf__FieldOptions *message,
                   void *closure_data);
+typedef void (*Google__Protobuf__OneofOptions_Closure)
+                 (const Google__Protobuf__OneofOptions *message,
+                  void *closure_data);
 typedef void (*Google__Protobuf__EnumOptions_Closure)
                  (const Google__Protobuf__EnumOptions *message,
                   void *closure_data);
@@ -1429,6 +1537,12 @@ typedef void (*Google__Protobuf__SourceCodeInfo__Location_Closure)
                   void *closure_data);
 typedef void (*Google__Protobuf__SourceCodeInfo_Closure)
                  (const Google__Protobuf__SourceCodeInfo *message,
+                  void *closure_data);
+typedef void (*Google__Protobuf__GeneratedCodeInfo__Annotation_Closure)
+                 (const Google__Protobuf__GeneratedCodeInfo__Annotation *message,
+                  void *closure_data);
+typedef void (*Google__Protobuf__GeneratedCodeInfo_Closure)
+                 (const Google__Protobuf__GeneratedCodeInfo *message,
                   void *closure_data);
 
 /* --- services --- */
@@ -1455,6 +1569,7 @@ extern const ProtobufCMessageDescriptor google__protobuf__message_options__descr
 extern const ProtobufCMessageDescriptor google__protobuf__field_options__descriptor;
 extern const ProtobufCEnumDescriptor    google__protobuf__field_options__ctype__descriptor;
 extern const ProtobufCEnumDescriptor    google__protobuf__field_options__jstype__descriptor;
+extern const ProtobufCMessageDescriptor google__protobuf__oneof_options__descriptor;
 extern const ProtobufCMessageDescriptor google__protobuf__enum_options__descriptor;
 extern const ProtobufCMessageDescriptor google__protobuf__enum_value_options__descriptor;
 extern const ProtobufCMessageDescriptor google__protobuf__service_options__descriptor;
@@ -1463,6 +1578,8 @@ extern const ProtobufCMessageDescriptor google__protobuf__uninterpreted_option__
 extern const ProtobufCMessageDescriptor google__protobuf__uninterpreted_option__name_part__descriptor;
 extern const ProtobufCMessageDescriptor google__protobuf__source_code_info__descriptor;
 extern const ProtobufCMessageDescriptor google__protobuf__source_code_info__location__descriptor;
+extern const ProtobufCMessageDescriptor google__protobuf__generated_code_info__descriptor;
+extern const ProtobufCMessageDescriptor google__protobuf__generated_code_info__annotation__descriptor;
 
 PROTOBUF_C__END_DECLS
 

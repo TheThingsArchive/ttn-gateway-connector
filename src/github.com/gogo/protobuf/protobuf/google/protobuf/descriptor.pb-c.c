@@ -535,6 +535,49 @@ void   google__protobuf__field_options__free_unpacked
   assert(message->base.descriptor == &google__protobuf__field_options__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
+void   google__protobuf__oneof_options__init
+                     (Google__Protobuf__OneofOptions         *message)
+{
+  static Google__Protobuf__OneofOptions init_value = GOOGLE__PROTOBUF__ONEOF_OPTIONS__INIT;
+  *message = init_value;
+}
+size_t google__protobuf__oneof_options__get_packed_size
+                     (const Google__Protobuf__OneofOptions *message)
+{
+  assert(message->base.descriptor == &google__protobuf__oneof_options__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t google__protobuf__oneof_options__pack
+                     (const Google__Protobuf__OneofOptions *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &google__protobuf__oneof_options__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t google__protobuf__oneof_options__pack_to_buffer
+                     (const Google__Protobuf__OneofOptions *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &google__protobuf__oneof_options__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Google__Protobuf__OneofOptions *
+       google__protobuf__oneof_options__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Google__Protobuf__OneofOptions *)
+     protobuf_c_message_unpack (&google__protobuf__oneof_options__descriptor,
+                                allocator, len, data);
+}
+void   google__protobuf__oneof_options__free_unpacked
+                     (Google__Protobuf__OneofOptions *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &google__protobuf__oneof_options__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
 void   google__protobuf__enum_options__init
                      (Google__Protobuf__EnumOptions         *message)
 {
@@ -803,6 +846,55 @@ void   google__protobuf__source_code_info__free_unpacked
                       ProtobufCAllocator *allocator)
 {
   assert(message->base.descriptor == &google__protobuf__source_code_info__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   google__protobuf__generated_code_info__annotation__init
+                     (Google__Protobuf__GeneratedCodeInfo__Annotation         *message)
+{
+  static Google__Protobuf__GeneratedCodeInfo__Annotation init_value = GOOGLE__PROTOBUF__GENERATED_CODE_INFO__ANNOTATION__INIT;
+  *message = init_value;
+}
+void   google__protobuf__generated_code_info__init
+                     (Google__Protobuf__GeneratedCodeInfo         *message)
+{
+  static Google__Protobuf__GeneratedCodeInfo init_value = GOOGLE__PROTOBUF__GENERATED_CODE_INFO__INIT;
+  *message = init_value;
+}
+size_t google__protobuf__generated_code_info__get_packed_size
+                     (const Google__Protobuf__GeneratedCodeInfo *message)
+{
+  assert(message->base.descriptor == &google__protobuf__generated_code_info__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t google__protobuf__generated_code_info__pack
+                     (const Google__Protobuf__GeneratedCodeInfo *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &google__protobuf__generated_code_info__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t google__protobuf__generated_code_info__pack_to_buffer
+                     (const Google__Protobuf__GeneratedCodeInfo *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &google__protobuf__generated_code_info__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Google__Protobuf__GeneratedCodeInfo *
+       google__protobuf__generated_code_info__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Google__Protobuf__GeneratedCodeInfo *)
+     protobuf_c_message_unpack (&google__protobuf__generated_code_info__descriptor,
+                                allocator, len, data);
+}
+void   google__protobuf__generated_code_info__free_unpacked
+                     (Google__Protobuf__GeneratedCodeInfo *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &google__protobuf__generated_code_info__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
 static const ProtobufCFieldDescriptor google__protobuf__file_descriptor_set__field_descriptors[1] =
@@ -1526,7 +1618,7 @@ const ProtobufCMessageDescriptor google__protobuf__field_descriptor_proto__descr
   (ProtobufCMessageInit) google__protobuf__field_descriptor_proto__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor google__protobuf__oneof_descriptor_proto__field_descriptors[1] =
+static const ProtobufCFieldDescriptor google__protobuf__oneof_descriptor_proto__field_descriptors[2] =
 {
   {
     "name",
@@ -1540,14 +1632,27 @@ static const ProtobufCFieldDescriptor google__protobuf__oneof_descriptor_proto__
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "options",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Google__Protobuf__OneofDescriptorProto, options),
+    &google__protobuf__oneof_options__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned google__protobuf__oneof_descriptor_proto__field_indices_by_name[] = {
   0,   /* field[0] = name */
+  1,   /* field[1] = options */
 };
 static const ProtobufCIntRange google__protobuf__oneof_descriptor_proto__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 1 }
+  { 0, 2 }
 };
 const ProtobufCMessageDescriptor google__protobuf__oneof_descriptor_proto__descriptor =
 {
@@ -1557,7 +1662,7 @@ const ProtobufCMessageDescriptor google__protobuf__oneof_descriptor_proto__descr
   "Google__Protobuf__OneofDescriptorProto",
   "google.protobuf",
   sizeof(Google__Protobuf__OneofDescriptorProto),
-  1,
+  2,
   google__protobuf__oneof_descriptor_proto__field_descriptors,
   google__protobuf__oneof_descriptor_proto__field_indices_by_name,
   1,  google__protobuf__oneof_descriptor_proto__number_ranges,
@@ -1900,7 +2005,7 @@ static const protobuf_c_boolean google__protobuf__file_options__java_generic_ser
 static const protobuf_c_boolean google__protobuf__file_options__py_generic_services__default_value = 0;
 static const protobuf_c_boolean google__protobuf__file_options__deprecated__default_value = 0;
 static const protobuf_c_boolean google__protobuf__file_options__cc_enable_arenas__default_value = 0;
-static const ProtobufCFieldDescriptor google__protobuf__file_options__field_descriptors[16] =
+static const ProtobufCFieldDescriptor google__protobuf__file_options__field_descriptors[15] =
 {
   {
     "java_package",
@@ -2071,18 +2176,6 @@ static const ProtobufCFieldDescriptor google__protobuf__file_options__field_desc
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "javanano_use_deprecated_package",
-    38,
-    PROTOBUF_C_LABEL_OPTIONAL,
-    PROTOBUF_C_TYPE_BOOL,
-    offsetof(Google__Protobuf__FileOptions, has_javanano_use_deprecated_package),
-    offsetof(Google__Protobuf__FileOptions, javanano_use_deprecated_package),
-    NULL,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-  {
     "uninterpreted_option",
     999,
     PROTOBUF_C_LABEL_REPEATED,
@@ -2107,11 +2200,10 @@ static const unsigned google__protobuf__file_options__field_indices_by_name[] = 
   1,   /* field[1] = java_outer_classname */
   0,   /* field[0] = java_package */
   10,   /* field[10] = java_string_check_utf8 */
-  14,   /* field[14] = javanano_use_deprecated_package */
   12,   /* field[12] = objc_class_prefix */
   2,   /* field[2] = optimize_for */
   7,   /* field[7] = py_generic_services */
-  15,   /* field[15] = uninterpreted_option */
+  14,   /* field[14] = uninterpreted_option */
 };
 static const ProtobufCIntRange google__protobuf__file_options__number_ranges[9 + 1] =
 {
@@ -2123,8 +2215,8 @@ static const ProtobufCIntRange google__protobuf__file_options__number_ranges[9 +
   { 27, 10 },
   { 31, 11 },
   { 36, 12 },
-  { 999, 15 },
-  { 0, 16 }
+  { 999, 14 },
+  { 0, 15 }
 };
 const ProtobufCMessageDescriptor google__protobuf__file_options__descriptor =
 {
@@ -2134,7 +2226,7 @@ const ProtobufCMessageDescriptor google__protobuf__file_options__descriptor =
   "Google__Protobuf__FileOptions",
   "google.protobuf",
   sizeof(Google__Protobuf__FileOptions),
-  16,
+  15,
   google__protobuf__file_options__field_descriptors,
   google__protobuf__file_options__field_indices_by_name,
   9,  google__protobuf__file_options__number_ranges,
@@ -2418,6 +2510,44 @@ const ProtobufCMessageDescriptor google__protobuf__field_options__descriptor =
   google__protobuf__field_options__field_indices_by_name,
   4,  google__protobuf__field_options__number_ranges,
   (ProtobufCMessageInit) google__protobuf__field_options__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor google__protobuf__oneof_options__field_descriptors[1] =
+{
+  {
+    "uninterpreted_option",
+    999,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    offsetof(Google__Protobuf__OneofOptions, n_uninterpreted_option),
+    offsetof(Google__Protobuf__OneofOptions, uninterpreted_option),
+    &google__protobuf__uninterpreted_option__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned google__protobuf__oneof_options__field_indices_by_name[] = {
+  0,   /* field[0] = uninterpreted_option */
+};
+static const ProtobufCIntRange google__protobuf__oneof_options__number_ranges[1 + 1] =
+{
+  { 999, 0 },
+  { 0, 1 }
+};
+const ProtobufCMessageDescriptor google__protobuf__oneof_options__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "google.protobuf.OneofOptions",
+  "OneofOptions",
+  "Google__Protobuf__OneofOptions",
+  "google.protobuf",
+  sizeof(Google__Protobuf__OneofOptions),
+  1,
+  google__protobuf__oneof_options__field_descriptors,
+  google__protobuf__oneof_options__field_indices_by_name,
+  1,  google__protobuf__oneof_options__number_ranges,
+  (ProtobufCMessageInit) google__protobuf__oneof_options__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
 static const protobuf_c_boolean google__protobuf__enum_options__deprecated__default_value = 0;
@@ -2939,5 +3069,120 @@ const ProtobufCMessageDescriptor google__protobuf__source_code_info__descriptor 
   google__protobuf__source_code_info__field_indices_by_name,
   1,  google__protobuf__source_code_info__number_ranges,
   (ProtobufCMessageInit) google__protobuf__source_code_info__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor google__protobuf__generated_code_info__annotation__field_descriptors[4] =
+{
+  {
+    "path",
+    1,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_INT32,
+    offsetof(Google__Protobuf__GeneratedCodeInfo__Annotation, n_path),
+    offsetof(Google__Protobuf__GeneratedCodeInfo__Annotation, path),
+    NULL,
+    NULL,
+    0 | PROTOBUF_C_FIELD_FLAG_PACKED,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "source_file",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    offsetof(Google__Protobuf__GeneratedCodeInfo__Annotation, source_file),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "begin",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_INT32,
+    offsetof(Google__Protobuf__GeneratedCodeInfo__Annotation, has_begin),
+    offsetof(Google__Protobuf__GeneratedCodeInfo__Annotation, begin),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "end",
+    4,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_INT32,
+    offsetof(Google__Protobuf__GeneratedCodeInfo__Annotation, has_end),
+    offsetof(Google__Protobuf__GeneratedCodeInfo__Annotation, end),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned google__protobuf__generated_code_info__annotation__field_indices_by_name[] = {
+  2,   /* field[2] = begin */
+  3,   /* field[3] = end */
+  0,   /* field[0] = path */
+  1,   /* field[1] = source_file */
+};
+static const ProtobufCIntRange google__protobuf__generated_code_info__annotation__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 4 }
+};
+const ProtobufCMessageDescriptor google__protobuf__generated_code_info__annotation__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "google.protobuf.GeneratedCodeInfo.Annotation",
+  "Annotation",
+  "Google__Protobuf__GeneratedCodeInfo__Annotation",
+  "google.protobuf",
+  sizeof(Google__Protobuf__GeneratedCodeInfo__Annotation),
+  4,
+  google__protobuf__generated_code_info__annotation__field_descriptors,
+  google__protobuf__generated_code_info__annotation__field_indices_by_name,
+  1,  google__protobuf__generated_code_info__annotation__number_ranges,
+  (ProtobufCMessageInit) google__protobuf__generated_code_info__annotation__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor google__protobuf__generated_code_info__field_descriptors[1] =
+{
+  {
+    "annotation",
+    1,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    offsetof(Google__Protobuf__GeneratedCodeInfo, n_annotation),
+    offsetof(Google__Protobuf__GeneratedCodeInfo, annotation),
+    &google__protobuf__generated_code_info__annotation__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned google__protobuf__generated_code_info__field_indices_by_name[] = {
+  0,   /* field[0] = annotation */
+};
+static const ProtobufCIntRange google__protobuf__generated_code_info__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 1 }
+};
+const ProtobufCMessageDescriptor google__protobuf__generated_code_info__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "google.protobuf.GeneratedCodeInfo",
+  "GeneratedCodeInfo",
+  "Google__Protobuf__GeneratedCodeInfo",
+  "google.protobuf",
+  sizeof(Google__Protobuf__GeneratedCodeInfo),
+  1,
+  google__protobuf__generated_code_info__field_descriptors,
+  google__protobuf__generated_code_info__field_indices_by_name,
+  1,  google__protobuf__generated_code_info__number_ranges,
+  (ProtobufCMessageInit) google__protobuf__generated_code_info__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
