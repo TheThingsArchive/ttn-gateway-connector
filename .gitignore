@@ -36,3 +36,6 @@ bin
 
 # Editor files
 .vscode
+
+# Configuration files
+config.mk
