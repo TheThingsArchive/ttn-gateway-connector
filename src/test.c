@@ -21,6 +21,7 @@ void downlink(Router__DownlinkMessage *msg, void *arg)
 
 int main(int argc, char **argv) {
 	srand(time(NULL));
+
 	signal(SIGINT, stop);
 	signal(SIGTERM, stop);
 
