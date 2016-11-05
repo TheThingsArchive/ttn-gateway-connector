@@ -23,7 +23,7 @@ Yes. This library provides the following advantages over [Semtech's packet forwa
 
 The connector requires a C compiler and [`protobuf-c`](https://github.com/protobuf-c/protobuf-c) to be installed.
 
-Clone the source of the [forked Paho Embedded C/C++ Library](https://github.com/johanstokking/paho.mqtt.embedded-c) (or use [official sources](https://github.com/eclipse/paho.mqtt.embedded-c) when pull requests [#45](https://github.com/eclipse/paho.mqtt.embedded-c/pull/45) and [#46](https://github.com/eclipse/paho.mqtt.embedded-c/pull/46) have been merged). Set its relative path to `PAHO_SRC` in `config.mk`. Build the library with `make` and install with `sudo make install`.
+Clone the source of the [forked Paho Embedded C/C++ Library](https://github.com/johanstokking/paho.mqtt.embedded-c) (or use [official sources](https://github.com/eclipse/paho.mqtt.embedded-c) when pull requests [#45](https://github.com/eclipse/paho.mqtt.embedded-c/pull/45) and [#46](https://github.com/eclipse/paho.mqtt.embedded-c/pull/46) have been merged). Set its relative path to `PAHO_SRC` in `config.mk` (copy from `config.mk.in`). Build the library with `make` and install with `sudo make install`.
 
 Build `ttn-gateway-connector`:
 
