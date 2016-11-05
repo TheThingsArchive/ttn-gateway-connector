@@ -50,7 +50,7 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key)
    char *downlink_topic = NULL;
 
    err = NetworkConnect(&session->network, (char *)host_name, port);
-   if (err != 0)
+   if (err != SUCCESS)
       goto exit;
 
    MQTTPacket_connectData connect = MQTTPacket_connectData_initializer;
@@ -66,7 +66,7 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key)
    }
 
    err = MQTTConnect(&session->client, &connect);
-   if (err != 0)
+   if (err != SUCCESS)
       goto exit;
 
    err = asprintf(&downlink_topic, "%s/down", session->id);
@@ -76,7 +76,8 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key)
    err = MQTTSubscribe(&session->client, downlink_topic, QOS_DOWN, &ttngwc_downlink_cb, session);
 
 exit:
-   free(downlink_topic);
+   if (err != SUCCESS)
+      free(downlink_topic);
    return err;
 }
 
@@ -88,6 +89,39 @@ int ttngwc_disconnect(TTN *s)
    NetworkDisconnect(&session->network);
 
    return 0;
+}
+
+int ttngwc_send_uplink(TTN *s, Router__UplinkMessage *uplink)
+{
+      struct Session *session = (struct Session *)s;
+
+   int rc = FAILURE;
+   void *payload = NULL;
+   char *topic = NULL;
+
+   size_t len = router__uplink_message__get_packed_size(uplink);
+   payload = malloc(len);
+   if (!payload)
+      goto exit;
+
+   router__uplink_message__pack(uplink, payload);
+
+   MQTTMessage message;
+   message.qos = QOS_UP;
+   message.retained = 0;
+   message.dup = 0;
+   message.payload = payload;
+   message.payloadlen = len;
+
+   if (asprintf(&topic, "%s/up", session->id) == -1)
+      goto exit;
+
+   rc = MQTTPublish(&session->client, topic, &message);
+
+exit:
+   free(topic);
+   free(payload);
+   return rc;
 }
 
 int ttngwc_send_status(TTN *s, Gateway__Status *status)
