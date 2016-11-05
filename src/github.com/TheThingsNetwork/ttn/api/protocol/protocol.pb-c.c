@@ -7,6 +7,49 @@
 #endif
 
 #include "github.com/TheThingsNetwork/ttn/api/protocol/protocol.pb-c.h"
+void   protocol__message__init
+                     (Protocol__Message         *message)
+{
+  static Protocol__Message init_value = PROTOCOL__MESSAGE__INIT;
+  *message = init_value;
+}
+size_t protocol__message__get_packed_size
+                     (const Protocol__Message *message)
+{
+  assert(message->base.descriptor == &protocol__message__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t protocol__message__pack
+                     (const Protocol__Message *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &protocol__message__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t protocol__message__pack_to_buffer
+                     (const Protocol__Message *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &protocol__message__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Protocol__Message *
+       protocol__message__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Protocol__Message *)
+     protobuf_c_message_unpack (&protocol__message__descriptor,
+                                allocator, len, data);
+}
+void   protocol__message__free_unpacked
+                     (Protocol__Message *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &protocol__message__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
 void   protocol__rx_metadata__init
                      (Protocol__RxMetadata         *message)
 {
@@ -136,6 +179,44 @@ void   protocol__activation_metadata__free_unpacked
   assert(message->base.descriptor == &protocol__activation_metadata__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
+static const ProtobufCFieldDescriptor protocol__message__field_descriptors[1] =
+{
+  {
+    "lorawan",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    offsetof(Protocol__Message, protocol_case),
+    offsetof(Protocol__Message, lorawan),
+    &lorawan__message__descriptor,
+    NULL,
+    0 | PROTOBUF_C_FIELD_FLAG_ONEOF,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned protocol__message__field_indices_by_name[] = {
+  0,   /* field[0] = lorawan */
+};
+static const ProtobufCIntRange protocol__message__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 1 }
+};
+const ProtobufCMessageDescriptor protocol__message__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "protocol.Message",
+  "Message",
+  "Protocol__Message",
+  "protocol",
+  sizeof(Protocol__Message),
+  1,
+  protocol__message__field_descriptors,
+  protocol__message__field_indices_by_name,
+  1,  protocol__message__number_ranges,
+  (ProtobufCMessageInit) protocol__message__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
 static const ProtobufCFieldDescriptor protocol__rx_metadata__field_descriptors[1] =
 {
   {

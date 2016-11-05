@@ -33,3 +33,9 @@ bin
 # Debug files
 *.dSYM/
 *.su
+
+# Editor files
+.vscode
+
+# Configuration files
+config.mk

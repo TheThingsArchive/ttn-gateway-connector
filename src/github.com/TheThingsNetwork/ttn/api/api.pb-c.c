@@ -7,49 +7,6 @@
 #endif
 
 #include "github.com/TheThingsNetwork/ttn/api/api.pb-c.h"
-void   api__ack__init
-                     (Api__Ack         *message)
-{
-  static Api__Ack init_value = API__ACK__INIT;
-  *message = init_value;
-}
-size_t api__ack__get_packed_size
-                     (const Api__Ack *message)
-{
-  assert(message->base.descriptor == &api__ack__descriptor);
-  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
-}
-size_t api__ack__pack
-                     (const Api__Ack *message,
-                      uint8_t       *out)
-{
-  assert(message->base.descriptor == &api__ack__descriptor);
-  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
-}
-size_t api__ack__pack_to_buffer
-                     (const Api__Ack *message,
-                      ProtobufCBuffer *buffer)
-{
-  assert(message->base.descriptor == &api__ack__descriptor);
-  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
-}
-Api__Ack *
-       api__ack__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data)
-{
-  return (Api__Ack *)
-     protobuf_c_message_unpack (&api__ack__descriptor,
-                                allocator, len, data);
-}
-void   api__ack__free_unpacked
-                     (Api__Ack *message,
-                      ProtobufCAllocator *allocator)
-{
-  assert(message->base.descriptor == &api__ack__descriptor);
-  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
-}
 void   api__percentiles__init
                      (Api__Percentiles         *message)
 {
@@ -136,67 +93,122 @@ void   api__rates__free_unpacked
   assert(message->base.descriptor == &api__rates__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   api__server_metadata__init
-                     (Api__ServerMetadata         *message)
+void   api__system_stats__loadstats__init
+                     (Api__SystemStats__Loadstats         *message)
 {
-  static Api__ServerMetadata init_value = API__SERVER_METADATA__INIT;
+  static Api__SystemStats__Loadstats init_value = API__SYSTEM_STATS__LOADSTATS__INIT;
   *message = init_value;
 }
-size_t api__server_metadata__get_packed_size
-                     (const Api__ServerMetadata *message)
+void   api__system_stats__cpustats__init
+                     (Api__SystemStats__CPUStats         *message)
 {
-  assert(message->base.descriptor == &api__server_metadata__descriptor);
+  static Api__SystemStats__CPUStats init_value = API__SYSTEM_STATS__CPUSTATS__INIT;
+  *message = init_value;
+}
+void   api__system_stats__memory_stats__init
+                     (Api__SystemStats__MemoryStats         *message)
+{
+  static Api__SystemStats__MemoryStats init_value = API__SYSTEM_STATS__MEMORY_STATS__INIT;
+  *message = init_value;
+}
+void   api__system_stats__init
+                     (Api__SystemStats         *message)
+{
+  static Api__SystemStats init_value = API__SYSTEM_STATS__INIT;
+  *message = init_value;
+}
+size_t api__system_stats__get_packed_size
+                     (const Api__SystemStats *message)
+{
+  assert(message->base.descriptor == &api__system_stats__descriptor);
   return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
 }
-size_t api__server_metadata__pack
-                     (const Api__ServerMetadata *message,
+size_t api__system_stats__pack
+                     (const Api__SystemStats *message,
                       uint8_t       *out)
 {
-  assert(message->base.descriptor == &api__server_metadata__descriptor);
+  assert(message->base.descriptor == &api__system_stats__descriptor);
   return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
 }
-size_t api__server_metadata__pack_to_buffer
-                     (const Api__ServerMetadata *message,
+size_t api__system_stats__pack_to_buffer
+                     (const Api__SystemStats *message,
                       ProtobufCBuffer *buffer)
 {
-  assert(message->base.descriptor == &api__server_metadata__descriptor);
+  assert(message->base.descriptor == &api__system_stats__descriptor);
   return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
 }
-Api__ServerMetadata *
-       api__server_metadata__unpack
+Api__SystemStats *
+       api__system_stats__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data)
 {
-  return (Api__ServerMetadata *)
-     protobuf_c_message_unpack (&api__server_metadata__descriptor,
+  return (Api__SystemStats *)
+     protobuf_c_message_unpack (&api__system_stats__descriptor,
                                 allocator, len, data);
 }
-void   api__server_metadata__free_unpacked
-                     (Api__ServerMetadata *message,
+void   api__system_stats__free_unpacked
+                     (Api__SystemStats *message,
                       ProtobufCAllocator *allocator)
 {
-  assert(message->base.descriptor == &api__server_metadata__descriptor);
+  assert(message->base.descriptor == &api__system_stats__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-#define api__ack__field_descriptors NULL
-#define api__ack__field_indices_by_name NULL
-#define api__ack__number_ranges NULL
-const ProtobufCMessageDescriptor api__ack__descriptor =
+void   api__component_stats__cpustats__init
+                     (Api__ComponentStats__CPUStats         *message)
 {
-  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "api.Ack",
-  "Ack",
-  "Api__Ack",
-  "api",
-  sizeof(Api__Ack),
-  0,
-  api__ack__field_descriptors,
-  api__ack__field_indices_by_name,
-  0,  api__ack__number_ranges,
-  (ProtobufCMessageInit) api__ack__init,
-  NULL,NULL,NULL    /* reserved[123] */
-};
+  static Api__ComponentStats__CPUStats init_value = API__COMPONENT_STATS__CPUSTATS__INIT;
+  *message = init_value;
+}
+void   api__component_stats__memory_stats__init
+                     (Api__ComponentStats__MemoryStats         *message)
+{
+  static Api__ComponentStats__MemoryStats init_value = API__COMPONENT_STATS__MEMORY_STATS__INIT;
+  *message = init_value;
+}
+void   api__component_stats__init
+                     (Api__ComponentStats         *message)
+{
+  static Api__ComponentStats init_value = API__COMPONENT_STATS__INIT;
+  *message = init_value;
+}
+size_t api__component_stats__get_packed_size
+                     (const Api__ComponentStats *message)
+{
+  assert(message->base.descriptor == &api__component_stats__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t api__component_stats__pack
+                     (const Api__ComponentStats *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &api__component_stats__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t api__component_stats__pack_to_buffer
+                     (const Api__ComponentStats *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &api__component_stats__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Api__ComponentStats *
+       api__component_stats__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Api__ComponentStats *)
+     protobuf_c_message_unpack (&api__component_stats__descriptor,
+                                allocator, len, data);
+}
+void   api__component_stats__free_unpacked
+                     (Api__ComponentStats *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &api__component_stats__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
 static const ProtobufCFieldDescriptor api__percentiles__field_descriptors[9] =
 {
   {
@@ -403,21 +415,452 @@ const ProtobufCMessageDescriptor api__rates__descriptor =
   (ProtobufCMessageInit) api__rates__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-#define api__server_metadata__field_descriptors NULL
-#define api__server_metadata__field_indices_by_name NULL
-#define api__server_metadata__number_ranges NULL
-const ProtobufCMessageDescriptor api__server_metadata__descriptor =
+static const ProtobufCFieldDescriptor api__system_stats__loadstats__field_descriptors[3] =
+{
+  {
+    "load1",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Api__SystemStats__Loadstats, has_load1),
+    offsetof(Api__SystemStats__Loadstats, load1),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "load5",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Api__SystemStats__Loadstats, has_load5),
+    offsetof(Api__SystemStats__Loadstats, load5),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "load15",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Api__SystemStats__Loadstats, has_load15),
+    offsetof(Api__SystemStats__Loadstats, load15),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned api__system_stats__loadstats__field_indices_by_name[] = {
+  0,   /* field[0] = load1 */
+  2,   /* field[2] = load15 */
+  1,   /* field[1] = load5 */
+};
+static const ProtobufCIntRange api__system_stats__loadstats__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 3 }
+};
+const ProtobufCMessageDescriptor api__system_stats__loadstats__descriptor =
 {
   PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
-  "api.ServerMetadata",
-  "ServerMetadata",
-  "Api__ServerMetadata",
+  "api.SystemStats.Loadstats",
+  "Loadstats",
+  "Api__SystemStats__Loadstats",
   "api",
-  sizeof(Api__ServerMetadata),
-  0,
-  api__server_metadata__field_descriptors,
-  api__server_metadata__field_indices_by_name,
-  0,  api__server_metadata__number_ranges,
-  (ProtobufCMessageInit) api__server_metadata__init,
+  sizeof(Api__SystemStats__Loadstats),
+  3,
+  api__system_stats__loadstats__field_descriptors,
+  api__system_stats__loadstats__field_indices_by_name,
+  1,  api__system_stats__loadstats__number_ranges,
+  (ProtobufCMessageInit) api__system_stats__loadstats__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor api__system_stats__cpustats__field_descriptors[3] =
+{
+  {
+    "user",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Api__SystemStats__CPUStats, has_user),
+    offsetof(Api__SystemStats__CPUStats, user),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "system",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Api__SystemStats__CPUStats, has_system),
+    offsetof(Api__SystemStats__CPUStats, system),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "idle",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Api__SystemStats__CPUStats, has_idle),
+    offsetof(Api__SystemStats__CPUStats, idle),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned api__system_stats__cpustats__field_indices_by_name[] = {
+  2,   /* field[2] = idle */
+  1,   /* field[1] = system */
+  0,   /* field[0] = user */
+};
+static const ProtobufCIntRange api__system_stats__cpustats__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 3 }
+};
+const ProtobufCMessageDescriptor api__system_stats__cpustats__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "api.SystemStats.CPUStats",
+  "CPUStats",
+  "Api__SystemStats__CPUStats",
+  "api",
+  sizeof(Api__SystemStats__CPUStats),
+  3,
+  api__system_stats__cpustats__field_descriptors,
+  api__system_stats__cpustats__field_indices_by_name,
+  1,  api__system_stats__cpustats__number_ranges,
+  (ProtobufCMessageInit) api__system_stats__cpustats__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor api__system_stats__memory_stats__field_descriptors[3] =
+{
+  {
+    "total",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT64,
+    offsetof(Api__SystemStats__MemoryStats, has_total),
+    offsetof(Api__SystemStats__MemoryStats, total),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "available",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT64,
+    offsetof(Api__SystemStats__MemoryStats, has_available),
+    offsetof(Api__SystemStats__MemoryStats, available),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "used",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT64,
+    offsetof(Api__SystemStats__MemoryStats, has_used),
+    offsetof(Api__SystemStats__MemoryStats, used),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned api__system_stats__memory_stats__field_indices_by_name[] = {
+  1,   /* field[1] = available */
+  0,   /* field[0] = total */
+  2,   /* field[2] = used */
+};
+static const ProtobufCIntRange api__system_stats__memory_stats__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 3 }
+};
+const ProtobufCMessageDescriptor api__system_stats__memory_stats__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "api.SystemStats.MemoryStats",
+  "MemoryStats",
+  "Api__SystemStats__MemoryStats",
+  "api",
+  sizeof(Api__SystemStats__MemoryStats),
+  3,
+  api__system_stats__memory_stats__field_descriptors,
+  api__system_stats__memory_stats__field_indices_by_name,
+  1,  api__system_stats__memory_stats__number_ranges,
+  (ProtobufCMessageInit) api__system_stats__memory_stats__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor api__system_stats__field_descriptors[3] =
+{
+  {
+    "load",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Api__SystemStats, load),
+    &api__system_stats__loadstats__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "cpu",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Api__SystemStats, cpu),
+    &api__system_stats__cpustats__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "memory",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Api__SystemStats, memory),
+    &api__system_stats__memory_stats__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned api__system_stats__field_indices_by_name[] = {
+  1,   /* field[1] = cpu */
+  0,   /* field[0] = load */
+  2,   /* field[2] = memory */
+};
+static const ProtobufCIntRange api__system_stats__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 3 }
+};
+const ProtobufCMessageDescriptor api__system_stats__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "api.SystemStats",
+  "SystemStats",
+  "Api__SystemStats",
+  "api",
+  sizeof(Api__SystemStats),
+  3,
+  api__system_stats__field_descriptors,
+  api__system_stats__field_indices_by_name,
+  1,  api__system_stats__number_ranges,
+  (ProtobufCMessageInit) api__system_stats__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor api__component_stats__cpustats__field_descriptors[3] =
+{
+  {
+    "user",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Api__ComponentStats__CPUStats, has_user),
+    offsetof(Api__ComponentStats__CPUStats, user),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "system",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Api__ComponentStats__CPUStats, has_system),
+    offsetof(Api__ComponentStats__CPUStats, system),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "idle",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Api__ComponentStats__CPUStats, has_idle),
+    offsetof(Api__ComponentStats__CPUStats, idle),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned api__component_stats__cpustats__field_indices_by_name[] = {
+  2,   /* field[2] = idle */
+  1,   /* field[1] = system */
+  0,   /* field[0] = user */
+};
+static const ProtobufCIntRange api__component_stats__cpustats__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 3 }
+};
+const ProtobufCMessageDescriptor api__component_stats__cpustats__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "api.ComponentStats.CPUStats",
+  "CPUStats",
+  "Api__ComponentStats__CPUStats",
+  "api",
+  sizeof(Api__ComponentStats__CPUStats),
+  3,
+  api__component_stats__cpustats__field_descriptors,
+  api__component_stats__cpustats__field_indices_by_name,
+  1,  api__component_stats__cpustats__number_ranges,
+  (ProtobufCMessageInit) api__component_stats__cpustats__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor api__component_stats__memory_stats__field_descriptors[2] =
+{
+  {
+    "memory",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT64,
+    offsetof(Api__ComponentStats__MemoryStats, has_memory),
+    offsetof(Api__ComponentStats__MemoryStats, memory),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "swap",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT64,
+    offsetof(Api__ComponentStats__MemoryStats, has_swap),
+    offsetof(Api__ComponentStats__MemoryStats, swap),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned api__component_stats__memory_stats__field_indices_by_name[] = {
+  0,   /* field[0] = memory */
+  1,   /* field[1] = swap */
+};
+static const ProtobufCIntRange api__component_stats__memory_stats__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 2 }
+};
+const ProtobufCMessageDescriptor api__component_stats__memory_stats__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "api.ComponentStats.MemoryStats",
+  "MemoryStats",
+  "Api__ComponentStats__MemoryStats",
+  "api",
+  sizeof(Api__ComponentStats__MemoryStats),
+  2,
+  api__component_stats__memory_stats__field_descriptors,
+  api__component_stats__memory_stats__field_indices_by_name,
+  1,  api__component_stats__memory_stats__number_ranges,
+  (ProtobufCMessageInit) api__component_stats__memory_stats__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor api__component_stats__field_descriptors[4] =
+{
+  {
+    "cpu",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Api__ComponentStats, cpu),
+    &api__component_stats__cpustats__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "memory",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Api__ComponentStats, memory),
+    &api__component_stats__memory_stats__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "goroutines",
+    4,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT64,
+    offsetof(Api__ComponentStats, has_goroutines),
+    offsetof(Api__ComponentStats, goroutines),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "gc_cpu_fraction",
+    5,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Api__ComponentStats, has_gc_cpu_fraction),
+    offsetof(Api__ComponentStats, gc_cpu_fraction),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned api__component_stats__field_indices_by_name[] = {
+  0,   /* field[0] = cpu */
+  3,   /* field[3] = gc_cpu_fraction */
+  2,   /* field[2] = goroutines */
+  1,   /* field[1] = memory */
+};
+static const ProtobufCIntRange api__component_stats__number_ranges[2 + 1] =
+{
+  { 1, 0 },
+  { 3, 1 },
+  { 0, 4 }
+};
+const ProtobufCMessageDescriptor api__component_stats__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "api.ComponentStats",
+  "ComponentStats",
+  "Api__ComponentStats",
+  "api",
+  sizeof(Api__ComponentStats),
+  4,
+  api__component_stats__field_descriptors,
+  api__component_stats__field_indices_by_name,
+  2,  api__component_stats__number_ranges,
+  (ProtobufCMessageInit) api__component_stats__init,
   NULL,NULL,NULL    /* reserved[123] */
 };

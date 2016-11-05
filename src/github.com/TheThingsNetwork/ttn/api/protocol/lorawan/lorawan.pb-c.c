@@ -136,6 +136,436 @@ void   lorawan__activation_metadata__free_unpacked
   assert(message->base.descriptor == &lorawan__activation_metadata__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
+void   lorawan__message__init
+                     (Lorawan__Message         *message)
+{
+  static Lorawan__Message init_value = LORAWAN__MESSAGE__INIT;
+  *message = init_value;
+}
+size_t lorawan__message__get_packed_size
+                     (const Lorawan__Message *message)
+{
+  assert(message->base.descriptor == &lorawan__message__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t lorawan__message__pack
+                     (const Lorawan__Message *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &lorawan__message__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t lorawan__message__pack_to_buffer
+                     (const Lorawan__Message *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &lorawan__message__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Lorawan__Message *
+       lorawan__message__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Lorawan__Message *)
+     protobuf_c_message_unpack (&lorawan__message__descriptor,
+                                allocator, len, data);
+}
+void   lorawan__message__free_unpacked
+                     (Lorawan__Message *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &lorawan__message__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   lorawan__mhdr__init
+                     (Lorawan__MHDR         *message)
+{
+  static Lorawan__MHDR init_value = LORAWAN__MHDR__INIT;
+  *message = init_value;
+}
+size_t lorawan__mhdr__get_packed_size
+                     (const Lorawan__MHDR *message)
+{
+  assert(message->base.descriptor == &lorawan__mhdr__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t lorawan__mhdr__pack
+                     (const Lorawan__MHDR *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &lorawan__mhdr__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t lorawan__mhdr__pack_to_buffer
+                     (const Lorawan__MHDR *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &lorawan__mhdr__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Lorawan__MHDR *
+       lorawan__mhdr__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Lorawan__MHDR *)
+     protobuf_c_message_unpack (&lorawan__mhdr__descriptor,
+                                allocator, len, data);
+}
+void   lorawan__mhdr__free_unpacked
+                     (Lorawan__MHDR *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &lorawan__mhdr__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   lorawan__macpayload__init
+                     (Lorawan__MACPayload         *message)
+{
+  static Lorawan__MACPayload init_value = LORAWAN__MACPAYLOAD__INIT;
+  *message = init_value;
+}
+size_t lorawan__macpayload__get_packed_size
+                     (const Lorawan__MACPayload *message)
+{
+  assert(message->base.descriptor == &lorawan__macpayload__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t lorawan__macpayload__pack
+                     (const Lorawan__MACPayload *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &lorawan__macpayload__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t lorawan__macpayload__pack_to_buffer
+                     (const Lorawan__MACPayload *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &lorawan__macpayload__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Lorawan__MACPayload *
+       lorawan__macpayload__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Lorawan__MACPayload *)
+     protobuf_c_message_unpack (&lorawan__macpayload__descriptor,
+                                allocator, len, data);
+}
+void   lorawan__macpayload__free_unpacked
+                     (Lorawan__MACPayload *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &lorawan__macpayload__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   lorawan__fhdr__init
+                     (Lorawan__FHDR         *message)
+{
+  static Lorawan__FHDR init_value = LORAWAN__FHDR__INIT;
+  *message = init_value;
+}
+size_t lorawan__fhdr__get_packed_size
+                     (const Lorawan__FHDR *message)
+{
+  assert(message->base.descriptor == &lorawan__fhdr__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t lorawan__fhdr__pack
+                     (const Lorawan__FHDR *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &lorawan__fhdr__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t lorawan__fhdr__pack_to_buffer
+                     (const Lorawan__FHDR *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &lorawan__fhdr__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Lorawan__FHDR *
+       lorawan__fhdr__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Lorawan__FHDR *)
+     protobuf_c_message_unpack (&lorawan__fhdr__descriptor,
+                                allocator, len, data);
+}
+void   lorawan__fhdr__free_unpacked
+                     (Lorawan__FHDR *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &lorawan__fhdr__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   lorawan__fctrl__init
+                     (Lorawan__FCtrl         *message)
+{
+  static Lorawan__FCtrl init_value = LORAWAN__FCTRL__INIT;
+  *message = init_value;
+}
+size_t lorawan__fctrl__get_packed_size
+                     (const Lorawan__FCtrl *message)
+{
+  assert(message->base.descriptor == &lorawan__fctrl__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t lorawan__fctrl__pack
+                     (const Lorawan__FCtrl *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &lorawan__fctrl__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t lorawan__fctrl__pack_to_buffer
+                     (const Lorawan__FCtrl *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &lorawan__fctrl__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Lorawan__FCtrl *
+       lorawan__fctrl__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Lorawan__FCtrl *)
+     protobuf_c_message_unpack (&lorawan__fctrl__descriptor,
+                                allocator, len, data);
+}
+void   lorawan__fctrl__free_unpacked
+                     (Lorawan__FCtrl *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &lorawan__fctrl__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   lorawan__maccommand__init
+                     (Lorawan__MACCommand         *message)
+{
+  static Lorawan__MACCommand init_value = LORAWAN__MACCOMMAND__INIT;
+  *message = init_value;
+}
+size_t lorawan__maccommand__get_packed_size
+                     (const Lorawan__MACCommand *message)
+{
+  assert(message->base.descriptor == &lorawan__maccommand__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t lorawan__maccommand__pack
+                     (const Lorawan__MACCommand *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &lorawan__maccommand__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t lorawan__maccommand__pack_to_buffer
+                     (const Lorawan__MACCommand *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &lorawan__maccommand__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Lorawan__MACCommand *
+       lorawan__maccommand__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Lorawan__MACCommand *)
+     protobuf_c_message_unpack (&lorawan__maccommand__descriptor,
+                                allocator, len, data);
+}
+void   lorawan__maccommand__free_unpacked
+                     (Lorawan__MACCommand *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &lorawan__maccommand__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   lorawan__join_request_payload__init
+                     (Lorawan__JoinRequestPayload         *message)
+{
+  static Lorawan__JoinRequestPayload init_value = LORAWAN__JOIN_REQUEST_PAYLOAD__INIT;
+  *message = init_value;
+}
+size_t lorawan__join_request_payload__get_packed_size
+                     (const Lorawan__JoinRequestPayload *message)
+{
+  assert(message->base.descriptor == &lorawan__join_request_payload__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t lorawan__join_request_payload__pack
+                     (const Lorawan__JoinRequestPayload *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &lorawan__join_request_payload__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t lorawan__join_request_payload__pack_to_buffer
+                     (const Lorawan__JoinRequestPayload *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &lorawan__join_request_payload__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Lorawan__JoinRequestPayload *
+       lorawan__join_request_payload__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Lorawan__JoinRequestPayload *)
+     protobuf_c_message_unpack (&lorawan__join_request_payload__descriptor,
+                                allocator, len, data);
+}
+void   lorawan__join_request_payload__free_unpacked
+                     (Lorawan__JoinRequestPayload *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &lorawan__join_request_payload__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   lorawan__join_accept_payload__init
+                     (Lorawan__JoinAcceptPayload         *message)
+{
+  static Lorawan__JoinAcceptPayload init_value = LORAWAN__JOIN_ACCEPT_PAYLOAD__INIT;
+  *message = init_value;
+}
+size_t lorawan__join_accept_payload__get_packed_size
+                     (const Lorawan__JoinAcceptPayload *message)
+{
+  assert(message->base.descriptor == &lorawan__join_accept_payload__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t lorawan__join_accept_payload__pack
+                     (const Lorawan__JoinAcceptPayload *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &lorawan__join_accept_payload__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t lorawan__join_accept_payload__pack_to_buffer
+                     (const Lorawan__JoinAcceptPayload *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &lorawan__join_accept_payload__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Lorawan__JoinAcceptPayload *
+       lorawan__join_accept_payload__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Lorawan__JoinAcceptPayload *)
+     protobuf_c_message_unpack (&lorawan__join_accept_payload__descriptor,
+                                allocator, len, data);
+}
+void   lorawan__join_accept_payload__free_unpacked
+                     (Lorawan__JoinAcceptPayload *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &lorawan__join_accept_payload__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   lorawan__dlsettings__init
+                     (Lorawan__DLSettings         *message)
+{
+  static Lorawan__DLSettings init_value = LORAWAN__DLSETTINGS__INIT;
+  *message = init_value;
+}
+size_t lorawan__dlsettings__get_packed_size
+                     (const Lorawan__DLSettings *message)
+{
+  assert(message->base.descriptor == &lorawan__dlsettings__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t lorawan__dlsettings__pack
+                     (const Lorawan__DLSettings *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &lorawan__dlsettings__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t lorawan__dlsettings__pack_to_buffer
+                     (const Lorawan__DLSettings *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &lorawan__dlsettings__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Lorawan__DLSettings *
+       lorawan__dlsettings__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Lorawan__DLSettings *)
+     protobuf_c_message_unpack (&lorawan__dlsettings__descriptor,
+                                allocator, len, data);
+}
+void   lorawan__dlsettings__free_unpacked
+                     (Lorawan__DLSettings *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &lorawan__dlsettings__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
+void   lorawan__cflist__init
+                     (Lorawan__CFList         *message)
+{
+  static Lorawan__CFList init_value = LORAWAN__CFLIST__INIT;
+  *message = init_value;
+}
+size_t lorawan__cflist__get_packed_size
+                     (const Lorawan__CFList *message)
+{
+  assert(message->base.descriptor == &lorawan__cflist__descriptor);
+  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
+}
+size_t lorawan__cflist__pack
+                     (const Lorawan__CFList *message,
+                      uint8_t       *out)
+{
+  assert(message->base.descriptor == &lorawan__cflist__descriptor);
+  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
+}
+size_t lorawan__cflist__pack_to_buffer
+                     (const Lorawan__CFList *message,
+                      ProtobufCBuffer *buffer)
+{
+  assert(message->base.descriptor == &lorawan__cflist__descriptor);
+  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
+}
+Lorawan__CFList *
+       lorawan__cflist__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data)
+{
+  return (Lorawan__CFList *)
+     protobuf_c_message_unpack (&lorawan__cflist__descriptor,
+                                allocator, len, data);
+}
+void   lorawan__cflist__free_unpacked
+                     (Lorawan__CFList *message,
+                      ProtobufCAllocator *allocator)
+{
+  assert(message->base.descriptor == &lorawan__cflist__descriptor);
+  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
+}
 static const ProtobufCFieldDescriptor lorawan__metadata__field_descriptors[5] =
 {
   {
@@ -405,11 +835,11 @@ static const ProtobufCFieldDescriptor lorawan__activation_metadata__field_descri
   {
     "cf_list",
     14,
-    PROTOBUF_C_LABEL_REPEATED,
-    PROTOBUF_C_TYPE_UINT64,
-    offsetof(Lorawan__ActivationMetadata, n_cf_list),
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
     offsetof(Lorawan__ActivationMetadata, cf_list),
-    NULL,
+    &lorawan__cflist__descriptor,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
@@ -446,6 +876,685 @@ const ProtobufCMessageDescriptor lorawan__activation_metadata__descriptor =
   (ProtobufCMessageInit) lorawan__activation_metadata__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
+static const ProtobufCFieldDescriptor lorawan__message__field_descriptors[5] =
+{
+  {
+    "m_hdr",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Lorawan__Message, m_hdr),
+    &lorawan__mhdr__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "mic",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Lorawan__Message, has_mic),
+    offsetof(Lorawan__Message, mic),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "mac_payload",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    offsetof(Lorawan__Message, payload_case),
+    offsetof(Lorawan__Message, mac_payload),
+    &lorawan__macpayload__descriptor,
+    NULL,
+    0 | PROTOBUF_C_FIELD_FLAG_ONEOF,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "join_request_payload",
+    4,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    offsetof(Lorawan__Message, payload_case),
+    offsetof(Lorawan__Message, join_request_payload),
+    &lorawan__join_request_payload__descriptor,
+    NULL,
+    0 | PROTOBUF_C_FIELD_FLAG_ONEOF,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "join_accept_payload",
+    5,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    offsetof(Lorawan__Message, payload_case),
+    offsetof(Lorawan__Message, join_accept_payload),
+    &lorawan__join_accept_payload__descriptor,
+    NULL,
+    0 | PROTOBUF_C_FIELD_FLAG_ONEOF,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned lorawan__message__field_indices_by_name[] = {
+  4,   /* field[4] = join_accept_payload */
+  3,   /* field[3] = join_request_payload */
+  0,   /* field[0] = m_hdr */
+  2,   /* field[2] = mac_payload */
+  1,   /* field[1] = mic */
+};
+static const ProtobufCIntRange lorawan__message__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 5 }
+};
+const ProtobufCMessageDescriptor lorawan__message__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "lorawan.Message",
+  "Message",
+  "Lorawan__Message",
+  "lorawan",
+  sizeof(Lorawan__Message),
+  5,
+  lorawan__message__field_descriptors,
+  lorawan__message__field_indices_by_name,
+  1,  lorawan__message__number_ranges,
+  (ProtobufCMessageInit) lorawan__message__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor lorawan__mhdr__field_descriptors[2] =
+{
+  {
+    "m_type",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_ENUM,
+    offsetof(Lorawan__MHDR, has_m_type),
+    offsetof(Lorawan__MHDR, m_type),
+    &lorawan__mtype__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "major",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_ENUM,
+    offsetof(Lorawan__MHDR, has_major),
+    offsetof(Lorawan__MHDR, major),
+    &lorawan__major__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned lorawan__mhdr__field_indices_by_name[] = {
+  0,   /* field[0] = m_type */
+  1,   /* field[1] = major */
+};
+static const ProtobufCIntRange lorawan__mhdr__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 2 }
+};
+const ProtobufCMessageDescriptor lorawan__mhdr__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "lorawan.MHDR",
+  "MHDR",
+  "Lorawan__MHDR",
+  "lorawan",
+  sizeof(Lorawan__MHDR),
+  2,
+  lorawan__mhdr__field_descriptors,
+  lorawan__mhdr__field_indices_by_name,
+  1,  lorawan__mhdr__number_ranges,
+  (ProtobufCMessageInit) lorawan__mhdr__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor lorawan__macpayload__field_descriptors[3] =
+{
+  {
+    "f_hdr",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Lorawan__MACPayload, f_hdr),
+    &lorawan__fhdr__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "f_port",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_INT32,
+    offsetof(Lorawan__MACPayload, has_f_port),
+    offsetof(Lorawan__MACPayload, f_port),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "frm_payload",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Lorawan__MACPayload, has_frm_payload),
+    offsetof(Lorawan__MACPayload, frm_payload),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned lorawan__macpayload__field_indices_by_name[] = {
+  0,   /* field[0] = f_hdr */
+  1,   /* field[1] = f_port */
+  2,   /* field[2] = frm_payload */
+};
+static const ProtobufCIntRange lorawan__macpayload__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 3 }
+};
+const ProtobufCMessageDescriptor lorawan__macpayload__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "lorawan.MACPayload",
+  "MACPayload",
+  "Lorawan__MACPayload",
+  "lorawan",
+  sizeof(Lorawan__MACPayload),
+  3,
+  lorawan__macpayload__field_descriptors,
+  lorawan__macpayload__field_indices_by_name,
+  1,  lorawan__macpayload__number_ranges,
+  (ProtobufCMessageInit) lorawan__macpayload__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor lorawan__fhdr__field_descriptors[4] =
+{
+  {
+    "dev_addr",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Lorawan__FHDR, has_dev_addr),
+    offsetof(Lorawan__FHDR, dev_addr),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "f_ctrl",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Lorawan__FHDR, f_ctrl),
+    &lorawan__fctrl__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "f_cnt",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Lorawan__FHDR, has_f_cnt),
+    offsetof(Lorawan__FHDR, f_cnt),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "f_opts",
+    4,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    offsetof(Lorawan__FHDR, n_f_opts),
+    offsetof(Lorawan__FHDR, f_opts),
+    &lorawan__maccommand__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned lorawan__fhdr__field_indices_by_name[] = {
+  0,   /* field[0] = dev_addr */
+  2,   /* field[2] = f_cnt */
+  1,   /* field[1] = f_ctrl */
+  3,   /* field[3] = f_opts */
+};
+static const ProtobufCIntRange lorawan__fhdr__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 4 }
+};
+const ProtobufCMessageDescriptor lorawan__fhdr__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "lorawan.FHDR",
+  "FHDR",
+  "Lorawan__FHDR",
+  "lorawan",
+  sizeof(Lorawan__FHDR),
+  4,
+  lorawan__fhdr__field_descriptors,
+  lorawan__fhdr__field_indices_by_name,
+  1,  lorawan__fhdr__number_ranges,
+  (ProtobufCMessageInit) lorawan__fhdr__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor lorawan__fctrl__field_descriptors[4] =
+{
+  {
+    "adr",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BOOL,
+    offsetof(Lorawan__FCtrl, has_adr),
+    offsetof(Lorawan__FCtrl, adr),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "adr_ack_req",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BOOL,
+    offsetof(Lorawan__FCtrl, has_adr_ack_req),
+    offsetof(Lorawan__FCtrl, adr_ack_req),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "ack",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BOOL,
+    offsetof(Lorawan__FCtrl, has_ack),
+    offsetof(Lorawan__FCtrl, ack),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "f_pending",
+    4,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BOOL,
+    offsetof(Lorawan__FCtrl, has_f_pending),
+    offsetof(Lorawan__FCtrl, f_pending),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned lorawan__fctrl__field_indices_by_name[] = {
+  2,   /* field[2] = ack */
+  0,   /* field[0] = adr */
+  1,   /* field[1] = adr_ack_req */
+  3,   /* field[3] = f_pending */
+};
+static const ProtobufCIntRange lorawan__fctrl__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 4 }
+};
+const ProtobufCMessageDescriptor lorawan__fctrl__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "lorawan.FCtrl",
+  "FCtrl",
+  "Lorawan__FCtrl",
+  "lorawan",
+  sizeof(Lorawan__FCtrl),
+  4,
+  lorawan__fctrl__field_descriptors,
+  lorawan__fctrl__field_indices_by_name,
+  1,  lorawan__fctrl__number_ranges,
+  (ProtobufCMessageInit) lorawan__fctrl__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor lorawan__maccommand__field_descriptors[2] =
+{
+  {
+    "cid",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Lorawan__MACCommand, has_cid),
+    offsetof(Lorawan__MACCommand, cid),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "payload",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Lorawan__MACCommand, has_payload),
+    offsetof(Lorawan__MACCommand, payload),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned lorawan__maccommand__field_indices_by_name[] = {
+  0,   /* field[0] = cid */
+  1,   /* field[1] = payload */
+};
+static const ProtobufCIntRange lorawan__maccommand__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 2 }
+};
+const ProtobufCMessageDescriptor lorawan__maccommand__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "lorawan.MACCommand",
+  "MACCommand",
+  "Lorawan__MACCommand",
+  "lorawan",
+  sizeof(Lorawan__MACCommand),
+  2,
+  lorawan__maccommand__field_descriptors,
+  lorawan__maccommand__field_indices_by_name,
+  1,  lorawan__maccommand__number_ranges,
+  (ProtobufCMessageInit) lorawan__maccommand__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor lorawan__join_request_payload__field_descriptors[3] =
+{
+  {
+    "app_eui",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Lorawan__JoinRequestPayload, has_app_eui),
+    offsetof(Lorawan__JoinRequestPayload, app_eui),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "dev_eui",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Lorawan__JoinRequestPayload, has_dev_eui),
+    offsetof(Lorawan__JoinRequestPayload, dev_eui),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "dev_nonce",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Lorawan__JoinRequestPayload, has_dev_nonce),
+    offsetof(Lorawan__JoinRequestPayload, dev_nonce),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned lorawan__join_request_payload__field_indices_by_name[] = {
+  0,   /* field[0] = app_eui */
+  1,   /* field[1] = dev_eui */
+  2,   /* field[2] = dev_nonce */
+};
+static const ProtobufCIntRange lorawan__join_request_payload__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 3 }
+};
+const ProtobufCMessageDescriptor lorawan__join_request_payload__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "lorawan.JoinRequestPayload",
+  "JoinRequestPayload",
+  "Lorawan__JoinRequestPayload",
+  "lorawan",
+  sizeof(Lorawan__JoinRequestPayload),
+  3,
+  lorawan__join_request_payload__field_descriptors,
+  lorawan__join_request_payload__field_indices_by_name,
+  1,  lorawan__join_request_payload__number_ranges,
+  (ProtobufCMessageInit) lorawan__join_request_payload__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor lorawan__join_accept_payload__field_descriptors[7] =
+{
+  {
+    "encrypted",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Lorawan__JoinAcceptPayload, has_encrypted),
+    offsetof(Lorawan__JoinAcceptPayload, encrypted),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "app_nonce",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Lorawan__JoinAcceptPayload, has_app_nonce),
+    offsetof(Lorawan__JoinAcceptPayload, app_nonce),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "net_id",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Lorawan__JoinAcceptPayload, has_net_id),
+    offsetof(Lorawan__JoinAcceptPayload, net_id),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "dev_addr",
+    4,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Lorawan__JoinAcceptPayload, has_dev_addr),
+    offsetof(Lorawan__JoinAcceptPayload, dev_addr),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "dl_settings",
+    5,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Lorawan__JoinAcceptPayload, dl_settings),
+    &lorawan__dlsettings__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "rx_delay",
+    6,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Lorawan__JoinAcceptPayload, has_rx_delay),
+    offsetof(Lorawan__JoinAcceptPayload, rx_delay),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "cf_list",
+    7,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Lorawan__JoinAcceptPayload, cf_list),
+    &lorawan__cflist__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned lorawan__join_accept_payload__field_indices_by_name[] = {
+  1,   /* field[1] = app_nonce */
+  6,   /* field[6] = cf_list */
+  3,   /* field[3] = dev_addr */
+  4,   /* field[4] = dl_settings */
+  0,   /* field[0] = encrypted */
+  2,   /* field[2] = net_id */
+  5,   /* field[5] = rx_delay */
+};
+static const ProtobufCIntRange lorawan__join_accept_payload__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 7 }
+};
+const ProtobufCMessageDescriptor lorawan__join_accept_payload__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "lorawan.JoinAcceptPayload",
+  "JoinAcceptPayload",
+  "Lorawan__JoinAcceptPayload",
+  "lorawan",
+  sizeof(Lorawan__JoinAcceptPayload),
+  7,
+  lorawan__join_accept_payload__field_descriptors,
+  lorawan__join_accept_payload__field_indices_by_name,
+  1,  lorawan__join_accept_payload__number_ranges,
+  (ProtobufCMessageInit) lorawan__join_accept_payload__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor lorawan__dlsettings__field_descriptors[2] =
+{
+  {
+    "rx1_dr_offset",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Lorawan__DLSettings, has_rx1_dr_offset),
+    offsetof(Lorawan__DLSettings, rx1_dr_offset),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "rx2_dr",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Lorawan__DLSettings, has_rx2_dr),
+    offsetof(Lorawan__DLSettings, rx2_dr),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned lorawan__dlsettings__field_indices_by_name[] = {
+  0,   /* field[0] = rx1_dr_offset */
+  1,   /* field[1] = rx2_dr */
+};
+static const ProtobufCIntRange lorawan__dlsettings__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 2 }
+};
+const ProtobufCMessageDescriptor lorawan__dlsettings__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "lorawan.DLSettings",
+  "DLSettings",
+  "Lorawan__DLSettings",
+  "lorawan",
+  sizeof(Lorawan__DLSettings),
+  2,
+  lorawan__dlsettings__field_descriptors,
+  lorawan__dlsettings__field_indices_by_name,
+  1,  lorawan__dlsettings__number_ranges,
+  (ProtobufCMessageInit) lorawan__dlsettings__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor lorawan__cflist__field_descriptors[1] =
+{
+  {
+    "freq",
+    1,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Lorawan__CFList, n_freq),
+    offsetof(Lorawan__CFList, freq),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned lorawan__cflist__field_indices_by_name[] = {
+  0,   /* field[0] = freq */
+};
+static const ProtobufCIntRange lorawan__cflist__number_ranges[1 + 1] =
+{
+  { 1, 0 },
+  { 0, 1 }
+};
+const ProtobufCMessageDescriptor lorawan__cflist__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "lorawan.CFList",
+  "CFList",
+  "Lorawan__CFList",
+  "lorawan",
+  sizeof(Lorawan__CFList),
+  1,
+  lorawan__cflist__field_descriptors,
+  lorawan__cflist__field_indices_by_name,
+  1,  lorawan__cflist__number_ranges,
+  (ProtobufCMessageInit) lorawan__cflist__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
 static const ProtobufCEnumValue lorawan__modulation__enum_values_by_number[2] =
 {
   { "LORA", "LORAWAN__MODULATION__LORA", 0 },
@@ -474,7 +1583,7 @@ const ProtobufCEnumDescriptor lorawan__modulation__descriptor =
   lorawan__modulation__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCEnumValue lorawan__region__enum_values_by_number[6] =
+static const ProtobufCEnumValue lorawan__region__enum_values_by_number[8] =
 {
   { "EU_863_870", "LORAWAN__REGION__EU_863_870", 0 },
   { "US_902_928", "LORAWAN__REGION__US_902_928", 1 },
@@ -482,17 +1591,21 @@ static const ProtobufCEnumValue lorawan__region__enum_values_by_number[6] =
   { "EU_433", "LORAWAN__REGION__EU_433", 3 },
   { "AU_915_928", "LORAWAN__REGION__AU_915_928", 4 },
   { "CN_470_510", "LORAWAN__REGION__CN_470_510", 5 },
+  { "AS_923", "LORAWAN__REGION__AS_923", 6 },
+  { "SK_920_923", "LORAWAN__REGION__SK_920_923", 7 },
 };
 static const ProtobufCIntRange lorawan__region__value_ranges[] = {
-{0, 0},{0, 6}
+{0, 0},{0, 8}
 };
-static const ProtobufCEnumValueIndex lorawan__region__enum_values_by_name[6] =
+static const ProtobufCEnumValueIndex lorawan__region__enum_values_by_name[8] =
 {
+  { "AS_923", 6 },
   { "AU_915_928", 4 },
   { "CN_470_510", 5 },
   { "CN_779_787", 2 },
   { "EU_433", 3 },
   { "EU_863_870", 0 },
+  { "SK_920_923", 7 },
   { "US_902_928", 1 },
 };
 const ProtobufCEnumDescriptor lorawan__region__descriptor =
@@ -502,11 +1615,73 @@ const ProtobufCEnumDescriptor lorawan__region__descriptor =
   "Region",
   "Lorawan__Region",
   "lorawan",
-  6,
+  8,
   lorawan__region__enum_values_by_number,
-  6,
+  8,
   lorawan__region__enum_values_by_name,
   1,
   lorawan__region__value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCEnumValue lorawan__major__enum_values_by_number[1] =
+{
+  { "LORAWAN_R1", "LORAWAN__MAJOR__LORAWAN_R1", 0 },
+};
+static const ProtobufCIntRange lorawan__major__value_ranges[] = {
+{0, 0},{0, 1}
+};
+static const ProtobufCEnumValueIndex lorawan__major__enum_values_by_name[1] =
+{
+  { "LORAWAN_R1", 0 },
+};
+const ProtobufCEnumDescriptor lorawan__major__descriptor =
+{
+  PROTOBUF_C__ENUM_DESCRIPTOR_MAGIC,
+  "lorawan.Major",
+  "Major",
+  "Lorawan__Major",
+  "lorawan",
+  1,
+  lorawan__major__enum_values_by_number,
+  1,
+  lorawan__major__enum_values_by_name,
+  1,
+  lorawan__major__value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
+};
+static const ProtobufCEnumValue lorawan__mtype__enum_values_by_number[6] =
+{
+  { "JOIN_REQUEST", "LORAWAN__MTYPE__JOIN_REQUEST", 0 },
+  { "JOIN_ACCEPT", "LORAWAN__MTYPE__JOIN_ACCEPT", 1 },
+  { "UNCONFIRMED_UP", "LORAWAN__MTYPE__UNCONFIRMED_UP", 2 },
+  { "UNCONFIRMED_DOWN", "LORAWAN__MTYPE__UNCONFIRMED_DOWN", 3 },
+  { "CONFIRMED_UP", "LORAWAN__MTYPE__CONFIRMED_UP", 4 },
+  { "CONFIRMED_DOWN", "LORAWAN__MTYPE__CONFIRMED_DOWN", 5 },
+};
+static const ProtobufCIntRange lorawan__mtype__value_ranges[] = {
+{0, 0},{0, 6}
+};
+static const ProtobufCEnumValueIndex lorawan__mtype__enum_values_by_name[6] =
+{
+  { "CONFIRMED_DOWN", 5 },
+  { "CONFIRMED_UP", 4 },
+  { "JOIN_ACCEPT", 1 },
+  { "JOIN_REQUEST", 0 },
+  { "UNCONFIRMED_DOWN", 3 },
+  { "UNCONFIRMED_UP", 2 },
+};
+const ProtobufCEnumDescriptor lorawan__mtype__descriptor =
+{
+  PROTOBUF_C__ENUM_DESCRIPTOR_MAGIC,
+  "lorawan.MType",
+  "MType",
+  "Lorawan__MType",
+  "lorawan",
+  6,
+  lorawan__mtype__enum_values_by_number,
+  6,
+  lorawan__mtype__enum_values_by_name,
+  1,
+  lorawan__mtype__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };

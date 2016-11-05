@@ -259,12 +259,12 @@ const ProtobufCMessageDescriptor gateway__gpsmetadata__descriptor =
 static const ProtobufCFieldDescriptor gateway__rx_metadata__field_descriptors[9] =
 {
   {
-    "gateway_eui",
+    "gateway_id",
     1,
     PROTOBUF_C_LABEL_OPTIONAL,
-    PROTOBUF_C_TYPE_BYTES,
-    offsetof(Gateway__RxMetadata, has_gateway_eui),
-    offsetof(Gateway__RxMetadata, gateway_eui),
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    offsetof(Gateway__RxMetadata, gateway_id),
     NULL,
     NULL,
     0,             /* flags */
@@ -370,7 +370,7 @@ static const ProtobufCFieldDescriptor gateway__rx_metadata__field_descriptors[9]
 static const unsigned gateway__rx_metadata__field_indices_by_name[] = {
   4,   /* field[4] = channel */
   5,   /* field[5] = frequency */
-  0,   /* field[0] = gateway_eui */
+  0,   /* field[0] = gateway_id */
   8,   /* field[8] = gps */
   3,   /* field[3] = rf_chain */
   6,   /* field[6] = rssi */

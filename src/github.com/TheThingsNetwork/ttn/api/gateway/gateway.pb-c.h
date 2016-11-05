@@ -47,8 +47,7 @@ struct  _Gateway__GPSMetadata
 struct  _Gateway__RxMetadata
 {
   ProtobufCMessage base;
-  protobuf_c_boolean has_gateway_eui;
-  ProtobufCBinaryData gateway_eui;
+  char *gateway_id;
   protobuf_c_boolean has_timestamp;
   uint32_t timestamp;
   protobuf_c_boolean has_time;
@@ -76,7 +75,7 @@ struct  _Gateway__RxMetadata
 };
 #define GATEWAY__RX_METADATA__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&gateway__rx_metadata__descriptor) \
-    , 0,{0,NULL}, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, NULL }
+    , NULL, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, NULL }
 
 
 struct  _Gateway__TxConfiguration

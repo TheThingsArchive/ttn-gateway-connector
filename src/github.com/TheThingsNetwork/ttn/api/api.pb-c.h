@@ -15,28 +15,21 @@ PROTOBUF_C__BEGIN_DECLS
 #endif
 
 
-typedef struct _Api__Ack Api__Ack;
 typedef struct _Api__Percentiles Api__Percentiles;
 typedef struct _Api__Rates Api__Rates;
-typedef struct _Api__ServerMetadata Api__ServerMetadata;
+typedef struct _Api__SystemStats Api__SystemStats;
+typedef struct _Api__SystemStats__Loadstats Api__SystemStats__Loadstats;
+typedef struct _Api__SystemStats__CPUStats Api__SystemStats__CPUStats;
+typedef struct _Api__SystemStats__MemoryStats Api__SystemStats__MemoryStats;
+typedef struct _Api__ComponentStats Api__ComponentStats;
+typedef struct _Api__ComponentStats__CPUStats Api__ComponentStats__CPUStats;
+typedef struct _Api__ComponentStats__MemoryStats Api__ComponentStats__MemoryStats;
 
 
 /* --- enums --- */
 
 
 /* --- messages --- */
-
-/*
- * message Ack is used to acknowledge a request, without giving a response.
- */
-struct  _Api__Ack
-{
-  ProtobufCMessage base;
-};
-#define API__ACK__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&api__ack__descriptor) \
-     }
-
 
 struct  _Api__Percentiles
 {
@@ -80,34 +73,106 @@ struct  _Api__Rates
     , 0,0, 0,0, 0,0 }
 
 
-struct  _Api__ServerMetadata
+struct  _Api__SystemStats__Loadstats
 {
   ProtobufCMessage base;
+  protobuf_c_boolean has_load1;
+  float load1;
+  protobuf_c_boolean has_load5;
+  float load5;
+  protobuf_c_boolean has_load15;
+  float load15;
 };
-#define API__SERVER_METADATA__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&api__server_metadata__descriptor) \
-     }
+#define API__SYSTEM_STATS__LOADSTATS__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&api__system_stats__loadstats__descriptor) \
+    , 0,0, 0,0, 0,0 }
 
 
-/* Api__Ack methods */
-void   api__ack__init
-                     (Api__Ack         *message);
-size_t api__ack__get_packed_size
-                     (const Api__Ack   *message);
-size_t api__ack__pack
-                     (const Api__Ack   *message,
-                      uint8_t             *out);
-size_t api__ack__pack_to_buffer
-                     (const Api__Ack   *message,
-                      ProtobufCBuffer     *buffer);
-Api__Ack *
-       api__ack__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   api__ack__free_unpacked
-                     (Api__Ack *message,
-                      ProtobufCAllocator *allocator);
+struct  _Api__SystemStats__CPUStats
+{
+  ProtobufCMessage base;
+  protobuf_c_boolean has_user;
+  float user;
+  protobuf_c_boolean has_system;
+  float system;
+  protobuf_c_boolean has_idle;
+  float idle;
+};
+#define API__SYSTEM_STATS__CPUSTATS__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&api__system_stats__cpustats__descriptor) \
+    , 0,0, 0,0, 0,0 }
+
+
+struct  _Api__SystemStats__MemoryStats
+{
+  ProtobufCMessage base;
+  protobuf_c_boolean has_total;
+  uint64_t total;
+  protobuf_c_boolean has_available;
+  uint64_t available;
+  protobuf_c_boolean has_used;
+  uint64_t used;
+};
+#define API__SYSTEM_STATS__MEMORY_STATS__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&api__system_stats__memory_stats__descriptor) \
+    , 0,0, 0,0, 0,0 }
+
+
+struct  _Api__SystemStats
+{
+  ProtobufCMessage base;
+  Api__SystemStats__Loadstats *load;
+  Api__SystemStats__CPUStats *cpu;
+  Api__SystemStats__MemoryStats *memory;
+};
+#define API__SYSTEM_STATS__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&api__system_stats__descriptor) \
+    , NULL, NULL, NULL }
+
+
+struct  _Api__ComponentStats__CPUStats
+{
+  ProtobufCMessage base;
+  protobuf_c_boolean has_user;
+  float user;
+  protobuf_c_boolean has_system;
+  float system;
+  protobuf_c_boolean has_idle;
+  float idle;
+};
+#define API__COMPONENT_STATS__CPUSTATS__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&api__component_stats__cpustats__descriptor) \
+    , 0,0, 0,0, 0,0 }
+
+
+struct  _Api__ComponentStats__MemoryStats
+{
+  ProtobufCMessage base;
+  protobuf_c_boolean has_memory;
+  uint64_t memory;
+  protobuf_c_boolean has_swap;
+  uint64_t swap;
+};
+#define API__COMPONENT_STATS__MEMORY_STATS__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&api__component_stats__memory_stats__descriptor) \
+    , 0,0, 0,0 }
+
+
+struct  _Api__ComponentStats
+{
+  ProtobufCMessage base;
+  Api__ComponentStats__CPUStats *cpu;
+  Api__ComponentStats__MemoryStats *memory;
+  protobuf_c_boolean has_goroutines;
+  uint64_t goroutines;
+  protobuf_c_boolean has_gc_cpu_fraction;
+  float gc_cpu_fraction;
+};
+#define API__COMPONENT_STATS__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&api__component_stats__descriptor) \
+    , NULL, NULL, 0,0, 0,0 }
+
+
 /* Api__Percentiles methods */
 void   api__percentiles__init
                      (Api__Percentiles         *message);
@@ -146,38 +211,87 @@ Api__Rates *
 void   api__rates__free_unpacked
                      (Api__Rates *message,
                       ProtobufCAllocator *allocator);
-/* Api__ServerMetadata methods */
-void   api__server_metadata__init
-                     (Api__ServerMetadata         *message);
-size_t api__server_metadata__get_packed_size
-                     (const Api__ServerMetadata   *message);
-size_t api__server_metadata__pack
-                     (const Api__ServerMetadata   *message,
+/* Api__SystemStats__Loadstats methods */
+void   api__system_stats__loadstats__init
+                     (Api__SystemStats__Loadstats         *message);
+/* Api__SystemStats__CPUStats methods */
+void   api__system_stats__cpustats__init
+                     (Api__SystemStats__CPUStats         *message);
+/* Api__SystemStats__MemoryStats methods */
+void   api__system_stats__memory_stats__init
+                     (Api__SystemStats__MemoryStats         *message);
+/* Api__SystemStats methods */
+void   api__system_stats__init
+                     (Api__SystemStats         *message);
+size_t api__system_stats__get_packed_size
+                     (const Api__SystemStats   *message);
+size_t api__system_stats__pack
+                     (const Api__SystemStats   *message,
                       uint8_t             *out);
-size_t api__server_metadata__pack_to_buffer
-                     (const Api__ServerMetadata   *message,
+size_t api__system_stats__pack_to_buffer
+                     (const Api__SystemStats   *message,
                       ProtobufCBuffer     *buffer);
-Api__ServerMetadata *
-       api__server_metadata__unpack
+Api__SystemStats *
+       api__system_stats__unpack
                      (ProtobufCAllocator  *allocator,
                       size_t               len,
                       const uint8_t       *data);
-void   api__server_metadata__free_unpacked
-                     (Api__ServerMetadata *message,
+void   api__system_stats__free_unpacked
+                     (Api__SystemStats *message,
+                      ProtobufCAllocator *allocator);
+/* Api__ComponentStats__CPUStats methods */
+void   api__component_stats__cpustats__init
+                     (Api__ComponentStats__CPUStats         *message);
+/* Api__ComponentStats__MemoryStats methods */
+void   api__component_stats__memory_stats__init
+                     (Api__ComponentStats__MemoryStats         *message);
+/* Api__ComponentStats methods */
+void   api__component_stats__init
+                     (Api__ComponentStats         *message);
+size_t api__component_stats__get_packed_size
+                     (const Api__ComponentStats   *message);
+size_t api__component_stats__pack
+                     (const Api__ComponentStats   *message,
+                      uint8_t             *out);
+size_t api__component_stats__pack_to_buffer
+                     (const Api__ComponentStats   *message,
+                      ProtobufCBuffer     *buffer);
+Api__ComponentStats *
+       api__component_stats__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   api__component_stats__free_unpacked
+                     (Api__ComponentStats *message,
                       ProtobufCAllocator *allocator);
 /* --- per-message closures --- */
 
-typedef void (*Api__Ack_Closure)
-                 (const Api__Ack *message,
-                  void *closure_data);
 typedef void (*Api__Percentiles_Closure)
                  (const Api__Percentiles *message,
                   void *closure_data);
 typedef void (*Api__Rates_Closure)
                  (const Api__Rates *message,
                   void *closure_data);
-typedef void (*Api__ServerMetadata_Closure)
-                 (const Api__ServerMetadata *message,
+typedef void (*Api__SystemStats__Loadstats_Closure)
+                 (const Api__SystemStats__Loadstats *message,
+                  void *closure_data);
+typedef void (*Api__SystemStats__CPUStats_Closure)
+                 (const Api__SystemStats__CPUStats *message,
+                  void *closure_data);
+typedef void (*Api__SystemStats__MemoryStats_Closure)
+                 (const Api__SystemStats__MemoryStats *message,
+                  void *closure_data);
+typedef void (*Api__SystemStats_Closure)
+                 (const Api__SystemStats *message,
+                  void *closure_data);
+typedef void (*Api__ComponentStats__CPUStats_Closure)
+                 (const Api__ComponentStats__CPUStats *message,
+                  void *closure_data);
+typedef void (*Api__ComponentStats__MemoryStats_Closure)
+                 (const Api__ComponentStats__MemoryStats *message,
+                  void *closure_data);
+typedef void (*Api__ComponentStats_Closure)
+                 (const Api__ComponentStats *message,
                   void *closure_data);
 
 /* --- services --- */
@@ -185,10 +299,15 @@ typedef void (*Api__ServerMetadata_Closure)
 
 /* --- descriptors --- */
 
-extern const ProtobufCMessageDescriptor api__ack__descriptor;
 extern const ProtobufCMessageDescriptor api__percentiles__descriptor;
 extern const ProtobufCMessageDescriptor api__rates__descriptor;
-extern const ProtobufCMessageDescriptor api__server_metadata__descriptor;
+extern const ProtobufCMessageDescriptor api__system_stats__descriptor;
+extern const ProtobufCMessageDescriptor api__system_stats__loadstats__descriptor;
+extern const ProtobufCMessageDescriptor api__system_stats__cpustats__descriptor;
+extern const ProtobufCMessageDescriptor api__system_stats__memory_stats__descriptor;
+extern const ProtobufCMessageDescriptor api__component_stats__descriptor;
+extern const ProtobufCMessageDescriptor api__component_stats__cpustats__descriptor;
+extern const ProtobufCMessageDescriptor api__component_stats__memory_stats__descriptor;
 
 PROTOBUF_C__END_DECLS
 
