@@ -1,6 +1,8 @@
 #if !defined(__TTN_GW_NETWORK_H_)
 #define __TTN_GW_NETWORK_H_
 
+#define MQTT_TASK 1
+
 #include "platform.h"
 #include <MQTTClient.h>
 #include <MQTTPacket.h>
