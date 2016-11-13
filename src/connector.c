@@ -1,5 +1,4 @@
 #include "network.h"
-#include <MQTTClient.c>
 
 void ttngwc_init(TTN **s, const char *id, TTNDownlinkHandler downlink_handler, void *cb_arg)
 {

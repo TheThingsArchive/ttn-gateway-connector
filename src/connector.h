@@ -11,11 +11,26 @@
 typedef void TTN;
 typedef void (*TTNDownlinkHandler)(Router__DownlinkMessage *, void *);
 
+// Initializes a new session
 void ttngwc_init(TTN **session, const char *id, TTNDownlinkHandler, void *);
+
+// Cleans up a message
 void ttngwc_cleanup(TTN *session);
+
+// Connects to The Things Network router.
+// Returns 0 on success, -1 on failure
 int ttngwc_connect(TTN *session, const char *host_name, int port, const char *key);
+
+// Disconnects from The Things Network Router
+// Returns always 0
 int ttngwc_disconnect(TTN *session);
+
+// Sends uplink message
+// Returns 0 on success, -1 on failure or -2 on timeout
 int ttngwc_send_uplink(TTN *session, Router__UplinkMessage *uplink);
+
+// Sends status message
+// Returns 0 on success, -1 on failure or -2 on timeout
 int ttngwc_send_status(TTN *session, Gateway__Status *status);
 
 #endif

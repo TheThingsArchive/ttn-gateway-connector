@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration version="1.0.8.7">
+  <General>
+    <HarmonyPath path="../../../../.."/>
+    <Processor name=""/>
+    <ForceOptimization flag="true"/>
+    <MergeStrategy flag="USER_ALL"/>
+  </General>
+  <Manifest>
+    <Files>
+      <File>
+        <Name>sys_random.c</Name>
+        <Path>Source Files/framework/system/random/src</Path>
+      </File>
+      <File>
+        <Name>semphr.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_local.h</Name>
+        <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>tcpip_helper_c32.S</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>arp.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>tcpip_heap_alloc.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>udp_private.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>tcpip_packet.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>tcpip_mac.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>tcpip_heap_alloc.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>portmacro.h</Name>
+        <Path>Header Files/FreeRTOS/portable/MPLAB/PIC32MZ</Path>
+      </File>
+      <File>
+        <Name>arp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>list.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_cache.h</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>tcpip_packet.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>dns_manager.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>tcpip_helpers_private.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>berkeley_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>dns.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>_eth_dcpt_lists.h</Name>
+        <Path>Header Files/framework/driver/ethmac</Path>
+      </File>
+      <File>
+        <Name>tls.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>system.h</Name>
+        <Path>Header Files/framework/system</Path>
+      </File>
+      <File>
+        <Name>tcpip_manager.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>nbns.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>tcpip_common_ports.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>timers.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>heap_1.c</Name>
+        <Path>Source Files/FreeRTOS/portable/MemMang</Path>
+      </File>
+      <File>
+        <Name>task.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>tcp.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>dhcp.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>ipv4.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>drv_ethphy.c</Name>
+        <Path>Source Files/framework/driver/ethphy</Path>
+      </File>
+      <File>
+        <Name>osal_impl_basic.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>peripheral_common_32bit.h</Name>
+        <Path>Header Files/framework/peripheral</Path>
+      </File>
+      <File>
+        <Name>dhcp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>tcpip_helpers.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>ipv4_private.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>list.c</Name>
+        <Path>Source Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>drv_tmr.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>tcp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>sys_random_local.h</Name>
+        <Path>Header Files/framework/system/random/src</Path>
+      </File>
+      <File>
+        <Name>sys_tmr.h</Name>
+        <Path>Header Files/framework/system/tmr</Path>
+      </File>
+      <File>
+        <Name>udp.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>tcpip_types.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>osal.h</Name>
+        <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>drv_extphy_regs.h</Name>
+        <Path>Header Files/framework/driver/ethphy</Path>
+      </File>
+      <File>
+        <Name>tcpip_heap_internal.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>tcpip_manager.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>tcpip_notify.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>ipv4.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>dhcp_private.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>projdefs.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>ISR_Support.h</Name>
+        <Path>Header Files/FreeRTOS/portable/MPLAB/PIC32MZ</Path>
+      </File>
+      <File>
+        <Name>drv_ethphy_local.h</Name>
+        <Path>Header Files/framework/driver/ethphy</Path>
+      </File>
+      <File>
+        <Name>portable.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>dns.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>tcpip_module_manager.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>event_groups.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>lldp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>drv_ethmac_local.h</Name>
+        <Path>Header Files/framework/driver/ethmac</Path>
+      </File>
+      <File>
+        <Name>tcpip_announce.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>sys_random.h</Name>
+        <Path>Header Files/framework/system/random</Path>
+      </File>
+      <File>
+        <Name>arp_private.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>hash_fnv.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>tcpip_manager_control.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>osal_definitions.h</Name>
+        <Path>Header Files/framework/osal</Path>
+      </File>
+      <File>
+        <Name>sys_int_mapping.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>dhcp.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>drv_extphy_smsc8740.c</Name>
+        <Path>Source Files/framework/driver/ethphy</Path>
+      </File>
+      <File>
+        <Name>tcpip_heap.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>tcpip_reboot.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>sys_devcon.h</Name>
+        <Path>Header Files/framework/system/devcon</Path>
+      </File>
+      <File>
+        <Name>nbns.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>port_asm.S</Name>
+        <Path>Source Files/FreeRTOS/portable/MPLAB/PIC32MZ</Path>
+      </File>
+      <File>
+        <Name>sys_debug.h</Name>
+        <Path>Header Files/framework/system/debug</Path>
+      </File>
+      <File>
+        <Name>ipv4_manager.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_local.h</Name>
+        <Path>Header Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>timers.c</Name>
+        <Path>Source Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>mpu_wrappers.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>peripheral.h</Name>
+        <Path>Header Files/framework/peripheral</Path>
+      </File>
+      <File>
+        <Name>drv_ethmac.h</Name>
+        <Path>Header Files/framework/driver/ethmac</Path>
+      </File>
+      <File>
+        <Name>queue.c</Name>
+        <Path>Source Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>helpers.c</Name>
+        <Path>Source Files/framework/tcpip/common</Path>
+      </File>
+      <File>
+        <Name>tcpip_announce.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>lldp.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_mapping.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
+        <Name>driver_common.h</Name>
+        <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>queue.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>sys_tmr.c</Name>
+        <Path>Source Files/framework/system/tmr/src</Path>
+      </File>
+      <File>
+        <Name>croutine.c</Name>
+        <Path>Source Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>drv_ethmac_lib.h</Name>
+        <Path>Header Files/framework/driver/ethmac</Path>
+      </File>
+      <File>
+        <Name>tcp.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>drv_ethmac.c</Name>
+        <Path>Source Files/framework/driver/ethmac</Path>
+      </File>
+      <File>
+        <Name>drv_extphy_smsc8740.h</Name>
+        <Path>Header Files/framework/driver/ethphy</Path>
+      </File>
+      <File>
+        <Name>drv_ethmac_lib.c</Name>
+        <Path>Source Files/framework/driver/ethmac</Path>
+      </File>
+      <File>
+        <Name>arp.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>driver.h</Name>
+        <Path>Header Files/framework/driver</Path>
+      </File>
+      <File>
+        <Name>peripheral_common.h</Name>
+        <Path>Header Files/framework/peripheral</Path>
+      </File>
+      <File>
+        <Name>sys_int_pic32.c</Name>
+        <Path>Source Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>sys_clk.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>drv_tmr.c</Name>
+        <Path>Source Files/framework/driver/tmr/src/dynamic</Path>
+      </File>
+      <File>
+        <Name>sys_int_private.h</Name>
+        <Path>Header Files/framework/system/int/src</Path>
+      </File>
+      <File>
+        <Name>deprecated_definitions.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_compatibility.h</Name>
+        <Path>Header Files/framework/driver/tmr</Path>
+      </File>
+      <File>
+        <Name>sys_tmr_local.h</Name>
+        <Path>Header Files/framework/system/tmr/src</Path>
+      </File>
+      <File>
+        <Name>tcpip_mac_object.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>helpers.h</Name>
+        <Path>Header Files/framework/tcpip/common</Path>
+      </File>
+      <File>
+        <Name>lldp_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>udp_manager.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>tcpip_ethernet.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>port.c</Name>
+        <Path>Source Files/FreeRTOS/portable/MPLAB/PIC32MZ</Path>
+      </File>
+      <File>
+        <Name>sys_int.h</Name>
+        <Path>Header Files/framework/system/int</Path>
+      </File>
+      <File>
+        <Name>osal_freertos.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>dns_private.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>tcpip_announce_manager.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>drv_tmr_variant_mapping.h</Name>
+        <Path>Header Files/framework/driver/tmr/src</Path>
+      </File>
+      <File>
+        <Name>drv_ethphy.h</Name>
+        <Path>Header Files/framework/driver/ethphy</Path>
+      </File>
+      <File>
+        <Name>hash_fnv.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>lldp_tlv.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>tcpip_notify.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>StackMacros.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>osal_freertos.c</Name>
+        <Path>Source Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>tasks.c</Name>
+        <Path>Source Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>link_list.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>sys_ports.h</Name>
+        <Path>Header Files/framework/system/ports</Path>
+      </File>
+      <File>
+        <Name>tcp_private.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>croutine.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>sys_common.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_buffer.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>udp.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>oahash.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>oahash.c</Name>
+        <Path>Source Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>osal_impl_none.h</Name>
+        <Path>Header Files/framework/osal/src</Path>
+      </File>
+      <File>
+        <Name>nbns_manager.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>dhcpv6_manager.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>tcpip_helpers.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>dhcpv6.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>sys_clk_mapping.h</Name>
+        <Path>Header Files/framework/system/clk</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_cache_pic32mz.S</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>FreeRTOS.h</Name>
+        <Path>Header Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>gfx_palette.h</Name>
+        <Path>Header Files/framework/gfx</Path>
+      </File>
+      <File>
+        <Name>tcpip_private.h</Name>
+        <Path>Header Files/framework/tcpip/stack</Path>
+      </File>
+      <File>
+        <Name>event_groups.c</Name>
+        <Path>Source Files/FreeRTOS</Path>
+      </File>
+      <File>
+        <Name>dhcpv6_private.h</Name>
+        <Path>Header Files/framework/tcpip/src</Path>
+      </File>
+      <File>
+        <Name>sys_module.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+      <File>
+        <Name>sys_devcon_pic32mz.c</Name>
+        <Path>Source Files/framework/system/devcon/src</Path>
+      </File>
+      <File>
+        <Name>tcpip.h</Name>
+        <Path>Header Files/framework/tcpip</Path>
+      </File>
+      <File>
+        <Name>sys_queue.h</Name>
+        <Path>Header Files/framework/system/common</Path>
+      </File>
+    </Files>
+    <Templates>
+      <Template>
+        <Name>sys_ports_static.c</Name>
+        <Path>Source Files/app/system_config/default/framework/system/ports/src</Path>
+        <Checksum>4E71C91AD2E579D5AD660A2E32EAEC68</Checksum>
+      </Template>
+      <Template>
+        <Name>system_init.c</Name>
+        <Path>Source Files/app/system_config/default</Path>
+        <Checksum>80A5E8A64B84365EAE48B1BA42CE0809</Checksum>
+      </Template>
+      <Template>
+        <Name>main.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>system_interrupt_a.S</Name>
+        <Path>Source Files/app/system_config/default</Path>
+        <Checksum>15AF725C751EDC2CF8913679E4FDD73A</Checksum>
+      </Template>
+      <Template>
+        <Name>system_definitions.h</Name>
+        <Path>Header Files/app/system_config/default</Path>
+        <Checksum>60D96A9C0E4F3273BEBE82C890FD4B89</Checksum>
+      </Template>
+      <Template>
+        <Name>system_exceptions.c</Name>
+        <Path>Source Files/app/system_config/default</Path>
+        <Checksum>C111969CA43D6CEA1E9E33A6164E7AE0</Checksum>
+      </Template>
+      <Template>
+        <Name>app.c</Name>
+        <Path>Source Files/app</Path>
+      </Template>
+      <Template>
+        <Name>FreeRTOSConfig.h</Name>
+        <Path>Header Files/app/system_config/default</Path>
+        <Checksum>EDF93A255BB62ED05A55DF617587C300</Checksum>
+      </Template>
+      <Template>
+        <Name>system_tasks.c</Name>
+        <Path>Source Files/app/system_config/default</Path>
+        <Checksum>4419150292E540AC71557609508501F5</Checksum>
+      </Template>
+      <Template>
+        <Name>system_config.h</Name>
+        <Path>Header Files/app/system_config/default</Path>
+        <Checksum>8E27CCD403C147C8D2729B844003195F</Checksum>
+      </Template>
+      <Template>
+        <Name>app.h</Name>
+        <Path>Header Files/app</Path>
+      </Template>
+      <Template>
+        <Name>sys_clk_static.h</Name>
+        <Path>Header Files/app/system_config/default/framework/system/clk</Path>
+        <Checksum>B4BD59D8D7C4DA95DC5E3B57755FD352</Checksum>
+      </Template>
+      <Template>
+        <Name>system_interrupt.c</Name>
+        <Path>Source Files/app/system_config/default</Path>
+        <Checksum>59F8FF5B844BF95DCEB6E2C9E670C8E2</Checksum>
+      </Template>
+      <Template>
+        <Name>rtos_hooks.c</Name>
+        <Path>Source Files/app/system_config/default</Path>
+        <Checksum>FA52743264536E5207D2ADBE57B48D05</Checksum>
+      </Template>
+      <Template>
+        <Name>sys_clk_static.c</Name>
+        <Path>Source Files/app/system_config/default/framework/system/clk/src</Path>
+        <Checksum>4681B98AC85858FD3FFA130908EDA5D0</Checksum>
+      </Template>
+    </Templates>
+    <CompilerItems>
+      <C32-AS>
+        <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ"/>
+        <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>
+        <Include value="../src/system_config/default"/>
+      </C32-AS>
+      <C32>
+        <Include value="/Users/johan/microchip/harmony/v1_08_01/apps/ttn-gateway-connector/examples/harmony/demo/firmware/src"/>
+        <Include value="/Users/johan/microchip/harmony/v1_08_01/apps/ttn-gateway-connector/examples/harmony/demo/firmware/src/system_config/default"/>
+        <Include value="/Users/johan/microchip/harmony/v1_08_01/apps/ttn-gateway-connector/examples/harmony/demo/firmware/src/default"/>
+        <Include value="/Users/johan/microchip/harmony/v1_08_01/framework"/>
+        <Include value="/Users/johan/microchip/harmony/v1_08_01/apps/ttn-gateway-connector/examples/harmony/demo/firmware/src/system_config/default/framework"/>
+        <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ"/>
+        <Include value="../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>
+        <Include value="../src/system_config/default"/>
+      </C32>
+    </CompilerItems>
+    <Libraries>
+      <Library value="../../../../../../../framework/tcpip/src/crypto/aes_pic32mx.a"/>
+      <Library value="../../../../../../../bin/framework/peripheral/PIC32MZ2048EFM144_peripherals.a"/>
+    </Libraries>
+  </Manifest>
+</configuration>

@@ -39,3 +39,9 @@ bin
 
 # Configuration files
 config.mk
+
+# Microchip project files
+/examples/harmony/demo/demo/nbproject/private/
+/examples/harmony/demo/firmware/demo.X/nbproject/private/
+/examples/harmony/demo/firmware/demo.X/build/default/
+/examples/harmony/demo/firmware/demo.X/dist/default/
