@@ -47,7 +47,7 @@ int main(int argc, char **argv)
    signal(SIGINT, stop);
    signal(SIGTERM, stop);
 
-   // Initialize the TTN gateway with ID office
+   // Initialize the TTN gateway with ID test
    TTN *ttn;
    ttngwc_init(&ttn, "test", &print_downlink, NULL);
    if (!ttn)
