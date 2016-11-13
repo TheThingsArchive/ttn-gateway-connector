@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="62">
+  <logicalFolder name="root" displayName="root" projectFiles="true">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <logicalFolder name="f3" displayName="app" projectFiles="true">
+        <logicalFolder name="f1" displayName="system_config" projectFiles="true">
+          <logicalFolder name="f1" displayName="default" projectFiles="true">
+            <logicalFolder name="f1" displayName="framework" projectFiles="true">
+              <logicalFolder name="f1" displayName="system" projectFiles="true">
+                <logicalFolder name="f1" displayName="clk" projectFiles="true">
+                  <itemPath>../src/system_config/default/framework/system/clk/sys_clk_static.h</itemPath>
+                </logicalFolder>
+              </logicalFolder>
+            </logicalFolder>
+            <itemPath>../src/system_config/default/FreeRTOSConfig.h</itemPath>
+            <itemPath>../src/system_config/default/system_config.h</itemPath>
+            <itemPath>../src/system_config/default/system_definitions.h</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>../src/app.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="framework" projectFiles="true">
+        <logicalFolder name="f1" displayName="driver" projectFiles="true">
+          <logicalFolder name="f1" displayName="ethmac" projectFiles="true">
+            <itemPath>../../../../../../../framework/driver/ethmac/drv_ethmac.h</itemPath>
+            <itemPath>../../../../../../../framework/driver/ethmac/src/drv_ethmac_local.h</itemPath>
+            <itemPath>../../../../../../../framework/driver/ethmac/src/dynamic/_eth_dcpt_lists.h</itemPath>
+            <itemPath>../../../../../../../framework/driver/ethmac/src/dynamic/drv_ethmac_lib.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f2" displayName="ethphy" projectFiles="true">
+            <itemPath>../../../../../../../framework/driver/ethphy/drv_ethphy.h</itemPath>
+            <itemPath>../../../../../../../framework/driver/ethphy/src/drv_ethphy_local.h</itemPath>
+            <itemPath>../../../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_regs.h</itemPath>
+            <itemPath>../../../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_smsc8740.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f3" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../../../framework/driver/tmr/src/drv_tmr_variant_mapping.h</itemPath>
+              <itemPath>../../../../../../../framework/driver/tmr/src/drv_tmr_local.h</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../../../framework/driver/tmr/drv_tmr.h</itemPath>
+            <itemPath>../../../../../../../framework/driver/tmr/drv_tmr_mapping.h</itemPath>
+            <itemPath>../../../../../../../framework/driver/tmr/drv_tmr_compatibility.h</itemPath>
+          </logicalFolder>
+          <itemPath>../../../../../../../framework/driver/driver.h</itemPath>
+          <itemPath>../../../../../../../framework/driver/driver_common.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="f2" displayName="gfx" projectFiles="true">
+          <itemPath>../../../../../../../framework/gfx/gfx_palette.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="f3" displayName="osal" projectFiles="true">
+          <logicalFolder name="f1" displayName="src" projectFiles="true">
+            <itemPath>../../../../../../../framework/osal/src/osal_impl_basic.h</itemPath>
+            <itemPath>../../../../../../../framework/osal/src/osal_impl_none.h</itemPath>
+            <itemPath>../../../../../../../framework/osal/src/osal_freertos.h</itemPath>
+          </logicalFolder>
+          <itemPath>../../../../../../../framework/osal/osal.h</itemPath>
+          <itemPath>../../../../../../../framework/osal/osal_definitions.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="f4" displayName="peripheral" projectFiles="true">
+          <itemPath>../../../../../../../framework/peripheral/peripheral.h</itemPath>
+          <itemPath>../../../../../../../framework/peripheral/peripheral_common.h</itemPath>
+          <itemPath>../../../../../../../framework/peripheral/peripheral_common_32bit.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="f5" displayName="system" projectFiles="true">
+          <logicalFolder name="f1" displayName="clk" projectFiles="true">
+            <itemPath>../../../../../../../framework/system/clk/sys_clk.h</itemPath>
+            <itemPath>../../../../../../../framework/system/clk/sys_clk_mapping.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f2" displayName="common" projectFiles="true">
+            <itemPath>../../../../../../../framework/system/common/sys_common.h</itemPath>
+            <itemPath>../../../../../../../framework/system/common/sys_module.h</itemPath>
+            <itemPath>../../../../../../../framework/system/common/sys_buffer.h</itemPath>
+            <itemPath>../../../../../../../framework/system/common/sys_queue.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f3" displayName="debug" projectFiles="true">
+            <itemPath>../../../../../../../framework/system/debug/sys_debug.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f4" displayName="devcon" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../../../framework/system/devcon/src/sys_devcon_local.h</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../../../framework/system/devcon/sys_devcon.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f5" displayName="int" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../../../framework/system/int/src/sys_int_private.h</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../../../framework/system/int/sys_int.h</itemPath>
+            <itemPath>../../../../../../../framework/system/int/sys_int_mapping.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f6" displayName="ports" projectFiles="true">
+            <itemPath>../../../../../../../framework/system/ports/sys_ports.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f7" displayName="random" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../../../framework/system/random/src/sys_random_local.h</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../../../framework/system/random/sys_random.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f8" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../../../framework/system/tmr/src/sys_tmr_local.h</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../../../framework/system/tmr/sys_tmr.h</itemPath>
+          </logicalFolder>
+          <itemPath>../../../../../../../framework/system/system.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="f6" displayName="tcpip" projectFiles="true">
+          <logicalFolder name="f2" displayName="common" projectFiles="true">
+            <itemPath>../../../../../../../framework/tcpip/src/common/helpers.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f3" displayName="src" projectFiles="true">
+            <itemPath>../../../../../../../framework/tcpip/src/berkeley_manager.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/dhcpv6_manager.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/dhcpv6_private.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/lldp_manager.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/lldp_private.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/lldp_tlv.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f1" displayName="stack" projectFiles="true">
+            <itemPath>../../../../../../../framework/tcpip/src/tcp_private.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcp_manager.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/udp_private.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/udp_manager.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_heap_alloc.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/arp_manager.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/arp_private.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/dhcp_manager.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/dhcp_private.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/dns_manager.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/dns_private.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/nbns_manager.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_announce_manager.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/hash_fnv.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/link_list.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/oahash.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_helpers_private.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_manager_control.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_module_manager.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_notify.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_packet.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_private.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_types.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/ipv4_manager.h</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/ipv4_private.h</itemPath>
+          </logicalFolder>
+          <itemPath>../../../../../../../framework/tcpip/tcp.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/udp.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/tcpip_heap.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/arp.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/tls.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/dhcp.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/dns.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/nbns.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/tcpip_helpers.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/tcpip_manager.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/tcpip.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/dhcpv6.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/lldp.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/tcpip_announce.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/tcpip_reboot.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/tcpip_common_ports.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/ipv4.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/tcpip_mac.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/tcpip_mac_object.h</itemPath>
+          <itemPath>../../../../../../../framework/tcpip/tcpip_ethernet.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="FreeRTOS" projectFiles="true">
+        <logicalFolder name="f1" displayName="portable" projectFiles="true">
+          <logicalFolder name="f1" displayName="MPLAB" projectFiles="true">
+            <logicalFolder name="f1" displayName="PIC32MZ" projectFiles="true">
+              <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/ISR_Support.h</itemPath>
+              <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/portmacro.h</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/croutine.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/event_groups.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/FreeRTOS.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/list.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/portable.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/projdefs.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/queue.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/semphr.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/StackMacros.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/deprecated_definitions.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/task.h</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/include/timers.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="paho.mqtt.embedded-c"
+                     displayName="paho.mqtt.embedded-c"
+                     projectFiles="true">
+        <logicalFolder name="MQTTClient-C"
+                       displayName="MQTTClient-C"
+                       projectFiles="true">
+          <logicalFolder name="src" displayName="src" projectFiles="true">
+            <logicalFolder name="Harmony" displayName="Harmony" projectFiles="true">
+              <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTClient-C/src/Harmony/MQTTHarmony.h</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTClient-C/src/MQTTClient.h</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTClient-C/src/MQTTErrors.h</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="MQTTPacket" displayName="MQTTPacket" projectFiles="true">
+          <logicalFolder name="src" displayName="src" projectFiles="true">
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTConnect.h</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTFormat.h</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTPacket.h</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTPublish.h</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTSubscribe.h</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTUnsubscribe.h</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/StackTrace.h</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="protobuf-c" displayName="protobuf-c" projectFiles="true">
+        <itemPath>../../../../../../../third_party/protobuf-c/protobuf-c/protobuf-c.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="src" displayName="src" projectFiles="true">
+        <logicalFolder name="github.com" displayName="github.com" projectFiles="true">
+          <logicalFolder name="gogo" displayName="gogo" projectFiles="true">
+            <logicalFolder name="protobuf" displayName="protobuf" projectFiles="true">
+              <logicalFolder name="gogoproto" displayName="gogoproto" projectFiles="true">
+                <itemPath>../../../../../src/github.com/gogo/protobuf/gogoproto/gogo.pb-c.h</itemPath>
+              </logicalFolder>
+              <logicalFolder name="protobuf" displayName="protobuf" projectFiles="true">
+                <logicalFolder name="google" displayName="google" projectFiles="true">
+                  <logicalFolder name="protobuf" displayName="protobuf" projectFiles="true">
+                    <itemPath>../../../../../src/github.com/gogo/protobuf/protobuf/google/protobuf/descriptor.pb-c.h</itemPath>
+                    <itemPath>../../../../../src/github.com/gogo/protobuf/protobuf/google/protobuf/empty.pb-c.h</itemPath>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="TheThingsNetwork"
+                         displayName="TheThingsNetwork"
+                         projectFiles="true">
+            <logicalFolder name="ttn" displayName="ttn" projectFiles="true">
+              <logicalFolder name="api" displayName="api" projectFiles="true">
+                <logicalFolder name="gateway" displayName="gateway" projectFiles="true">
+                  <itemPath>../../../../../src/github.com/TheThingsNetwork/ttn/api/gateway/gateway.pb-c.h</itemPath>
+                </logicalFolder>
+                <logicalFolder name="protocol" displayName="protocol" projectFiles="true">
+                  <logicalFolder name="lorawan" displayName="lorawan" projectFiles="true">
+                    <itemPath>../../../../../src/github.com/TheThingsNetwork/ttn/api/protocol/lorawan/lorawan.pb-c.h</itemPath>
+                  </logicalFolder>
+                  <itemPath>../../../../../src/github.com/TheThingsNetwork/ttn/api/protocol/protocol.pb-c.h</itemPath>
+                </logicalFolder>
+                <logicalFolder name="router" displayName="router" projectFiles="true">
+                  <itemPath>../../../../../src/github.com/TheThingsNetwork/ttn/api/router/router.pb-c.h</itemPath>
+                </logicalFolder>
+                <itemPath>../../../../../src/github.com/TheThingsNetwork/ttn/api/api.pb-c.h</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>../../../../../src/connector.h</itemPath>
+        <itemPath>../../../../../src/network.h</itemPath>
+        <itemPath>../../../../../src/session.h</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="LinkerScript"
+                   displayName="Linker Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="f3" displayName="app" projectFiles="true">
+        <logicalFolder name="f1" displayName="system_config" projectFiles="true">
+          <logicalFolder name="f1" displayName="default" projectFiles="true">
+            <logicalFolder name="f1" displayName="framework" projectFiles="true">
+              <logicalFolder name="f1" displayName="system" projectFiles="true">
+                <logicalFolder name="f1" displayName="clk" projectFiles="true">
+                  <logicalFolder name="f1" displayName="src" projectFiles="true">
+                    <itemPath>../src/system_config/default/framework/system/clk/src/sys_clk_static.c</itemPath>
+                  </logicalFolder>
+                </logicalFolder>
+                <logicalFolder name="f2" displayName="ports" projectFiles="true">
+                  <logicalFolder name="f1" displayName="src" projectFiles="true">
+                    <itemPath>../src/system_config/default/framework/system/ports/src/sys_ports_static.c</itemPath>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+            </logicalFolder>
+            <itemPath>../src/system_config/default/system_init.c</itemPath>
+            <itemPath>../src/system_config/default/system_interrupt.c</itemPath>
+            <itemPath>../src/system_config/default/system_exceptions.c</itemPath>
+            <itemPath>../src/system_config/default/system_tasks.c</itemPath>
+            <itemPath>../src/system_config/default/system_interrupt_a.S</itemPath>
+            <itemPath>../src/system_config/default/rtos_hooks.c</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>../src/app.c</itemPath>
+        <itemPath>../src/main.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="framework" projectFiles="true">
+        <logicalFolder name="f1" displayName="driver" projectFiles="true">
+          <logicalFolder name="f1" displayName="ethmac" projectFiles="true">
+            <itemPath>../../../../../../../framework/driver/ethmac/src/dynamic/drv_ethmac.c</itemPath>
+            <itemPath>../../../../../../../framework/driver/ethmac/src/dynamic/drv_ethmac_lib.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f2" displayName="ethphy" projectFiles="true">
+            <itemPath>../../../../../../../framework/driver/ethphy/src/dynamic/drv_ethphy.c</itemPath>
+            <itemPath>../../../../../../../framework/driver/ethphy/src/dynamic/drv_extphy_smsc8740.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f3" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <logicalFolder name="f1" displayName="dynamic" projectFiles="true">
+                <itemPath>../../../../../../../framework/driver/tmr/src/dynamic/drv_tmr.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="f2" displayName="osal" projectFiles="true">
+          <logicalFolder name="f1" displayName="src" projectFiles="true">
+            <itemPath>../../../../../../../framework/osal/src/osal_freertos.c</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="f3" displayName="system" projectFiles="true">
+          <logicalFolder name="f1" displayName="devcon" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../../../framework/system/devcon/src/sys_devcon.c</itemPath>
+              <itemPath>../../../../../../../framework/system/devcon/src/sys_devcon_pic32mz.c</itemPath>
+              <itemPath>../../../../../../../framework/system/devcon/src/sys_devcon_cache_pic32mz.S</itemPath>
+              <itemPath>../../../../../../../framework/system/devcon/src/sys_devcon_cache.h</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="f2" displayName="int" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../../../framework/system/int/src/sys_int_pic32.c</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="f3" displayName="random" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../../../framework/system/random/src/sys_random.c</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="f4" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f1" displayName="src" projectFiles="true">
+              <itemPath>../../../../../../../framework/system/tmr/src/sys_tmr.c</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="f4" displayName="tcpip" projectFiles="true">
+          <logicalFolder name="f2" displayName="common" projectFiles="true">
+            <itemPath>../../../../../../../framework/tcpip/src/common/helpers.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f1" displayName="stack" projectFiles="true">
+            <itemPath>../../../../../../../framework/tcpip/src/tcp.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/udp.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_heap_alloc.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_heap_internal.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/arp.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/dhcp.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/dns.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/nbns.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_announce.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/hash_fnv.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/oahash.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_helpers.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_helper_c32.S</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_manager.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_notify.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/tcpip_packet.c</itemPath>
+            <itemPath>../../../../../../../framework/tcpip/src/ipv4.c</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="FreeRTOS" projectFiles="true">
+        <logicalFolder name="f1" displayName="portable" projectFiles="true">
+          <logicalFolder name="f1" displayName="MemMang" projectFiles="true">
+            <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MemMang/heap_1.c</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f2" displayName="MPLAB" projectFiles="true">
+            <logicalFolder name="f1" displayName="PIC32MZ" projectFiles="true">
+              <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/port.c</itemPath>
+              <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ/port_asm.S</itemPath>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/croutine.c</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/list.c</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/queue.c</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/tasks.c</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/timers.c</itemPath>
+        <itemPath>../../../../../../../third_party/rtos/FreeRTOS/Source/event_groups.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="paho.mqtt.embedded-c"
+                     displayName="paho.mqtt.embedded-c"
+                     projectFiles="true">
+        <logicalFolder name="MQTTClient-C"
+                       displayName="MQTTClient-C"
+                       projectFiles="true">
+          <logicalFolder name="src" displayName="src" projectFiles="true">
+            <logicalFolder name="Harmony" displayName="Harmony" projectFiles="true">
+              <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTClient-C/src/Harmony/MQTTHarmony.c</itemPath>
+            </logicalFolder>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTClient-C/src/MQTTClient.c</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="MQTTPacket" displayName="MQTTPacket" projectFiles="true">
+          <logicalFolder name="src" displayName="src" projectFiles="true">
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTConnectClient.c</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTConnectServer.c</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTDeserializePublish.c</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTFormat.c</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTPacket.c</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTSerializePublish.c</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTSubscribeClient.c</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTSubscribeServer.c</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTUnsubscribeClient.c</itemPath>
+            <itemPath>../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src/MQTTUnsubscribeServer.c</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="protobuf-c" displayName="protobuf-c" projectFiles="true">
+        <itemPath>../../../../../../../third_party/protobuf-c/protobuf-c/protobuf-c.c</itemPath>
+      </logicalFolder>
+      <logicalFolder name="src" displayName="src" projectFiles="true">
+        <logicalFolder name="github.com" displayName="github.com" projectFiles="true">
+          <logicalFolder name="gogo" displayName="gogo" projectFiles="true">
+            <logicalFolder name="protobuf" displayName="protobuf" projectFiles="true">
+              <logicalFolder name="gogoproto" displayName="gogoproto" projectFiles="true">
+                <itemPath>../../../../../src/github.com/gogo/protobuf/gogoproto/gogo.pb-c.c</itemPath>
+              </logicalFolder>
+              <logicalFolder name="protobuf" displayName="protobuf" projectFiles="true">
+                <logicalFolder name="google" displayName="google" projectFiles="true">
+                  <logicalFolder name="protobuf" displayName="protobuf" projectFiles="true">
+                    <itemPath>../../../../../src/github.com/gogo/protobuf/protobuf/google/protobuf/descriptor.pb-c.c</itemPath>
+                    <itemPath>../../../../../src/github.com/gogo/protobuf/protobuf/google/protobuf/empty.pb-c.c</itemPath>
+                  </logicalFolder>
+                </logicalFolder>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="TheThingsNetwork"
+                         displayName="TheThingsNetwork"
+                         projectFiles="true">
+            <logicalFolder name="ttn" displayName="ttn" projectFiles="true">
+              <logicalFolder name="api" displayName="api" projectFiles="true">
+                <logicalFolder name="gateway" displayName="gateway" projectFiles="true">
+                  <itemPath>../../../../../src/github.com/TheThingsNetwork/ttn/api/gateway/gateway.pb-c.c</itemPath>
+                </logicalFolder>
+                <logicalFolder name="protocol" displayName="protocol" projectFiles="true">
+                  <logicalFolder name="lorawan" displayName="lorawan" projectFiles="true">
+                    <itemPath>../../../../../src/github.com/TheThingsNetwork/ttn/api/protocol/lorawan/lorawan.pb-c.c</itemPath>
+                  </logicalFolder>
+                  <itemPath>../../../../../src/github.com/TheThingsNetwork/ttn/api/protocol/protocol.pb-c.c</itemPath>
+                </logicalFolder>
+                <logicalFolder name="router" displayName="router" projectFiles="true">
+                  <itemPath>../../../../../src/github.com/TheThingsNetwork/ttn/api/router/router.pb-c.c</itemPath>
+                </logicalFolder>
+                <itemPath>../../../../../src/github.com/TheThingsNetwork/ttn/api/api.pb-c.c</itemPath>
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>../../../../../src/connector.c</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>../src</Elem>
+    <Elem>../../../../..</Elem>
+    <Elem>../src/default</Elem>
+    <Elem>../src/system_config/default</Elem>
+    <Elem>../../../../../../../third_party/paho.mqtt.embedded-c</Elem>
+    <Elem>../../../../../../../third_party/protobuf-c/protobuf-c</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="default" type="2">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <targetDevice>PIC32MZ2048EFM144</targetDevice>
+        <targetHeader></targetHeader>
+        <targetPluginBoard></targetPluginBoard>
+        <platformTool>PKOBSKDEPlatformTool</platformTool>
+        <languageToolchain>XC32</languageToolchain>
+        <languageToolchainVersion>1.42</languageToolchainVersion>
+        <platform>4</platform>
+      </toolsSet>
+      <compileType>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerLibFileItem>../../../../../../../bin/framework/peripheral/PIC32MZ2048EFM144_peripherals.a</linkerLibFileItem>
+            <linkerLibFileItem>../../../../../../../framework/tcpip/src/crypto/aes_pic32mx.a</linkerLibFileItem>
+          </linkerLibItems>
+        </linkerTool>
+        <archiverTool>
+        </archiverTool>
+        <loading>
+          <useAlternateLoadableFile>false</useAlternateLoadableFile>
+          <parseOnProdLoad>false</parseOnProdLoad>
+          <alternateLoadableFile></alternateLoadableFile>
+        </loading>
+        <subordinates>
+        </subordinates>
+      </compileType>
+      <makeCustomizationType>
+        <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
+        <makeCustomizationPreStep></makeCustomizationPreStep>
+        <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
+        <makeCustomizationPostStep></makeCustomizationPostStep>
+        <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
+        <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
+        <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
+      </makeCustomizationType>
+      <C32>
+        <property key="additional-warnings" value="false"/>
+        <property key="addresss-attribute-use" value="false"/>
+        <property key="enable-app-io" value="false"/>
+        <property key="enable-omit-frame-pointer" value="false"/>
+        <property key="enable-symbols" value="true"/>
+        <property key="enable-unroll-loops" value="false"/>
+        <property key="exclude-floating-point" value="false"/>
+        <property key="extra-include-directories"
+                  value="../src;../src/system_config/default;../src/default;../../../../../../../framework;../src/system_config/default/framework;../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../../../../../../../third_party/rtos/FreeRTOS/Source/include"/>
+        <property key="generate-16-bit-code" value="false"/>
+        <property key="generate-micro-compressed-code" value="false"/>
+        <property key="isolate-each-function" value="true"/>
+        <property key="make-warnings-into-errors" value="false"/>
+        <property key="optimization-level" value="-O1"/>
+        <property key="place-data-into-section" value="false"/>
+        <property key="post-instruction-scheduling" value="default"/>
+        <property key="pre-instruction-scheduling" value="default"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="strict-ansi" value="false"/>
+        <property key="support-ansi" value="false"/>
+        <property key="toplevel-reordering" value=""/>
+        <property key="use-cci" value="false"/>
+        <property key="use-iar" value="false"/>
+        <property key="use-indirect-calls" value="false"/>
+        <appendMe value="-DMQTT_TASK -D__harmony__ -I../../../../../src -I../../../../../../../third_party/paho.mqtt.embedded-c/MQTTClient-C/src -I../../../../../../../third_party/paho.mqtt.embedded-c/MQTTPacket/src -I../../../../../../../third_party/protobuf-c -I../../../../../src/github.com/gogo/protobuf/protobuf -I../../../../../src/github.com/TheThingsNetwork"/>
+      </C32>
+      <C32-AR>
+        <property key="additional-options-chop-files" value="false"/>
+      </C32-AR>
+      <C32-AS>
+        <property key="assembler-symbols" value=""/>
+        <property key="enable-symbols" value="true"/>
+        <property key="exclude-floating-point-library" value="false"/>
+        <property key="expand-macros" value="false"/>
+        <property key="extra-include-directories-for-assembler" value=""/>
+        <property key="extra-include-directories-for-preprocessor"
+                  value="../../../../../../../third_party/rtos/FreeRTOS/Source/portable/MPLAB/PIC32MZ;../../../../../../../third_party/rtos/FreeRTOS/Source/include;../src/system_config/default"/>
+        <property key="false-conditionals" value="false"/>
+        <property key="generate-16-bit-code" value="false"/>
+        <property key="generate-micro-compressed-code" value="false"/>
+        <property key="keep-locals" value="false"/>
+        <property key="list-assembly" value="false"/>
+        <property key="list-source" value="false"/>
+        <property key="list-symbols" value="false"/>
+        <property key="oXC32asm-list-to-file" value="false"/>
+        <property key="omit-debug-dirs" value="false"/>
+        <property key="omit-forms" value="false"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="warning-level" value=""/>
+      </C32-AS>
+      <C32-LD>
+        <property key="additional-options-use-response-files" value="false"/>
+        <property key="allocate-dinit" value="false"/>
+        <property key="code-dinit" value="false"/>
+        <property key="ebase-addr" value=""/>
+        <property key="enable-check-sections" value="false"/>
+        <property key="exclude-floating-point-library" value="false"/>
+        <property key="exclude-standard-libraries" value="false"/>
+        <property key="extra-lib-directories" value=""/>
+        <property key="fill-flash-options-addr" value=""/>
+        <property key="fill-flash-options-const" value=""/>
+        <property key="fill-flash-options-how" value="0"/>
+        <property key="fill-flash-options-inc-const" value="1"/>
+        <property key="fill-flash-options-increment" value=""/>
+        <property key="fill-flash-options-seq" value=""/>
+        <property key="fill-flash-options-what" value="0"/>
+        <property key="generate-16-bit-code" value="false"/>
+        <property key="generate-cross-reference-file" value="false"/>
+        <property key="generate-micro-compressed-code" value="false"/>
+        <property key="heap-size" value="44960"/>
+        <property key="input-libraries" value=""/>
+        <property key="kseg-length" value=""/>
+        <property key="kseg-origin" value=""/>
+        <property key="linker-symbols" value=""/>
+        <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
+        <property key="no-startup-files" value="false"/>
+        <property key="oXC32ld-extra-opts" value=""/>
+        <property key="optimization-level" value=""/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="remove-unused-sections" value="true"/>
+        <property key="report-memory-usage" value="false"/>
+        <property key="serial-length" value=""/>
+        <property key="serial-origin" value=""/>
+        <property key="stack-size" value=""/>
+        <property key="symbol-stripping" value=""/>
+        <property key="trace-symbols" value=""/>
+        <property key="warn-section-align" value="false"/>
+      </C32-LD>
+      <C32CPP>
+        <property key="additional-warnings" value="false"/>
+        <property key="addresss-attribute-use" value="false"/>
+        <property key="check-new" value="false"/>
+        <property key="eh-specs" value="true"/>
+        <property key="enable-app-io" value="false"/>
+        <property key="enable-omit-frame-pointer" value="false"/>
+        <property key="enable-symbols" value="true"/>
+        <property key="enable-unroll-loops" value="false"/>
+        <property key="exceptions" value="true"/>
+        <property key="exclude-floating-point" value="false"/>
+        <property key="extra-include-directories" value=""/>
+        <property key="generate-16-bit-code" value="false"/>
+        <property key="generate-micro-compressed-code" value="false"/>
+        <property key="isolate-each-function" value="true"/>
+        <property key="make-warnings-into-errors" value="false"/>
+        <property key="optimization-level" value="-O1"/>
+        <property key="place-data-into-section" value="false"/>
+        <property key="post-instruction-scheduling" value="default"/>
+        <property key="pre-instruction-scheduling" value="default"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="rtti" value="true"/>
+        <property key="strict-ansi" value="false"/>
+        <property key="toplevel-reordering" value=""/>
+        <property key="use-cci" value="false"/>
+        <property key="use-iar" value="false"/>
+        <property key="use-indirect-calls" value="false"/>
+      </C32CPP>
+      <C32Global>
+        <property key="common-include-directories" value=""/>
+        <property key="gp-relative-option" value=""/>
+        <property key="legacy-libc" value="false"/>
+        <property key="relaxed-math" value="false"/>
+        <property key="save-temps" value="false"/>
+        <property key="wpo-lto" value="false"/>
+      </C32Global>
+      <PICkit3PlatformTool>
+        <property key="ADC 1" value="true"/>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="CHANGE NOTICE" value="true"/>
+        <property key="COMPARATOR" value="true"/>
+        <property key="CTMU" value="true"/>
+        <property key="DMA" value="true"/>
+        <property key="Freeze All Other Peripherals" value="true"/>
+        <property key="I2C1" value="true"/>
+        <property key="I2C2" value="true"/>
+        <property key="INPUT CAPTURE 1" value="true"/>
+        <property key="INPUT CAPTURE 2" value="true"/>
+        <property key="INPUT CAPTURE 3" value="true"/>
+        <property key="INPUT CAPTURE 4" value="true"/>
+        <property key="INPUT CAPTURE 5" value="true"/>
+        <property key="INTERRUPT CONTROL" value="true"/>
+        <property key="OUTPUT COMPARE 1" value="true"/>
+        <property key="OUTPUT COMPARE 2" value="true"/>
+        <property key="OUTPUT COMPARE 3" value="true"/>
+        <property key="OUTPUT COMPARE 4" value="true"/>
+        <property key="OUTPUT COMPARE 5" value="true"/>
+        <property key="PARALLEL MASTER/SLAVE PORT" value="true"/>
+        <property key="REAL TIME CLOCK" value="true"/>
+        <property key="SPI/I2S 1" value="true"/>
+        <property key="SPI/I2S 2" value="true"/>
+        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
+        <property key="TIMER1" value="true"/>
+        <property key="TIMER2" value="true"/>
+        <property key="TIMER3" value="true"/>
+        <property key="TIMER4" value="true"/>
+        <property key="TIMER5" value="true"/>
+        <property key="ToolFirmwareFilePath"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="UART1" value="true"/>
+        <property key="UART2" value="true"/>
+        <property key="USB" value="true"/>
+        <property key="hwtoolclock.frcindebug" value="false"/>
+        <property key="memories.aux" value="false"/>
+        <property key="memories.bootflash" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory2" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.flashdata" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram" value="true"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="1d000000-1d003fff"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programmertogo.imagename" value=""/>
+        <property key="programoptions.donoteraseauxmem" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.pgmspeed" value="2"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges"
+                  value="${programoptions.preservedataflash.ranges}"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value=""/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.programcalmem" value="false"/>
+        <property key="programoptions.programuserotp" value="false"/>
+        <property key="programoptions.testmodeentrymethod" value="VPPFirst"/>
+        <property key="programoptions.usehighvoltageonmclr" value="false"/>
+        <property key="programoptions.uselvpprogramming" value="false"/>
+        <property key="voltagevalue" value="3.25"/>
+      </PICkit3PlatformTool>
+      <PKOBSKDEPlatformTool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
+        <property key="ToolFirmwareFilePath"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="1d000000-1d003fff"/>
+        <property key="memories.userotp" value="true"/>
+        <property key="programoptions.donoteraseauxmem" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges" value=""/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value=""/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.usehighvoltageonmclr" value="false"/>
+        <property key="programoptions.uselvpprogramming" value="true"/>
+      </PKOBSKDEPlatformTool>
+    </conf>
+  </confs>
+</configurationDescriptor>
