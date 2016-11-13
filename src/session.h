@@ -1,7 +1,6 @@
 #if !defined(__TTN_GW_SESSION_H_)
 #define __TTN_GW_SESSION_H_
 
-#include "platform.h"
 #include <MQTTClient.h>
 
 struct Session {
