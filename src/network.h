@@ -18,5 +18,7 @@
 #define QOS_STATUS   QOS1
 #define QOS_DOWN     QOS1
 #define QOS_UP       QOS1
+#define QOS_CONNECT  QOS1
+#define QOS_WILL     QOS1
 
 #endif

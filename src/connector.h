@@ -5,8 +5,13 @@
 	#include <stdint.h>
 #endif
 
+#define MAX_ID_LENGTH 32
+#define SEND_DISCONNECT_WILL 1
+#define SEND_CONNECT 1
+
 #include "github.com/TheThingsNetwork/ttn/api/gateway/gateway.pb-c.h"
 #include "github.com/TheThingsNetwork/ttn/api/router/router.pb-c.h"
+#include "github.com/TheThingsNetwork/gateway-connector-bridge/types/types.pb-c.h"
 
 typedef void TTN;
 typedef void (*TTNDownlinkHandler)(Router__DownlinkMessage *, void *);

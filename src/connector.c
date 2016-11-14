@@ -46,43 +46,74 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key)
 {
    struct Session *session = (struct Session *)s;
    int err;
-   char *downlink_topic = NULL;
+   MQTTPacket_connectData connect = MQTTPacket_connectData_initializer;
 
    err = NetworkConnect(&session->network, (char *)host_name, port);
    if (err != SUCCESS)
       goto exit;
 
-   MQTTPacket_connectData connect = MQTTPacket_connectData_initializer;
-
    connect.clientID.cstring = session->id;
    connect.keepAliveInterval = KEEP_ALIVE_INTERVAL;
-
    // Only set credentials when we have a key
    if (key)
    {
       connect.username.cstring = session->id;
       connect.password.cstring = (char *)key;
    }
+#if SEND_DISCONNECT_WILL
+   Types__DisconnectMessage will = TYPES__DISCONNECT_MESSAGE__INIT;
+   will.id = session->id;
+   connect.willFlag = 1;
+   connect.will.topicName.cstring = "disconnect";
+   connect.will.message.lenstring.len = types__disconnect_message__get_packed_size(&will);
+   connect.will.message.lenstring.data = malloc(connect.will.message.lenstring.len);
+   connect.will.qos = QOS_WILL;
+   types__disconnect_message__pack(&will, (uint8_t *)connect.will.message.lenstring.data);
+#endif
 
    err = MQTTConnect(&session->client, &connect);
+#if SEND_DISCONNECT_WILL
+   free(connect.will.message.lenstring.data);
+#endif
    if (err != SUCCESS)
       goto exit;
 
-   err = asprintf(&downlink_topic, "%s/down", session->id);
-   if (err == -1)
-      goto exit;
+#if SEND_CONNECT
+   Types__ConnectMessage conn = TYPES__CONNECT_MESSAGE__INIT;
+   conn.id = session->id;
+   conn.key = (char *)key;
+   MQTTMessage message;
+   message.qos = QOS_CONNECT;
+   message.payloadlen = types__connect_message__get_packed_size(&conn);
+   message.payload = malloc(message.payloadlen);
+   types__connect_message__pack(&conn, (uint8_t *)message.payload);
+   MQTTPublish(&session->client, "connect", &message);
+   free(message.payload);
+#endif
 
+   char downlink_topic[MAX_ID_LENGTH + 6];
+   sprintf(downlink_topic, "%s/down", session->id);
    err = MQTTSubscribe(&session->client, downlink_topic, QOS_DOWN, &ttngwc_downlink_cb, session);
 
 exit:
-   if (err != SUCCESS)
-      free(downlink_topic);
    return err;
 }
 
 int ttngwc_disconnect(TTN *s)
 {
    struct Session *session = (struct Session *)s;
+
+#if SEND_DISCONNECT_WILL
+   Types__DisconnectMessage will = TYPES__DISCONNECT_MESSAGE__INIT;
+   will.id = session->id;
+   MQTTMessage message;
+   message.qos = QOS_WILL;
+   message.payloadlen = types__disconnect_message__get_packed_size(&will);
+   message.payload = malloc(message.payloadlen);
+   types__disconnect_message__pack(&will, (uint8_t *)message.payload);
+   MQTTPublish(&session->client, "disconnect", &message);
+   free(message.payload);
+#endif
 
    MQTTDisconnect(&session->client);
    NetworkDisconnect(&session->network);
@@ -92,7 +123,7 @@ int ttngwc_disconnect(TTN *s)
 
 int ttngwc_send_uplink(TTN *s, Router__UplinkMessage *uplink)
 {
-      struct Session *session = (struct Session *)s;
+   struct Session *session = (struct Session *)s;
 
    int rc = FAILURE;
    void *payload = NULL;
@@ -107,8 +138,6 @@ int ttngwc_send_uplink(TTN *s, Router__UplinkMessage *uplink)
 
    MQTTMessage message;
    message.qos = QOS_UP;
-   message.retained = 0;
-   message.dup = 0;
    message.payload = payload;
    message.payloadlen = len;
 
