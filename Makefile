@@ -49,6 +49,7 @@ proto:
 	$(PROTOC)/github.com/TheThingsNetwork/ttn/api/protocol/protocol.proto
 	$(PROTOC)/github.com/TheThingsNetwork/ttn/api/protocol/lorawan/lorawan.proto
 	$(PROTOC)/github.com/TheThingsNetwork/ttn/api/router/router.proto
+	$(PROTOC)/github.com/TheThingsNetwork/gateway-connector-bridge/types/types.proto
 
 .PHONY: test
 test: $(BINDIR)/$(NAME)_test
