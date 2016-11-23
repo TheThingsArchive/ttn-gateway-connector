@@ -68,6 +68,7 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key)
    connect.will.message.lenstring.len = types__disconnect_message__get_packed_size(&will);
    connect.will.message.lenstring.data = malloc(connect.will.message.lenstring.len);
    connect.will.qos = QOS_WILL;
+   connect.will.retained = 0;
    types__disconnect_message__pack(&will, (uint8_t *)connect.will.message.lenstring.data);
 #endif
 
@@ -84,6 +85,8 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key)
    conn.key = (char *)key;
    MQTTMessage message;
    message.qos = QOS_CONNECT;
+   message.retained = 0;
+   message.dup = 0;
    message.payloadlen = types__connect_message__get_packed_size(&conn);
    message.payload = malloc(message.payloadlen);
    types__connect_message__pack(&conn, (uint8_t *)message.payload);
@@ -108,6 +111,8 @@ int ttngwc_disconnect(TTN *s)
    will.id = session->id;
    MQTTMessage message;
    message.qos = QOS_WILL;
+   message.retained = 0;
+   message.dup = 0;
    message.payloadlen = types__disconnect_message__get_packed_size(&will);
    message.payload = malloc(message.payloadlen);
    types__disconnect_message__pack(&will, (uint8_t *)message.payload);
@@ -138,6 +143,8 @@ int ttngwc_send_uplink(TTN *s, Router__UplinkMessage *uplink)
 
    MQTTMessage message;
    message.qos = QOS_UP;
+   message.retained = 0;
+   message.dup = 0;
    message.payload = payload;
    message.payloadlen = len;
 
