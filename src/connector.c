@@ -1,3 +1,6 @@
+// Copyright © 2016 The Things Network
+// Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+
 #include "network.h"
 
 void ttngwc_init(TTN **s, const char *id, TTNDownlinkHandler downlink_handler,
