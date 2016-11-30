@@ -1,4 +1,5 @@
 #include "network.h"
+#include <MQTTClient.c>
 
 void ttngwc_init(TTN **s, const char *id, TTNDownlinkHandler downlink_handler, void *cb_arg)
 {
@@ -45,7 +46,10 @@ void ttngwc_downlink_cb(struct MessageData *data, void *s)
 int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key)
 {
    struct Session *session = (struct Session *)s;
+
    int err;
+   char *downlink_topic;
+
    MQTTPacket_connectData connect = MQTTPacket_connectData_initializer;
 
    err = NetworkConnect(&session->network, (char *)host_name, port);
@@ -94,11 +98,14 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key)
    free(message.payload);
 #endif
 
-   char downlink_topic[MAX_ID_LENGTH + 6];
-   sprintf(downlink_topic, "%s/down", session->id);
+   if (asprintf(&downlink_topic, "%s/down", session->id) == -1)
+      goto exit;
+
    err = MQTTSubscribe(&session->client, downlink_topic, QOS_DOWN, &ttngwc_downlink_cb, session);
 
 exit:
+   if (err != SUCCESS)
+      free(downlink_topic);
    return err;
 }
 
