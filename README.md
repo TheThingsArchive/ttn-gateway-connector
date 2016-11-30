@@ -231,3 +231,7 @@ If you do not have Go installed or if you do not have cloned the repository to y
 ```
 make proto
 ```
+
+## License
+
+Source code for The Things Network is released under the MIT License, which can be found in the [LICENSE](LICENSE) file. A list of authors can be found in the [AUTHORS](AUTHORS) file.
