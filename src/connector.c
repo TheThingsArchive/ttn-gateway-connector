@@ -47,6 +47,7 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key)
    struct Session *session = (struct Session *)s;
    int err;
    MQTTPacket_connectData connect = MQTTPacket_connectData_initializer;
+   char *downlink_topic;
 
    err = NetworkConnect(&session->network, (char *)host_name, port);
    if (err != SUCCESS)
@@ -94,11 +95,14 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key)
    free(message.payload);
 #endif
 
-   char downlink_topic[MAX_ID_LENGTH + 6];
-   sprintf(downlink_topic, "%s/down", session->id);
+   asprintf(&downlink_topic, "%s/down", session->id);
    err = MQTTSubscribe(&session->client, downlink_topic, QOS_DOWN, &ttngwc_downlink_cb, session);
+   printf("subscribe: %s %d\n", downlink_topic, err);
 
 exit:
+   if (err != SUCCESS)
+      free(downlink_topic);
+
    return err;
 }
 
