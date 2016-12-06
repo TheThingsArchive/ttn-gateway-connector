@@ -50,7 +50,7 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
   struct Session *session = (struct Session *)s;
   int err;
   MQTTPacket_connectData connect = MQTTPacket_connectData_initializer;
-  char *downlink_topic;
+  char *downlink_topic= NULL;
 
   err = NetworkConnect(&session->network, (char *)host_name, port);
   if (err != SUCCESS)
@@ -107,7 +107,7 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
 
 exit:
   if (err != SUCCESS)
-    free(downlink_topic);
+    if (downlink_topic != NULL) free(downlink_topic);
 
   return err;
 }
