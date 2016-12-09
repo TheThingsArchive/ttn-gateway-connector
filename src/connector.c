@@ -103,11 +103,9 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
   asprintf(&downlink_topic, "%s/down", session->id);
   err = MQTTSubscribe(&session->client, downlink_topic, QOS_DOWN,
                       &ttngwc_downlink_cb, session);
-  printf("subscribe: %s %d\n", downlink_topic, err);
 
 exit:
-  if (err != SUCCESS)
-    if (downlink_topic != NULL) free(downlink_topic);
+  if (err != SUCCESS && downlink_topic != NULL) free(downlink_topic);
 
   return err;
 }
