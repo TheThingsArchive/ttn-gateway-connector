@@ -161,8 +161,8 @@ int ttngwc_send_uplink(TTN *s, Router__UplinkMessage *uplink) {
   rc = MQTTPublish(&session->client, topic, &message);
 
 exit:
-  free(topic);
-  free(payload);
+  if (topic != NULL) free(topic);
+  if (payload != NULL) free(payload);
   return rc;
 }
 
@@ -193,7 +193,7 @@ int ttngwc_send_status(TTN *s, Gateway__Status *status) {
   rc = MQTTPublish(&session->client, topic, &message);
 
 exit:
-  free(topic);
-  free(payload);
+  if (topic != NULL) free(topic);
+  if (payload != NULL) free(payload);
   return rc;
 }
