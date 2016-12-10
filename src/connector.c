@@ -50,7 +50,7 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
   struct Session *session = (struct Session *)s;
   int err;
   MQTTPacket_connectData connect = MQTTPacket_connectData_initializer;
-  char *downlink_topic;
+  char *downlink_topic = NULL;
 
   err = NetworkConnect(&session->network, (char *)host_name, port);
   if (err != SUCCESS)
@@ -103,10 +103,9 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
   asprintf(&downlink_topic, "%s/down", session->id);
   err = MQTTSubscribe(&session->client, downlink_topic, QOS_DOWN,
                       &ttngwc_downlink_cb, session);
-  printf("subscribe: %s %d\n", downlink_topic, err);
 
 exit:
-  if (err != SUCCESS)
+  if (err != SUCCESS && downlink_topic != NULL)
     free(downlink_topic);
 
   return err;
@@ -162,8 +161,8 @@ int ttngwc_send_uplink(TTN *s, Router__UplinkMessage *uplink) {
   rc = MQTTPublish(&session->client, topic, &message);
 
 exit:
-  free(topic);
-  free(payload);
+  if (topic != NULL) free(topic);
+  if (payload != NULL) free(payload);
   return rc;
 }
 
@@ -194,7 +193,7 @@ int ttngwc_send_status(TTN *s, Gateway__Status *status) {
   rc = MQTTPublish(&session->client, topic, &message);
 
 exit:
-  free(topic);
-  free(payload);
+  if (topic != NULL) free(topic);
+  if (payload != NULL) free(payload);
   return rc;
 }
