@@ -1,5 +1,6 @@
 // Copyright © 2016 The Things Network
-// Use of this source code is governed by the MIT license that can be found in the LICENSE file.
+// Use of this source code is governed by the MIT license that can be found in
+// the LICENSE file.
 
 #include "network.h"
 
@@ -161,8 +162,10 @@ int ttngwc_send_uplink(TTN *s, Router__UplinkMessage *uplink) {
   rc = MQTTPublish(&session->client, topic, &message);
 
 exit:
-  if (topic != NULL) free(topic);
-  if (payload != NULL) free(payload);
+  if (topic != NULL)
+    free(topic);
+  if (payload != NULL)
+    free(payload);
   return rc;
 }
 
@@ -193,7 +196,9 @@ int ttngwc_send_status(TTN *s, Gateway__Status *status) {
   rc = MQTTPublish(&session->client, topic, &message);
 
 exit:
-  if (topic != NULL) free(topic);
-  if (payload != NULL) free(payload);
+  if (topic != NULL)
+    free(topic);
+  if (payload != NULL)
+    free(payload);
   return rc;
 }
