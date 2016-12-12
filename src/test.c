@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
     gateway.has_rf_chain = 1;
     gateway.rf_chain = 5;
     gateway.has_frequency = 1;
-    gateway.frequency = 86800;
+    gateway.frequency = 867100000;
     up.gateway_metadata = &gateway;
 
     // Send uplink message
@@ -117,7 +117,7 @@ int main(int argc, char **argv) {
     else
       printf("up: sent with timestamp %d\n", i);
 
-    sleep(rand() % 10);
+    sleep(rand() % 20);
   }
 
   printf("disconnecting\n");
