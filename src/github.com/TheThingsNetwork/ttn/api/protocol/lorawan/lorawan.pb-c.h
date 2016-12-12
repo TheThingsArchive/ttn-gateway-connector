@@ -46,7 +46,7 @@ typedef enum _Lorawan__Region {
   LORAWAN__REGION__AU_915_928 = 4,
   LORAWAN__REGION__CN_470_510 = 5,
   LORAWAN__REGION__AS_923 = 6,
-  LORAWAN__REGION__SK_920_923 = 7
+  LORAWAN__REGION__KR_920_923 = 7
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(LORAWAN__REGION)
 } Lorawan__Region;
 typedef enum _Lorawan__Major {

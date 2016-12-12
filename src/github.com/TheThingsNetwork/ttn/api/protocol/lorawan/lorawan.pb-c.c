@@ -1592,7 +1592,7 @@ static const ProtobufCEnumValue lorawan__region__enum_values_by_number[8] =
   { "AU_915_928", "LORAWAN__REGION__AU_915_928", 4 },
   { "CN_470_510", "LORAWAN__REGION__CN_470_510", 5 },
   { "AS_923", "LORAWAN__REGION__AS_923", 6 },
-  { "SK_920_923", "LORAWAN__REGION__SK_920_923", 7 },
+  { "KR_920_923", "LORAWAN__REGION__KR_920_923", 7 },
 };
 static const ProtobufCIntRange lorawan__region__value_ranges[] = {
 {0, 0},{0, 8}
@@ -1605,7 +1605,7 @@ static const ProtobufCEnumValueIndex lorawan__region__enum_values_by_name[8] =
   { "CN_779_787", 2 },
   { "EU_433", 3 },
   { "EU_863_870", 0 },
-  { "SK_920_923", 7 },
+  { "KR_920_923", 7 },
   { "US_902_928", 1 },
 };
 const ProtobufCEnumDescriptor lorawan__region__descriptor =

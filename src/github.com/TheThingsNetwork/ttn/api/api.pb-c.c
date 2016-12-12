@@ -786,11 +786,23 @@ const ProtobufCMessageDescriptor api__component_stats__memory_stats__descriptor 
   (ProtobufCMessageInit) api__component_stats__memory_stats__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor api__component_stats__field_descriptors[4] =
+static const ProtobufCFieldDescriptor api__component_stats__field_descriptors[5] =
 {
   {
-    "cpu",
+    "uptime",
     1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT64,
+    offsetof(Api__ComponentStats, has_uptime),
+    offsetof(Api__ComponentStats, uptime),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "cpu",
+    2,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_MESSAGE,
     0,   /* quantifier_offset */
@@ -838,16 +850,16 @@ static const ProtobufCFieldDescriptor api__component_stats__field_descriptors[4]
   },
 };
 static const unsigned api__component_stats__field_indices_by_name[] = {
-  0,   /* field[0] = cpu */
-  3,   /* field[3] = gc_cpu_fraction */
-  2,   /* field[2] = goroutines */
-  1,   /* field[1] = memory */
+  1,   /* field[1] = cpu */
+  4,   /* field[4] = gc_cpu_fraction */
+  3,   /* field[3] = goroutines */
+  2,   /* field[2] = memory */
+  0,   /* field[0] = uptime */
 };
-static const ProtobufCIntRange api__component_stats__number_ranges[2 + 1] =
+static const ProtobufCIntRange api__component_stats__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 3, 1 },
-  { 0, 4 }
+  { 0, 5 }
 };
 const ProtobufCMessageDescriptor api__component_stats__descriptor =
 {
@@ -857,10 +869,10 @@ const ProtobufCMessageDescriptor api__component_stats__descriptor =
   "Api__ComponentStats",
   "api",
   sizeof(Api__ComponentStats),
-  4,
+  5,
   api__component_stats__field_descriptors,
   api__component_stats__field_indices_by_name,
-  2,  api__component_stats__number_ranges,
+  1,  api__component_stats__number_ranges,
   (ProtobufCMessageInit) api__component_stats__init,
   NULL,NULL,NULL    /* reserved[123] */
 };

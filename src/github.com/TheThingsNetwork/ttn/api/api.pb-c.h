@@ -161,6 +161,8 @@ struct  _Api__ComponentStats__MemoryStats
 struct  _Api__ComponentStats
 {
   ProtobufCMessage base;
+  protobuf_c_boolean has_uptime;
+  uint64_t uptime;
   Api__ComponentStats__CPUStats *cpu;
   Api__ComponentStats__MemoryStats *memory;
   protobuf_c_boolean has_goroutines;
@@ -170,7 +172,7 @@ struct  _Api__ComponentStats
 };
 #define API__COMPONENT_STATS__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&api__component_stats__descriptor) \
-    , NULL, NULL, 0,0, 0,0 }
+    , 0,0, NULL, NULL, 0,0, 0,0 }
 
 
 /* Api__Percentiles methods */

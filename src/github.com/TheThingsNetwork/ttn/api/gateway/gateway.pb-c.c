@@ -136,6 +136,12 @@ void   gateway__tx_configuration__free_unpacked
   assert(message->base.descriptor == &gateway__tx_configuration__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
+void   gateway__status__osmetrics__init
+                     (Gateway__Status__OSMetrics         *message)
+{
+  static Gateway__Status__OSMetrics init_value = GATEWAY__STATUS__OSMETRICS__INIT;
+  *message = init_value;
+}
 void   gateway__status__init
                      (Gateway__Status         *message)
 {
@@ -507,7 +513,113 @@ const ProtobufCMessageDescriptor gateway__tx_configuration__descriptor =
   (ProtobufCMessageInit) gateway__tx_configuration__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor gateway__status__field_descriptors[13] =
+static const ProtobufCFieldDescriptor gateway__status__osmetrics__field_descriptors[6] =
+{
+  {
+    "load_1",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Gateway__Status__OSMetrics, has_load_1),
+    offsetof(Gateway__Status__OSMetrics, load_1),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "load_5",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Gateway__Status__OSMetrics, has_load_5),
+    offsetof(Gateway__Status__OSMetrics, load_5),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "load_15",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Gateway__Status__OSMetrics, has_load_15),
+    offsetof(Gateway__Status__OSMetrics, load_15),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "cpu_percentage",
+    11,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Gateway__Status__OSMetrics, has_cpu_percentage),
+    offsetof(Gateway__Status__OSMetrics, cpu_percentage),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "memory_percentage",
+    21,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Gateway__Status__OSMetrics, has_memory_percentage),
+    offsetof(Gateway__Status__OSMetrics, memory_percentage),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "temperature",
+    31,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Gateway__Status__OSMetrics, has_temperature),
+    offsetof(Gateway__Status__OSMetrics, temperature),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned gateway__status__osmetrics__field_indices_by_name[] = {
+  3,   /* field[3] = cpu_percentage */
+  0,   /* field[0] = load_1 */
+  2,   /* field[2] = load_15 */
+  1,   /* field[1] = load_5 */
+  4,   /* field[4] = memory_percentage */
+  5,   /* field[5] = temperature */
+};
+static const ProtobufCIntRange gateway__status__osmetrics__number_ranges[4 + 1] =
+{
+  { 1, 0 },
+  { 11, 3 },
+  { 21, 4 },
+  { 31, 5 },
+  { 0, 6 }
+};
+const ProtobufCMessageDescriptor gateway__status__osmetrics__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "gateway.Status.OSMetrics",
+  "OSMetrics",
+  "Gateway__Status__OSMetrics",
+  "gateway",
+  sizeof(Gateway__Status__OSMetrics),
+  6,
+  gateway__status__osmetrics__field_descriptors,
+  gateway__status__osmetrics__field_indices_by_name,
+  4,  gateway__status__osmetrics__number_ranges,
+  (ProtobufCMessageInit) gateway__status__osmetrics__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor gateway__status__field_descriptors[16] =
 {
   {
     "timestamp",
@@ -594,6 +706,30 @@ static const ProtobufCFieldDescriptor gateway__status__field_descriptors[13] =
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
+    "bridge",
+    16,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    offsetof(Gateway__Status, bridge),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "router",
+    17,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    offsetof(Gateway__Status, router),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
     "gps",
     21,
     PROTOBUF_C_LABEL_OPTIONAL,
@@ -665,30 +801,46 @@ static const ProtobufCFieldDescriptor gateway__status__field_descriptors[13] =
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "os",
+    51,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Gateway__Status, os),
+    &gateway__status__osmetrics__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned gateway__status__field_indices_by_name[] = {
+  7,   /* field[7] = bridge */
   4,   /* field[4] = contact_email */
   5,   /* field[5] = description */
-  7,   /* field[7] = gps */
+  9,   /* field[9] = gps */
   2,   /* field[2] = ip */
+  15,   /* field[15] = os */
   3,   /* field[3] = platform */
   6,   /* field[6] = region */
-  8,   /* field[8] = rtt */
-  9,   /* field[9] = rx_in */
-  10,   /* field[10] = rx_ok */
+  8,   /* field[8] = router */
+  10,   /* field[10] = rtt */
+  11,   /* field[11] = rx_in */
+  12,   /* field[12] = rx_ok */
   1,   /* field[1] = time */
   0,   /* field[0] = timestamp */
-  11,   /* field[11] = tx_in */
-  12,   /* field[12] = tx_ok */
+  13,   /* field[13] = tx_in */
+  14,   /* field[14] = tx_ok */
 };
-static const ProtobufCIntRange gateway__status__number_ranges[5 + 1] =
+static const ProtobufCIntRange gateway__status__number_ranges[6 + 1] =
 {
   { 1, 0 },
   { 11, 2 },
-  { 21, 7 },
-  { 31, 8 },
-  { 41, 9 },
-  { 0, 13 }
+  { 21, 9 },
+  { 31, 10 },
+  { 41, 11 },
+  { 51, 15 },
+  { 0, 16 }
 };
 const ProtobufCMessageDescriptor gateway__status__descriptor =
 {
@@ -698,10 +850,10 @@ const ProtobufCMessageDescriptor gateway__status__descriptor =
   "Gateway__Status",
   "gateway",
   sizeof(Gateway__Status),
-  13,
+  16,
   gateway__status__field_descriptors,
   gateway__status__field_indices_by_name,
-  5,  gateway__status__number_ranges,
+  6,  gateway__status__number_ranges,
   (ProtobufCMessageInit) gateway__status__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
