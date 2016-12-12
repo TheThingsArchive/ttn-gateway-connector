@@ -12,9 +12,9 @@
 #include "github.com/TheThingsNetwork/ttn/api/router/router.pb-c.h"
 
 #define KEEP_ALIVE_INTERVAL 20
-#define COMMAND_TIMEOUT 1000
-#define READ_BUFFER_SIZE 100
-#define SEND_BUFFER_SIZE 100
+#define COMMAND_TIMEOUT 2000
+#define READ_BUFFER_SIZE 512
+#define SEND_BUFFER_SIZE 512
 
 #define QOS_STATUS QOS1
 #define QOS_DOWN QOS1
