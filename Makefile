@@ -14,7 +14,7 @@ TARGET_LIB = lib$(NAME).so
 
 SRCS = $(SRCDIR)/connector.c $(SRCDIR)/../$(PAHO_SRC)/MQTTClient-C/src/MQTTClient.c $(SRCDIR)/github.com/gogo/protobuf/protobuf/google/protobuf/empty.pb-c.c $(APIDIR)/api.pb-c.c $(APIDIR)/protocol/protocol.pb-c.c $(APIDIR)/protocol/lorawan/lorawan.pb-c.c $(APIDIR)/gateway/gateway.pb-c.c $(APIDIR)/router/router.pb-c.c $(SRCDIR)/github.com/TheThingsNetwork/gateway-connector-bridge/types/types.pb-c.c
 
-PROTOC = protoc-c --c_out=$(SRCDIR) --proto_path=$(GOPATH)/src -I$(GOPATH)/src/github.com/TheThingsNetwork $(GOPATH)/src
+PROTOC = protoc-c --c_out=$(SRCDIR) --proto_path=$(GOPATH)/src -I$(GOPATH)/src/github.com/TheThingsNetwork -I$(GOPATH)/src/github.com/gogo/protobuf/protobuf $(GOPATH)/src
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)

@@ -20,6 +20,7 @@ typedef struct _Gateway__GPSMetadata Gateway__GPSMetadata;
 typedef struct _Gateway__RxMetadata Gateway__RxMetadata;
 typedef struct _Gateway__TxConfiguration Gateway__TxConfiguration;
 typedef struct _Gateway__Status Gateway__Status;
+typedef struct _Gateway__Status__OSMetrics Gateway__Status__OSMetrics;
 
 
 /* --- enums --- */
@@ -112,8 +113,31 @@ struct  _Gateway__TxConfiguration
 
 
 /*
+ * Additional metrics from the operating system
+ */
+struct  _Gateway__Status__OSMetrics
+{
+  ProtobufCMessage base;
+  protobuf_c_boolean has_load_1;
+  float load_1;
+  protobuf_c_boolean has_load_5;
+  float load_5;
+  protobuf_c_boolean has_load_15;
+  float load_15;
+  protobuf_c_boolean has_cpu_percentage;
+  float cpu_percentage;
+  protobuf_c_boolean has_memory_percentage;
+  float memory_percentage;
+  protobuf_c_boolean has_temperature;
+  float temperature;
+};
+#define GATEWAY__STATUS__OSMETRICS__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&gateway__status__osmetrics__descriptor) \
+    , 0,0, 0,0, 0,0, 0,0, 0,0, 0,0 }
+
+
+/*
  * message Status represents a status update from a Gateway.
- * See https://gist.github.com/htdvisser/b2b1078005ed770233278a366430f992#stat
  */
 struct  _Gateway__Status
 {
@@ -128,6 +152,8 @@ struct  _Gateway__Status
   char *contact_email;
   char *description;
   char *region;
+  char *bridge;
+  char *router;
   Gateway__GPSMetadata *gps;
   protobuf_c_boolean has_rtt;
   uint32_t rtt;
@@ -139,10 +165,11 @@ struct  _Gateway__Status
   uint32_t tx_in;
   protobuf_c_boolean has_tx_ok;
   uint32_t tx_ok;
+  Gateway__Status__OSMetrics *os;
 };
 #define GATEWAY__STATUS__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&gateway__status__descriptor) \
-    , 0,0, 0,0, 0,NULL, NULL, NULL, NULL, NULL, NULL, 0,0, 0,0, 0,0, 0,0, 0,0 }
+    , 0,0, 0,0, 0,NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0,0, 0,0, 0,0, 0,0, 0,0, NULL }
 
 
 /* Gateway__GPSMetadata methods */
@@ -202,6 +229,9 @@ Gateway__TxConfiguration *
 void   gateway__tx_configuration__free_unpacked
                      (Gateway__TxConfiguration *message,
                       ProtobufCAllocator *allocator);
+/* Gateway__Status__OSMetrics methods */
+void   gateway__status__osmetrics__init
+                     (Gateway__Status__OSMetrics         *message);
 /* Gateway__Status methods */
 void   gateway__status__init
                      (Gateway__Status         *message);
@@ -232,6 +262,9 @@ typedef void (*Gateway__RxMetadata_Closure)
 typedef void (*Gateway__TxConfiguration_Closure)
                  (const Gateway__TxConfiguration *message,
                   void *closure_data);
+typedef void (*Gateway__Status__OSMetrics_Closure)
+                 (const Gateway__Status__OSMetrics *message,
+                  void *closure_data);
 typedef void (*Gateway__Status_Closure)
                  (const Gateway__Status *message,
                   void *closure_data);
@@ -245,6 +278,7 @@ extern const ProtobufCMessageDescriptor gateway__gpsmetadata__descriptor;
 extern const ProtobufCMessageDescriptor gateway__rx_metadata__descriptor;
 extern const ProtobufCMessageDescriptor gateway__tx_configuration__descriptor;
 extern const ProtobufCMessageDescriptor gateway__status__descriptor;
+extern const ProtobufCMessageDescriptor gateway__status__osmetrics__descriptor;
 
 PROTOBUF_C__END_DECLS
 
