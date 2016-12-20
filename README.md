@@ -8,7 +8,7 @@ The connector is an embedded C library intended to use on The Things Gateway and
 
 The connector uses a MQTT connection using the [Paho Embedded C/C++ Library](http://www.eclipse.org/paho/clients/c/embedded/). It uses `MQTTPacket` and `MQTTClient-C` which are not reliant on particular libraries for networking, threading or memory management.
 
-Messages are packed using [Protocol Buffers](https://developers.google.com/protocol-buffers/), a language-neutral, platform-neutral extensible mechanism for serializing structured data. The protos used are [The Things Network API](https://github.com/TheThingsNetwork/ttn/tree/refactor/api) compiled to C sources and headers.
+Messages are packed using [Protocol Buffers](https://developers.google.com/protocol-buffers/), a language-neutral, platform-neutral extensible mechanism for serializing structured data. The protos used are [The Things Network API](https://github.com/TheThingsNetwork/ttn/tree/master/api) compiled to C sources and headers.
 
 ## Is This Necessary?
 
