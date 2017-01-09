@@ -67,6 +67,7 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
 #if SEND_DISCONNECT_WILL
   Types__DisconnectMessage will = TYPES__DISCONNECT_MESSAGE__INIT;
   will.id = session->id;
+  will.key = (char *)key;
   connect.willFlag = 1;
   connect.will.topicName.cstring = "disconnect";
   connect.will.message.lenstring.len =
@@ -118,6 +119,7 @@ int ttngwc_disconnect(TTN *s) {
 #if SEND_DISCONNECT_WILL
   Types__DisconnectMessage will = TYPES__DISCONNECT_MESSAGE__INIT;
   will.id = session->id;
+  will.key = (char *)key;
   MQTTMessage message;
   message.qos = QOS_WILL;
   message.retained = 0;
