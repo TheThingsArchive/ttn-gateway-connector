@@ -31,6 +31,9 @@ typedef struct _Gateway__Status__OSMetrics Gateway__Status__OSMetrics;
 struct  _Gateway__GPSMetadata
 {
   ProtobufCMessage base;
+  /*
+   * Time in Unix nanoseconds
+   */
   protobuf_c_boolean has_time;
   int64_t time;
   protobuf_c_boolean has_latitude;
@@ -49,8 +52,14 @@ struct  _Gateway__RxMetadata
 {
   ProtobufCMessage base;
   char *gateway_id;
+  /*
+   * Timestamp (uptime of LoRa module) in microseconds with rollover
+   */
   protobuf_c_boolean has_timestamp;
   uint32_t timestamp;
+  /*
+   * Time in Unix nanoseconds
+   */
   protobuf_c_boolean has_time;
   int64_t time;
   protobuf_c_boolean has_rf_chain;
@@ -58,17 +67,17 @@ struct  _Gateway__RxMetadata
   protobuf_c_boolean has_channel;
   uint32_t channel;
   /*
-   * frequency in Hz
+   * Frequency in Hz
    */
   protobuf_c_boolean has_frequency;
   uint64_t frequency;
   /*
-   * received signal strength in dBm
+   * Received signal strength in dBm
    */
   protobuf_c_boolean has_rssi;
   float rssi;
   /*
-   * signal-to-noise-ratio in dB
+   * Signal-to-noise-ratio in dB
    */
   protobuf_c_boolean has_snr;
   float snr;
@@ -82,22 +91,25 @@ struct  _Gateway__RxMetadata
 struct  _Gateway__TxConfiguration
 {
   ProtobufCMessage base;
+  /*
+   * Timestamp (uptime of LoRa module) in microseconds with rollover
+   */
   protobuf_c_boolean has_timestamp;
   uint32_t timestamp;
   protobuf_c_boolean has_rf_chain;
   uint32_t rf_chain;
   /*
-   * frequency in Hz
+   * Frequency in Hz
    */
   protobuf_c_boolean has_frequency;
   uint64_t frequency;
   /*
-   * transmit power in dBm
+   * Transmit power in dBm
    */
   protobuf_c_boolean has_power;
   int32_t power;
   /*
-   * LoRa polarization inversion (basically always true)
+   * LoRa polarization inversion (basically always true for messages from gateway to node)
    */
   protobuf_c_boolean has_polarization_inversion;
   protobuf_c_boolean polarization_inversion;
@@ -142,8 +154,14 @@ struct  _Gateway__Status__OSMetrics
 struct  _Gateway__Status
 {
   ProtobufCMessage base;
+  /*
+   * Timestamp (uptime of gateway) in microseconds with rollover
+   */
   protobuf_c_boolean has_timestamp;
   uint32_t timestamp;
+  /*
+   * Time in Unix nanoseconds
+   */
   protobuf_c_boolean has_time;
   int64_t time;
   size_t n_ip;
@@ -151,18 +169,42 @@ struct  _Gateway__Status
   char *platform;
   char *contact_email;
   char *description;
+  /*
+   * The gateway's region: one of EU_863_870, US_902_928, CN_779_787, EU_433, AU_915_928, CN_470_510, AS_923, KR_920_923
+   */
   char *region;
+  /*
+   * The value of Bridge is set by the Bridge
+   */
   char *bridge;
+  /*
+   * The value of Router is set by the Router
+   */
   char *router;
   Gateway__GPSMetadata *gps;
+  /*
+   * Round-trip time to the server in milliseconds
+   */
   protobuf_c_boolean has_rtt;
   uint32_t rtt;
+  /*
+   * Total number of received uplink packets since boot
+   */
   protobuf_c_boolean has_rx_in;
   uint32_t rx_in;
+  /*
+   * Total number of successful (correct) uplink packets since boot
+   */
   protobuf_c_boolean has_rx_ok;
   uint32_t rx_ok;
+  /*
+   * Total number of received downlink packets since boot
+   */
   protobuf_c_boolean has_tx_in;
   uint32_t tx_in;
+  /*
+   * Total number of successfully sent downlink packets since boot
+   */
   protobuf_c_boolean has_tx_ok;
   uint32_t tx_ok;
   Gateway__Status__OSMetrics *os;

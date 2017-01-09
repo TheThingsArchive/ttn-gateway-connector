@@ -84,7 +84,7 @@ struct  _Lorawan__Metadata
    */
   char *coding_rate;
   /*
-   * Store the full 32 bit FCnt
+   * Store the full 32 bit FCnt (deprecated; do not use)
    */
   protobuf_c_boolean has_f_cnt;
   uint32_t f_cnt;
@@ -113,7 +113,7 @@ struct  _Lorawan__TxConfiguration
    */
   char *coding_rate;
   /*
-   * Store the full 32 bit FCnt
+   * Store the full 32 bit FCnt (deprecated; do not use)
    */
   protobuf_c_boolean has_f_cnt;
   uint32_t f_cnt;
