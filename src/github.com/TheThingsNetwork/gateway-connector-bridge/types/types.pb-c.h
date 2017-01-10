@@ -41,10 +41,12 @@ struct  _Types__DisconnectMessage
 {
   ProtobufCMessage base;
   char *id;
+  char *token;
+  char *key;
 };
 #define TYPES__DISCONNECT_MESSAGE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&types__disconnect_message__descriptor) \
-    , NULL }
+    , NULL, NULL, NULL }
 
 
 /* Types__ConnectMessage methods */
