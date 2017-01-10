@@ -9,6 +9,7 @@ void ttngwc_init(TTN **s, const char *id, TTNDownlinkHandler downlink_handler,
   struct Session *session = (struct Session *)malloc(sizeof(struct Session));
 
   session->id = strdup(id);
+  session->key = NULL;
   session->downlink_handler = downlink_handler;
   session->cb_arg = cb_arg;
   session->read_buffer = malloc(READ_BUFFER_SIZE);
@@ -28,6 +29,7 @@ void ttngwc_cleanup(TTN *s) {
   MQTTClientDestroy(&session->client);
 
   free(session->id);
+  free(session->key);
   free(session->read_buffer);
   free(session->send_buffer);
   free(session);
@@ -49,6 +51,9 @@ void ttngwc_downlink_cb(struct MessageData *data, void *s) {
 
 int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
   struct Session *session = (struct Session *)s;
+  if (key)
+    session->key = strdup(key);
+
   int err;
   MQTTPacket_connectData connect = MQTTPacket_connectData_initializer;
   char *downlink_topic = NULL;
@@ -119,7 +124,8 @@ int ttngwc_disconnect(TTN *s) {
 #if SEND_DISCONNECT_WILL
   Types__DisconnectMessage will = TYPES__DISCONNECT_MESSAGE__INIT;
   will.id = session->id;
-  will.key = (char *)key;
+  if (session->key)
+    will.key = session->key;
   MQTTMessage message;
   message.qos = QOS_WILL;
   message.retained = 0;

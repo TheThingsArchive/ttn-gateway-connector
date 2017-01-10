@@ -14,6 +14,7 @@ struct Session {
   unsigned char *read_buffer;
   unsigned char *send_buffer;
   char *id;
+  char *key;
 };
 
 #endif
