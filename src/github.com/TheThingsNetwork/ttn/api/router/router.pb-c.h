@@ -19,6 +19,7 @@ PROTOBUF_C__BEGIN_DECLS
 #include "ttn/api/api.pb-c.h"
 #include "ttn/api/protocol/protocol.pb-c.h"
 #include "ttn/api/gateway/gateway.pb-c.h"
+#include "ttn/api/trace/trace.pb-c.h"
 
 typedef struct _Router__SubscribeRequest Router__SubscribeRequest;
 typedef struct _Router__UplinkMessage Router__UplinkMessage;
@@ -53,10 +54,11 @@ struct  _Router__UplinkMessage
   Protocol__Message *message;
   Protocol__RxMetadata *protocol_metadata;
   Gateway__RxMetadata *gateway_metadata;
+  Trace__Trace *trace;
 };
 #define ROUTER__UPLINK_MESSAGE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&router__uplink_message__descriptor) \
-    , 0,{0,NULL}, NULL, NULL, NULL }
+    , 0,{0,NULL}, NULL, NULL, NULL, NULL }
 
 
 struct  _Router__DownlinkMessage
@@ -67,10 +69,11 @@ struct  _Router__DownlinkMessage
   Protocol__Message *message;
   Protocol__TxConfiguration *protocol_configuration;
   Gateway__TxConfiguration *gateway_configuration;
+  Trace__Trace *trace;
 };
 #define ROUTER__DOWNLINK_MESSAGE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&router__downlink_message__descriptor) \
-    , 0,{0,NULL}, NULL, NULL, NULL }
+    , 0,{0,NULL}, NULL, NULL, NULL, NULL }
 
 
 struct  _Router__DeviceActivationRequest
@@ -86,10 +89,11 @@ struct  _Router__DeviceActivationRequest
   Protocol__RxMetadata *protocol_metadata;
   Gateway__RxMetadata *gateway_metadata;
   Protocol__ActivationMetadata *activation_metadata;
+  Trace__Trace *trace;
 };
 #define ROUTER__DEVICE_ACTIVATION_REQUEST__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&router__device_activation_request__descriptor) \
-    , 0,{0,NULL}, NULL, 0,{0,NULL}, 0,{0,NULL}, NULL, NULL, NULL }
+    , 0,{0,NULL}, NULL, 0,{0,NULL}, 0,{0,NULL}, NULL, NULL, NULL, NULL }
 
 
 struct  _Router__DeviceActivationResponse

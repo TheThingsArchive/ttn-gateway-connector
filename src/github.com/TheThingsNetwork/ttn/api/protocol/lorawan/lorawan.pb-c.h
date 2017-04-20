@@ -38,17 +38,19 @@ typedef enum _Lorawan__Modulation {
   LORAWAN__MODULATION__FSK = 1
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(LORAWAN__MODULATION)
 } Lorawan__Modulation;
-typedef enum _Lorawan__Region {
-  LORAWAN__REGION__EU_863_870 = 0,
-  LORAWAN__REGION__US_902_928 = 1,
-  LORAWAN__REGION__CN_779_787 = 2,
-  LORAWAN__REGION__EU_433 = 3,
-  LORAWAN__REGION__AU_915_928 = 4,
-  LORAWAN__REGION__CN_470_510 = 5,
-  LORAWAN__REGION__AS_923 = 6,
-  LORAWAN__REGION__KR_920_923 = 7
-    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(LORAWAN__REGION)
-} Lorawan__Region;
+typedef enum _Lorawan__FrequencyPlan {
+  LORAWAN__FREQUENCY_PLAN__EU_863_870 = 0,
+  LORAWAN__FREQUENCY_PLAN__US_902_928 = 1,
+  LORAWAN__FREQUENCY_PLAN__CN_779_787 = 2,
+  LORAWAN__FREQUENCY_PLAN__EU_433 = 3,
+  LORAWAN__FREQUENCY_PLAN__AU_915_928 = 4,
+  LORAWAN__FREQUENCY_PLAN__CN_470_510 = 5,
+  LORAWAN__FREQUENCY_PLAN__AS_923 = 6,
+  LORAWAN__FREQUENCY_PLAN__AS_920_923 = 61,
+  LORAWAN__FREQUENCY_PLAN__AS_923_925 = 62,
+  LORAWAN__FREQUENCY_PLAN__KR_920_923 = 7
+    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(LORAWAN__FREQUENCY_PLAN)
+} Lorawan__FrequencyPlan;
 typedef enum _Lorawan__Major {
   LORAWAN__MAJOR__LORAWAN_R1 = 0
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(LORAWAN__MAJOR)
@@ -88,10 +90,12 @@ struct  _Lorawan__Metadata
    */
   protobuf_c_boolean has_f_cnt;
   uint32_t f_cnt;
+  protobuf_c_boolean has_frequency_plan;
+  Lorawan__FrequencyPlan frequency_plan;
 };
 #define LORAWAN__METADATA__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&lorawan__metadata__descriptor) \
-    , 0,0, NULL, 0,0, NULL, 0,0 }
+    , 0,0, NULL, 0,0, NULL, 0,0, 0,0 }
 
 
 struct  _Lorawan__TxConfiguration
@@ -141,10 +145,12 @@ struct  _Lorawan__ActivationMetadata
   protobuf_c_boolean has_rx_delay;
   uint32_t rx_delay;
   Lorawan__CFList *cf_list;
+  protobuf_c_boolean has_frequency_plan;
+  Lorawan__FrequencyPlan frequency_plan;
 };
 #define LORAWAN__ACTIVATION_METADATA__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&lorawan__activation_metadata__descriptor) \
-    , 0,{0,NULL}, 0,{0,NULL}, 0,{0,NULL}, 0,{0,NULL}, 0,0, 0,0, 0,0, NULL }
+    , 0,{0,NULL}, 0,{0,NULL}, 0,{0,NULL}, 0,{0,NULL}, 0,0, 0,0, 0,0, NULL, 0,0 }
 
 
 typedef enum {
@@ -600,7 +606,7 @@ typedef void (*Lorawan__CFList_Closure)
 /* --- descriptors --- */
 
 extern const ProtobufCEnumDescriptor    lorawan__modulation__descriptor;
-extern const ProtobufCEnumDescriptor    lorawan__region__descriptor;
+extern const ProtobufCEnumDescriptor    lorawan__frequency_plan__descriptor;
 extern const ProtobufCEnumDescriptor    lorawan__major__descriptor;
 extern const ProtobufCEnumDescriptor    lorawan__mtype__descriptor;
 extern const ProtobufCMessageDescriptor lorawan__metadata__descriptor;

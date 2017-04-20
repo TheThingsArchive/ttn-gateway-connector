@@ -479,7 +479,7 @@ const ProtobufCMessageDescriptor api__system_stats__loadstats__descriptor =
   (ProtobufCMessageInit) api__system_stats__loadstats__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor api__system_stats__cpustats__field_descriptors[3] =
+static const ProtobufCFieldDescriptor api__system_stats__cpustats__field_descriptors[4] =
 {
   {
     "user",
@@ -517,16 +517,29 @@ static const ProtobufCFieldDescriptor api__system_stats__cpustats__field_descrip
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "percentage",
+    4,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Api__SystemStats__CPUStats, has_percentage),
+    offsetof(Api__SystemStats__CPUStats, percentage),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned api__system_stats__cpustats__field_indices_by_name[] = {
   2,   /* field[2] = idle */
+  3,   /* field[3] = percentage */
   1,   /* field[1] = system */
   0,   /* field[0] = user */
 };
 static const ProtobufCIntRange api__system_stats__cpustats__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 3 }
+  { 0, 4 }
 };
 const ProtobufCMessageDescriptor api__system_stats__cpustats__descriptor =
 {
@@ -536,7 +549,7 @@ const ProtobufCMessageDescriptor api__system_stats__cpustats__descriptor =
   "Api__SystemStats__CPUStats",
   "api",
   sizeof(Api__SystemStats__CPUStats),
-  3,
+  4,
   api__system_stats__cpustats__field_descriptors,
   api__system_stats__cpustats__field_indices_by_name,
   1,  api__system_stats__cpustats__number_ranges,
@@ -671,7 +684,7 @@ const ProtobufCMessageDescriptor api__system_stats__descriptor =
   (ProtobufCMessageInit) api__system_stats__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor api__component_stats__cpustats__field_descriptors[3] =
+static const ProtobufCFieldDescriptor api__component_stats__cpustats__field_descriptors[4] =
 {
   {
     "user",
@@ -709,16 +722,29 @@ static const ProtobufCFieldDescriptor api__component_stats__cpustats__field_desc
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "percentage",
+    4,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Api__ComponentStats__CPUStats, has_percentage),
+    offsetof(Api__ComponentStats__CPUStats, percentage),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned api__component_stats__cpustats__field_indices_by_name[] = {
   2,   /* field[2] = idle */
+  3,   /* field[3] = percentage */
   1,   /* field[1] = system */
   0,   /* field[0] = user */
 };
 static const ProtobufCIntRange api__component_stats__cpustats__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 3 }
+  { 0, 4 }
 };
 const ProtobufCMessageDescriptor api__component_stats__cpustats__descriptor =
 {
@@ -728,14 +754,14 @@ const ProtobufCMessageDescriptor api__component_stats__cpustats__descriptor =
   "Api__ComponentStats__CPUStats",
   "api",
   sizeof(Api__ComponentStats__CPUStats),
-  3,
+  4,
   api__component_stats__cpustats__field_descriptors,
   api__component_stats__cpustats__field_indices_by_name,
   1,  api__component_stats__cpustats__number_ranges,
   (ProtobufCMessageInit) api__component_stats__cpustats__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor api__component_stats__memory_stats__field_descriptors[2] =
+static const ProtobufCFieldDescriptor api__component_stats__memory_stats__field_descriptors[4] =
 {
   {
     "memory",
@@ -761,15 +787,42 @@ static const ProtobufCFieldDescriptor api__component_stats__memory_stats__field_
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "heap",
+    10,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT64,
+    offsetof(Api__ComponentStats__MemoryStats, has_heap),
+    offsetof(Api__ComponentStats__MemoryStats, heap),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "stack",
+    11,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT64,
+    offsetof(Api__ComponentStats__MemoryStats, has_stack),
+    offsetof(Api__ComponentStats__MemoryStats, stack),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned api__component_stats__memory_stats__field_indices_by_name[] = {
+  2,   /* field[2] = heap */
   0,   /* field[0] = memory */
+  3,   /* field[3] = stack */
   1,   /* field[1] = swap */
 };
-static const ProtobufCIntRange api__component_stats__memory_stats__number_ranges[1 + 1] =
+static const ProtobufCIntRange api__component_stats__memory_stats__number_ranges[2 + 1] =
 {
   { 1, 0 },
-  { 0, 2 }
+  { 10, 2 },
+  { 0, 4 }
 };
 const ProtobufCMessageDescriptor api__component_stats__memory_stats__descriptor =
 {
@@ -779,10 +832,10 @@ const ProtobufCMessageDescriptor api__component_stats__memory_stats__descriptor 
   "Api__ComponentStats__MemoryStats",
   "api",
   sizeof(Api__ComponentStats__MemoryStats),
-  2,
+  4,
   api__component_stats__memory_stats__field_descriptors,
   api__component_stats__memory_stats__field_indices_by_name,
-  1,  api__component_stats__memory_stats__number_ranges,
+  2,  api__component_stats__memory_stats__number_ranges,
   (ProtobufCMessageInit) api__component_stats__memory_stats__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
