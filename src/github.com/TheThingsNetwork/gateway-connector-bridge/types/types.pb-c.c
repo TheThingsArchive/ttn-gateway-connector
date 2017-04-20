@@ -93,7 +93,7 @@ void   types__disconnect_message__free_unpacked
   assert(message->base.descriptor == &types__disconnect_message__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-static const ProtobufCFieldDescriptor types__connect_message__field_descriptors[3] =
+static const ProtobufCFieldDescriptor types__connect_message__field_descriptors[2] =
 {
   {
     "id",
@@ -102,18 +102,6 @@ static const ProtobufCFieldDescriptor types__connect_message__field_descriptors[
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
     offsetof(Types__ConnectMessage, id),
-    NULL,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-  {
-    "token",
-    2,
-    PROTOBUF_C_LABEL_OPTIONAL,
-    PROTOBUF_C_TYPE_STRING,
-    0,   /* quantifier_offset */
-    offsetof(Types__ConnectMessage, token),
     NULL,
     NULL,
     0,             /* flags */
@@ -134,13 +122,13 @@ static const ProtobufCFieldDescriptor types__connect_message__field_descriptors[
 };
 static const unsigned types__connect_message__field_indices_by_name[] = {
   0,   /* field[0] = id */
-  2,   /* field[2] = key */
-  1,   /* field[1] = token */
+  1,   /* field[1] = key */
 };
-static const ProtobufCIntRange types__connect_message__number_ranges[1 + 1] =
+static const ProtobufCIntRange types__connect_message__number_ranges[2 + 1] =
 {
   { 1, 0 },
-  { 0, 3 }
+  { 3, 1 },
+  { 0, 2 }
 };
 const ProtobufCMessageDescriptor types__connect_message__descriptor =
 {
@@ -150,14 +138,14 @@ const ProtobufCMessageDescriptor types__connect_message__descriptor =
   "Types__ConnectMessage",
   "types",
   sizeof(Types__ConnectMessage),
-  3,
+  2,
   types__connect_message__field_descriptors,
   types__connect_message__field_indices_by_name,
-  1,  types__connect_message__number_ranges,
+  2,  types__connect_message__number_ranges,
   (ProtobufCMessageInit) types__connect_message__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor types__disconnect_message__field_descriptors[3] =
+static const ProtobufCFieldDescriptor types__disconnect_message__field_descriptors[2] =
 {
   {
     "id",
@@ -166,18 +154,6 @@ static const ProtobufCFieldDescriptor types__disconnect_message__field_descripto
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
     offsetof(Types__DisconnectMessage, id),
-    NULL,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-  {
-    "token",
-    2,
-    PROTOBUF_C_LABEL_OPTIONAL,
-    PROTOBUF_C_TYPE_STRING,
-    0,   /* quantifier_offset */
-    offsetof(Types__DisconnectMessage, token),
     NULL,
     NULL,
     0,             /* flags */
@@ -198,13 +174,13 @@ static const ProtobufCFieldDescriptor types__disconnect_message__field_descripto
 };
 static const unsigned types__disconnect_message__field_indices_by_name[] = {
   0,   /* field[0] = id */
-  2,   /* field[2] = key */
-  1,   /* field[1] = token */
+  1,   /* field[1] = key */
 };
-static const ProtobufCIntRange types__disconnect_message__number_ranges[1 + 1] =
+static const ProtobufCIntRange types__disconnect_message__number_ranges[2 + 1] =
 {
   { 1, 0 },
-  { 0, 3 }
+  { 3, 1 },
+  { 0, 2 }
 };
 const ProtobufCMessageDescriptor types__disconnect_message__descriptor =
 {
@@ -214,10 +190,10 @@ const ProtobufCMessageDescriptor types__disconnect_message__descriptor =
   "Types__DisconnectMessage",
   "types",
   sizeof(Types__DisconnectMessage),
-  3,
+  2,
   types__disconnect_message__field_descriptors,
   types__disconnect_message__field_indices_by_name,
-  1,  types__disconnect_message__number_ranges,
+  2,  types__disconnect_message__number_ranges,
   (ProtobufCMessageInit) types__disconnect_message__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
