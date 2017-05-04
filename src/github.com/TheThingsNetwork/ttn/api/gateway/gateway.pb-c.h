@@ -273,7 +273,7 @@ struct  _Gateway__Status
   protobuf_c_boolean has_tx_ok;
   uint32_t tx_ok;
   /*
-   * Total number of packets received from link testing mote, with CRC OK 
+   * Total number of packets received from link testing mote, with CRC OK
    */
   protobuf_c_boolean has_lm_ok;
   uint32_t lm_ok;
@@ -293,10 +293,15 @@ struct  _Gateway__Status
   protobuf_c_boolean has_l_pps;
   uint32_t l_pps;
   Gateway__Status__OSMetrics *os;
+  /*
+   * debug or warning messages from the gateway
+   */
+  size_t n_messages;
+  char **messages;
 };
 #define GATEWAY__STATUS__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&gateway__status__descriptor) \
-    , 0,0, 0,0, 0,0, 0,0, 0,NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0,0, 0,0, NULL, NULL, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, NULL }
+    , 0,0, 0,0, 0,0, 0,0, 0,NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0,0, 0,0, NULL, NULL, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, NULL, 0,NULL }
 
 
 /* Gateway__GPSMetadata methods */
