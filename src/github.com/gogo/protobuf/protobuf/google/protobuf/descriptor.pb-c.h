@@ -68,6 +68,9 @@ typedef enum _Google__Protobuf__FieldDescriptorProto__Type {
   GOOGLE__PROTOBUF__FIELD_DESCRIPTOR_PROTO__TYPE__TYPE_STRING = 9,
   /*
    * Tag-delimited aggregate.
+   * Group type is deprecated and not supported in proto3. However, Proto3
+   * implementations should still be able to parse the group wire format and
+   * treat group fields as unknown fields.
    */
   GOOGLE__PROTOBUF__FIELD_DESCRIPTOR_PROTO__TYPE__TYPE_GROUP = 10,
   /*
@@ -98,9 +101,6 @@ typedef enum _Google__Protobuf__FieldDescriptorProto__Label {
    */
   GOOGLE__PROTOBUF__FIELD_DESCRIPTOR_PROTO__LABEL__LABEL_OPTIONAL = 1,
   GOOGLE__PROTOBUF__FIELD_DESCRIPTOR_PROTO__LABEL__LABEL_REQUIRED = 2,
-  /*
-   * TODO(sanjay): Should we add LABEL_MAP?
-   */
   GOOGLE__PROTOBUF__FIELD_DESCRIPTOR_PROTO__LABEL__LABEL_REPEATED = 3
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(GOOGLE__PROTOBUF__FIELD_DESCRIPTOR_PROTO__LABEL)
 } Google__Protobuf__FieldDescriptorProto__Label;
@@ -149,6 +149,23 @@ typedef enum _Google__Protobuf__FieldOptions__JSType {
   GOOGLE__PROTOBUF__FIELD_OPTIONS__JSTYPE__JS_NUMBER = 2
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(GOOGLE__PROTOBUF__FIELD_OPTIONS__JSTYPE)
 } Google__Protobuf__FieldOptions__JSType;
+/*
+ * Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
+ * or neither? HTTP based RPC implementation may choose GET verb for safe
+ * methods, and PUT verb for idempotent methods instead of the default POST.
+ */
+typedef enum _Google__Protobuf__MethodOptions__IdempotencyLevel {
+  GOOGLE__PROTOBUF__METHOD_OPTIONS__IDEMPOTENCY_LEVEL__IDEMPOTENCY_UNKNOWN = 0,
+  /*
+   * implies idempotent
+   */
+  GOOGLE__PROTOBUF__METHOD_OPTIONS__IDEMPOTENCY_LEVEL__NO_SIDE_EFFECTS = 1,
+  /*
+   * idempotent, but may have side effects
+   */
+  GOOGLE__PROTOBUF__METHOD_OPTIONS__IDEMPOTENCY_LEVEL__IDEMPOTENT = 2
+    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(GOOGLE__PROTOBUF__METHOD_OPTIONS__IDEMPOTENCY_LEVEL)
+} Google__Protobuf__MethodOptions__IdempotencyLevel;
 
 /* --- messages --- */
 
@@ -477,21 +494,10 @@ struct  _Google__Protobuf__FileOptions
   protobuf_c_boolean has_java_multiple_files;
   protobuf_c_boolean java_multiple_files;
   /*
-   * If set true, then the Java code generator will generate equals() and
-   * hashCode() methods for all messages defined in the .proto file.
-   * This increases generated code size, potentially substantially for large
-   * protos, which may harm a memory-constrained application.
-   * - In the full runtime this is a speed optimization, as the
-   * AbstractMessage base class includes reflection-based implementations of
-   * these methods.
-   * - In the lite runtime, setting this option changes the semantics of
-   * equals() and hashCode() to more closely match those of the full runtime;
-   * the generated methods compute their results based on field values rather
-   * than object identity. (Implementations should not assume that hashcodes
-   * will be consistent across runtimes or versions of the protocol compiler.)
+   * This option does nothing.
    */
-  protobuf_c_boolean has_java_generate_equals_and_hash;
-  protobuf_c_boolean java_generate_equals_and_hash;
+  protobuf_c_boolean has_java_generate_equals_and_hash PROTOBUF_C__DEPRECATED;
+  protobuf_c_boolean java_generate_equals_and_hash PROTOBUF_C__DEPRECATED;
   /*
    * If set true, then the Java2 code generator will generate code that
    * throws an exception whenever an attempt is made to assign a non-UTF-8
@@ -553,6 +559,13 @@ struct  _Google__Protobuf__FileOptions
    */
   char *csharp_namespace;
   /*
+   * By default Swift generators will take the proto package and CamelCase it
+   * replacing '.' with underscore and use that to prefix the types/symbols
+   * defined. When this options is provided, they will use this value instead
+   * to prefix the types/symbols defined.
+   */
+  char *swift_prefix;
+  /*
    * The parser stores options it doesn't recognize here. See above.
    */
   size_t n_uninterpreted_option;
@@ -560,7 +573,7 @@ struct  _Google__Protobuf__FileOptions
 };
 #define GOOGLE__PROTOBUF__FILE_OPTIONS__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&google__protobuf__file_options__descriptor) \
-    , NULL, NULL, 0,0, 0,0, 0,0, 0,GOOGLE__PROTOBUF__FILE_OPTIONS__OPTIMIZE_MODE__SPEED, NULL, 0,0, 0,0, 0,0, 0,0, 0,0, NULL, NULL, 0,NULL }
+    , NULL, NULL, 0,0, 0,0, 0,0, 0,GOOGLE__PROTOBUF__FILE_OPTIONS__OPTIMIZE_MODE__SPEED, NULL, 0,0, 0,0, 0,0, 0,0, 0,0, NULL, NULL, NULL, 0,NULL }
 
 
 struct  _Google__Protobuf__MessageOptions
@@ -682,7 +695,7 @@ struct  _Google__Protobuf__FieldOptions
    * call from multiple threads concurrently, while non-const methods continue
    * to require exclusive access.
    * Note that implementations may choose not to check required fields within
-   * a lazy sub-message.  That is, calling IsInitialized() on the outher message
+   * a lazy sub-message.  That is, calling IsInitialized() on the outer message
    * may return true even if the inner message has missing required fields.
    * This is necessary because otherwise the inner message would have to be
    * parsed in order to perform the check, defeating the purpose of lazy
@@ -815,6 +828,8 @@ struct  _Google__Protobuf__MethodOptions
    */
   protobuf_c_boolean has_deprecated;
   protobuf_c_boolean deprecated;
+  protobuf_c_boolean has_idempotency_level;
+  Google__Protobuf__MethodOptions__IdempotencyLevel idempotency_level;
   /*
    * The parser stores options it doesn't recognize here. See above.
    */
@@ -823,7 +838,7 @@ struct  _Google__Protobuf__MethodOptions
 };
 #define GOOGLE__PROTOBUF__METHOD_OPTIONS__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&google__protobuf__method_options__descriptor) \
-    , 0,0, 0,NULL }
+    , 0,0, 0,GOOGLE__PROTOBUF__METHOD_OPTIONS__IDEMPOTENCY_LEVEL__IDEMPOTENCY_UNKNOWN, 0,NULL }
 
 
 /*
@@ -1574,6 +1589,7 @@ extern const ProtobufCMessageDescriptor google__protobuf__enum_options__descript
 extern const ProtobufCMessageDescriptor google__protobuf__enum_value_options__descriptor;
 extern const ProtobufCMessageDescriptor google__protobuf__service_options__descriptor;
 extern const ProtobufCMessageDescriptor google__protobuf__method_options__descriptor;
+extern const ProtobufCEnumDescriptor    google__protobuf__method_options__idempotency_level__descriptor;
 extern const ProtobufCMessageDescriptor google__protobuf__uninterpreted_option__descriptor;
 extern const ProtobufCMessageDescriptor google__protobuf__uninterpreted_option__name_part__descriptor;
 extern const ProtobufCMessageDescriptor google__protobuf__source_code_info__descriptor;
