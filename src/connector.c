@@ -4,9 +4,6 @@
 
 #include "network.h"
 
-bool mqttconnected = false;
-
-
 void ttngwc_init(TTN **s, const char *id, TTNDownlinkHandler downlink_handler,
                  void *cb_arg) {
   struct Session *session = (struct Session *)malloc(sizeof(struct Session));
@@ -56,18 +53,18 @@ void ttngwc_downlink_cb(struct MessageData *data, void *s) {
   router__downlink_message__free_unpacked(downlink, NULL);
 }
 
-int ttngwc_connect(TTN *s, const char *key) {
+int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
   struct Session *session = (struct Session *)s;
   if (key)
     session->key = strdup(key);
 
   int err;
   MQTTPacket_connectData connect = MQTTPacket_connectData_initializer;
-/*
+
   err = NetworkConnect(&session->network, (char *)host_name, port);
   if (err != SUCCESS)
     goto exit;
-*/
+
   connect.clientID.cstring = session->id;
   connect.keepAliveInterval = KEEP_ALIVE_INTERVAL;
   // Only set credentials when we have a key
@@ -128,8 +125,6 @@ exit:
       free(session->key);
       session->key = NULL;
     }
-  } else {
-    mqttconnected = true;
   }
   return err;
 }
@@ -137,9 +132,6 @@ exit:
 int ttngwc_disconnect(TTN *s) {
   struct Session *session = (struct Session *)s;
 
-  if (!mqttconnected)
-    return 0;
-   
 #if SEND_DISCONNECT_WILL
   Types__DisconnectMessage will = TYPES__DISCONNECT_MESSAGE__INIT;
   will.id = session->id;
@@ -158,8 +150,6 @@ int ttngwc_disconnect(TTN *s) {
 
   MQTTDisconnect(&session->client);
   NetworkDisconnect(&session->network);
-
-  mqttconnected = false;
 
   if(session->key != NULL) {
     free(session->key);
@@ -182,17 +172,6 @@ int ttngwc_send_uplink(TTN *s, Router__UplinkMessage *uplink) {
   void *payload = NULL;
   char *topic = NULL;
 
-  if (!NET_PRES_SocketIsConnected(session->network.my_socket))
-  {
-    SYS_DEBUG(SYS_ERROR_ERROR, "CONN: UP: Error: TCP/IP not connected\r\n"); 
-    goto exit;
-  }
-  if (NET_PRES_SocketIsConnected(session->network.my_socket) == 0)
-  {
-    SYS_DEBUG(SYS_ERROR_ERROR, "CONN: UP: Error: put not ready\r\n"); 
-    goto exit;
-  }
-   
   size_t len = router__uplink_message__get_packed_size(uplink);
   payload = malloc(len);
   if (!payload)
@@ -226,17 +205,6 @@ int ttngwc_send_status(TTN *s, Gateway__Status *status) {
   int rc = FAILURE;
   void *payload = NULL;
   char *topic = NULL;
-   
-  if (!NET_PRES_SocketIsConnected(session->network.my_socket))
-  {
-    SYS_DEBUG(SYS_ERROR_ERROR, "CONN: Status: Error: TCP/IP not connected\r\n");
-    goto exit;
-  }
-  if (NET_PRES_SocketWriteIsReady(session->network.my_socket, 1, 1) == 0)
-  {
-    SYS_DEBUG(SYS_ERROR_ERROR, "CONN: Status: Error: put not ready\r\n");
-    goto exit;
-  }
 
   size_t len = gateway__status__get_packed_size(status);
   payload = malloc(len);
@@ -263,58 +231,4 @@ exit:
   if (payload != NULL)
     free(payload);
   return rc;
-}
-
-int ttngwc_open_socket(TTN *s, const char *host_name, int port)
-{
-   struct Session *session = (struct Session *)s;
-   int err;
-   err = NetworkConnect(&session->network, (char *)host_name, port);
-   if (err != SUCCESS) return 1;
-   return 0;
-   
-}
-
-int ttngwc_close_socket(TTN *s)
-{
-   struct Session *session = (struct Session *)s;
-   NetworkDisconnect(&session->network);
-   return 0;
-   
-}
-
-int ttngwc_check_socket(TTN *s)
-{
-   struct Session *session = (struct Session *)s;
-   if (!NET_PRES_SocketIsConnected(session->network.my_socket))
-    {
-        return 1;
-    }
-   if (NET_PRES_SocketWasReset(session->network.my_socket))
-    {
-        return 1;
-    }
-    if (NET_PRES_SocketWriteIsReady(session->network.my_socket, 1, 1) == 0)
-    {
-        return 1;
-    }  
-   return 0;
-}
-
-int ttngwc_socket_tls_start(TTN *s)
-{
-    struct Session *session = (struct Session *)s;
-    return NET_PRES_SocketEncryptSocket(session->network.my_socket) ? 0 : -1;
-}
-
-int ttngwc_socket_tls_is_busy(TTN *s)
-{
-    struct Session *session = (struct Session *)s;
-    return NET_PRES_SocketIsNegotiatingEncryption(session->network.my_socket) ? 1 : 0;
-}
-
-int ttngwc_socket_tls_check(TTN *s)
-{
-   struct Session *session = (struct Session *)s;
-   return NET_PRES_SocketIsSecure(session->network.my_socket) ? 0 : -1;
 }
