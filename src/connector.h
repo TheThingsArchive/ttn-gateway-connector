@@ -4,6 +4,8 @@
 #if !defined(__TTN_GW_H_)
 #define __TTN_GW_H_
 
+#define __harmony__
+
 #if defined(__linux__)
 #include <stdint.h>
 #endif
@@ -27,8 +29,19 @@ void ttngwc_cleanup(TTN *session);
 
 // Connects to The Things Network router.
 // Returns 0 on success, -1 on failure
-int ttngwc_connect(TTN *session, const char *host_name, int port,
-                   const char *key);
+
+int ttngwc_open_socket(TTN *session, const char *host_name, int port);
+int ttngwc_check_socket(TTN *s);
+
+int ttngwc_close_socket(TTN *s);
+
+int ttngwc_socket_tls_start(TTN *s);
+
+int ttngwc_socket_tls_is_busy(TTN *s);
+
+int ttngwc_socket_tls_check(TTN *s);
+
+int ttngwc_connect(TTN *session, const char *key);
 
 // Disconnects from The Things Network Router
 // Returns always 0
@@ -42,4 +55,6 @@ int ttngwc_send_uplink(TTN *session, Router__UplinkMessage *uplink);
 // Returns 0 on success, -1 on failure or -2 on timeout
 int ttngwc_send_status(TTN *session, Gateway__Status *status);
 
+
+void MQTT_POLL_RX();
 #endif
