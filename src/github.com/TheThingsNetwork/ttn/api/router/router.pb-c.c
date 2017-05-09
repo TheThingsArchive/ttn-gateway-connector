@@ -412,7 +412,7 @@ const ProtobufCMessageDescriptor router__subscribe_request__descriptor =
   (ProtobufCMessageInit) router__subscribe_request__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor router__uplink_message__field_descriptors[4] =
+static const ProtobufCFieldDescriptor router__uplink_message__field_descriptors[5] =
 {
   {
     "payload",
@@ -462,18 +462,32 @@ static const ProtobufCFieldDescriptor router__uplink_message__field_descriptors[
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "trace",
+    21,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Router__UplinkMessage, trace),
+    &trace__trace__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned router__uplink_message__field_indices_by_name[] = {
   3,   /* field[3] = gateway_metadata */
   1,   /* field[1] = message */
   0,   /* field[0] = payload */
   2,   /* field[2] = protocol_metadata */
+  4,   /* field[4] = trace */
 };
-static const ProtobufCIntRange router__uplink_message__number_ranges[2 + 1] =
+static const ProtobufCIntRange router__uplink_message__number_ranges[3 + 1] =
 {
   { 1, 0 },
   { 11, 2 },
-  { 0, 4 }
+  { 21, 4 },
+  { 0, 5 }
 };
 const ProtobufCMessageDescriptor router__uplink_message__descriptor =
 {
@@ -483,14 +497,14 @@ const ProtobufCMessageDescriptor router__uplink_message__descriptor =
   "Router__UplinkMessage",
   "router",
   sizeof(Router__UplinkMessage),
-  4,
+  5,
   router__uplink_message__field_descriptors,
   router__uplink_message__field_indices_by_name,
-  2,  router__uplink_message__number_ranges,
+  3,  router__uplink_message__number_ranges,
   (ProtobufCMessageInit) router__uplink_message__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor router__downlink_message__field_descriptors[4] =
+static const ProtobufCFieldDescriptor router__downlink_message__field_descriptors[5] =
 {
   {
     "payload",
@@ -540,18 +554,32 @@ static const ProtobufCFieldDescriptor router__downlink_message__field_descriptor
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "trace",
+    21,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Router__DownlinkMessage, trace),
+    &trace__trace__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned router__downlink_message__field_indices_by_name[] = {
   3,   /* field[3] = gateway_configuration */
   1,   /* field[1] = message */
   0,   /* field[0] = payload */
   2,   /* field[2] = protocol_configuration */
+  4,   /* field[4] = trace */
 };
-static const ProtobufCIntRange router__downlink_message__number_ranges[2 + 1] =
+static const ProtobufCIntRange router__downlink_message__number_ranges[3 + 1] =
 {
   { 1, 0 },
   { 11, 2 },
-  { 0, 4 }
+  { 21, 4 },
+  { 0, 5 }
 };
 const ProtobufCMessageDescriptor router__downlink_message__descriptor =
 {
@@ -561,14 +589,14 @@ const ProtobufCMessageDescriptor router__downlink_message__descriptor =
   "Router__DownlinkMessage",
   "router",
   sizeof(Router__DownlinkMessage),
-  4,
+  5,
   router__downlink_message__field_descriptors,
   router__downlink_message__field_indices_by_name,
-  2,  router__downlink_message__number_ranges,
+  3,  router__downlink_message__number_ranges,
   (ProtobufCMessageInit) router__downlink_message__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor router__device_activation_request__field_descriptors[7] =
+static const ProtobufCFieldDescriptor router__device_activation_request__field_descriptors[8] =
 {
   {
     "payload",
@@ -654,6 +682,18 @@ static const ProtobufCFieldDescriptor router__device_activation_request__field_d
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "trace",
+    31,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_MESSAGE,
+    0,   /* quantifier_offset */
+    offsetof(Router__DeviceActivationRequest, trace),
+    &trace__trace__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned router__device_activation_request__field_indices_by_name[] = {
   6,   /* field[6] = activation_metadata */
@@ -663,13 +703,15 @@ static const unsigned router__device_activation_request__field_indices_by_name[]
   1,   /* field[1] = message */
   0,   /* field[0] = payload */
   4,   /* field[4] = protocol_metadata */
+  7,   /* field[7] = trace */
 };
-static const ProtobufCIntRange router__device_activation_request__number_ranges[3 + 1] =
+static const ProtobufCIntRange router__device_activation_request__number_ranges[4 + 1] =
 {
   { 1, 0 },
   { 11, 2 },
   { 21, 4 },
-  { 0, 7 }
+  { 31, 7 },
+  { 0, 8 }
 };
 const ProtobufCMessageDescriptor router__device_activation_request__descriptor =
 {
@@ -679,10 +721,10 @@ const ProtobufCMessageDescriptor router__device_activation_request__descriptor =
   "Router__DeviceActivationRequest",
   "router",
   sizeof(Router__DeviceActivationRequest),
-  7,
+  8,
   router__device_activation_request__field_descriptors,
   router__device_activation_request__field_indices_by_name,
-  3,  router__device_activation_request__number_ranges,
+  4,  router__device_activation_request__number_ranges,
   (ProtobufCMessageInit) router__device_activation_request__init,
   NULL,NULL,NULL    /* reserved[123] */
 };

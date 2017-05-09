@@ -45,6 +45,7 @@ proto:
 	$(PROTOC)/github.com/gogo/protobuf/protobuf/google/protobuf/empty.proto
 	$(PROTOC)/github.com/gogo/protobuf/gogoproto/gogo.proto
 	$(PROTOC)/github.com/TheThingsNetwork/ttn/api/api.proto
+	$(PROTOC)/github.com/TheThingsNetwork/ttn/api/trace/trace.proto
 	$(PROTOC)/github.com/TheThingsNetwork/ttn/api/gateway/gateway.proto
 	$(PROTOC)/github.com/TheThingsNetwork/ttn/api/protocol/protocol.proto
 	$(PROTOC)/github.com/TheThingsNetwork/ttn/api/protocol/lorawan/lorawan.proto

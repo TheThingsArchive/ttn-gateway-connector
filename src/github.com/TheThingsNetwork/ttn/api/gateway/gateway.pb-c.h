@@ -18,6 +18,7 @@ PROTOBUF_C__BEGIN_DECLS
 
 typedef struct _Gateway__GPSMetadata Gateway__GPSMetadata;
 typedef struct _Gateway__RxMetadata Gateway__RxMetadata;
+typedef struct _Gateway__RxMetadata__Antenna Gateway__RxMetadata__Antenna;
 typedef struct _Gateway__TxConfiguration Gateway__TxConfiguration;
 typedef struct _Gateway__Status Gateway__Status;
 typedef struct _Gateway__Status__OSMetrics Gateway__Status__OSMetrics;
@@ -48,10 +49,43 @@ struct  _Gateway__GPSMetadata
     , 0,0, 0,0, 0,0, 0,0 }
 
 
+struct  _Gateway__RxMetadata__Antenna
+{
+  ProtobufCMessage base;
+  protobuf_c_boolean has_antenna;
+  uint32_t antenna;
+  protobuf_c_boolean has_channel;
+  uint32_t channel;
+  /*
+   * Received signal strength in dBm
+   */
+  protobuf_c_boolean has_rssi;
+  float rssi;
+  /*
+   * Signal-to-noise-ratio in dB
+   */
+  protobuf_c_boolean has_snr;
+  float snr;
+  /*
+   * Encrypted time from the Gateway FPGA
+   */
+  protobuf_c_boolean has_encrypted_time;
+  ProtobufCBinaryData encrypted_time;
+};
+#define GATEWAY__RX_METADATA__ANTENNA__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&gateway__rx_metadata__antenna__descriptor) \
+    , 0,0, 0,0, 0,0, 0,0, 0,{0,NULL} }
+
+
 struct  _Gateway__RxMetadata
 {
   ProtobufCMessage base;
   char *gateway_id;
+  /*
+   * Indicates whether the gateway is trusted. Components that are able to verify gateway trust MUST do so and set this value accordingly
+   */
+  protobuf_c_boolean has_gateway_trusted;
+  protobuf_c_boolean gateway_trusted;
   /*
    * Timestamp (uptime of LoRa module) in microseconds with rollover
    */
@@ -62,10 +96,17 @@ struct  _Gateway__RxMetadata
    */
   protobuf_c_boolean has_time;
   int64_t time;
+  /*
+   * Encrypted time from the Gateway FPGA
+   */
+  protobuf_c_boolean has_encrypted_time;
+  ProtobufCBinaryData encrypted_time;
   protobuf_c_boolean has_rf_chain;
   uint32_t rf_chain;
   protobuf_c_boolean has_channel;
   uint32_t channel;
+  size_t n_antennas;
+  Gateway__RxMetadata__Antenna **antennas;
   /*
    * Frequency in Hz
    */
@@ -85,7 +126,7 @@ struct  _Gateway__RxMetadata
 };
 #define GATEWAY__RX_METADATA__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&gateway__rx_metadata__descriptor) \
-    , NULL, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, NULL }
+    , NULL, 0,0, 0,0, 0,0, 0,{0,NULL}, 0,0, 0,0, 0,NULL, 0,0, 0,0, 0,0, NULL }
 
 
 struct  _Gateway__TxConfiguration
@@ -164,15 +205,25 @@ struct  _Gateway__Status
    */
   protobuf_c_boolean has_time;
   int64_t time;
+  /*
+   * Indicates whether the gateway is trusted. Components that are able to verify gateway trust MUST do so and set this value accordingly
+   */
+  protobuf_c_boolean has_gateway_trusted;
+  protobuf_c_boolean gateway_trusted;
+  /*
+   * Boot time in Unix nanoseconds
+   */
+  protobuf_c_boolean has_boot_time;
+  int64_t boot_time;
   size_t n_ip;
   char **ip;
   char *platform;
   char *contact_email;
   char *description;
   /*
-   * The gateway's region: one of EU_863_870, US_902_928, CN_779_787, EU_433, AU_915_928, CN_470_510, AS_923, KR_920_923
+   * The gateway's frequency plan: one of EU_863_870, US_902_928, CN_779_787, EU_433, AU_915_928, CN_470_510, AS_923, AS_920_923, AS_923_925, KR_920_923
    */
-  char *region;
+  char *frequency_plan;
   /*
    * The value of Bridge is set by the Bridge
    */
@@ -181,6 +232,20 @@ struct  _Gateway__Status
    * The value of Router is set by the Router
    */
   char *router;
+  /*
+   * Version of Gateway FPGA
+   */
+  protobuf_c_boolean has_fpga;
+  uint32_t fpga;
+  /*
+   * Version of Gateway DSP software
+   */
+  protobuf_c_boolean has_dsp;
+  uint32_t dsp;
+  /*
+   * Version of gateway driver (in X.X.X format)
+   */
+  char *hal;
   Gateway__GPSMetadata *gps;
   /*
    * Round-trip time to the server in milliseconds
@@ -207,11 +272,36 @@ struct  _Gateway__Status
    */
   protobuf_c_boolean has_tx_ok;
   uint32_t tx_ok;
+  /*
+   * Total number of packets received from link testing mote, with CRC OK
+   */
+  protobuf_c_boolean has_lm_ok;
+  uint32_t lm_ok;
+  /*
+   * Sequence number of the first packet received from the link testing mote
+   */
+  protobuf_c_boolean has_lm_st;
+  uint32_t lm_st;
+  /*
+   * Sequence number of the last packet received from the link testing mote
+   */
+  protobuf_c_boolean has_lm_nw;
+  uint32_t lm_nw;
+  /*
+   * Number of lost PPS pulses
+   */
+  protobuf_c_boolean has_l_pps;
+  uint32_t l_pps;
   Gateway__Status__OSMetrics *os;
+  /*
+   * debug or warning messages from the gateway
+   */
+  size_t n_messages;
+  char **messages;
 };
 #define GATEWAY__STATUS__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&gateway__status__descriptor) \
-    , 0,0, 0,0, 0,NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0,0, 0,0, 0,0, 0,0, 0,0, NULL }
+    , 0,0, 0,0, 0,0, 0,0, 0,NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0,0, 0,0, NULL, NULL, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, 0,0, NULL, 0,NULL }
 
 
 /* Gateway__GPSMetadata methods */
@@ -233,6 +323,9 @@ Gateway__GPSMetadata *
 void   gateway__gpsmetadata__free_unpacked
                      (Gateway__GPSMetadata *message,
                       ProtobufCAllocator *allocator);
+/* Gateway__RxMetadata__Antenna methods */
+void   gateway__rx_metadata__antenna__init
+                     (Gateway__RxMetadata__Antenna         *message);
 /* Gateway__RxMetadata methods */
 void   gateway__rx_metadata__init
                      (Gateway__RxMetadata         *message);
@@ -298,6 +391,9 @@ void   gateway__status__free_unpacked
 typedef void (*Gateway__GPSMetadata_Closure)
                  (const Gateway__GPSMetadata *message,
                   void *closure_data);
+typedef void (*Gateway__RxMetadata__Antenna_Closure)
+                 (const Gateway__RxMetadata__Antenna *message,
+                  void *closure_data);
 typedef void (*Gateway__RxMetadata_Closure)
                  (const Gateway__RxMetadata *message,
                   void *closure_data);
@@ -318,6 +414,7 @@ typedef void (*Gateway__Status_Closure)
 
 extern const ProtobufCMessageDescriptor gateway__gpsmetadata__descriptor;
 extern const ProtobufCMessageDescriptor gateway__rx_metadata__descriptor;
+extern const ProtobufCMessageDescriptor gateway__rx_metadata__antenna__descriptor;
 extern const ProtobufCMessageDescriptor gateway__tx_configuration__descriptor;
 extern const ProtobufCMessageDescriptor gateway__status__descriptor;
 extern const ProtobufCMessageDescriptor gateway__status__osmetrics__descriptor;

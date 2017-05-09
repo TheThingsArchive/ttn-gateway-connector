@@ -50,6 +50,12 @@ void   gateway__gpsmetadata__free_unpacked
   assert(message->base.descriptor == &gateway__gpsmetadata__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
+void   gateway__rx_metadata__antenna__init
+                     (Gateway__RxMetadata__Antenna         *message)
+{
+  static Gateway__RxMetadata__Antenna init_value = GATEWAY__RX_METADATA__ANTENNA__INIT;
+  *message = init_value;
+}
 void   gateway__rx_metadata__init
                      (Gateway__RxMetadata         *message)
 {
@@ -262,7 +268,98 @@ const ProtobufCMessageDescriptor gateway__gpsmetadata__descriptor =
   (ProtobufCMessageInit) gateway__gpsmetadata__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor gateway__rx_metadata__field_descriptors[9] =
+static const ProtobufCFieldDescriptor gateway__rx_metadata__antenna__field_descriptors[5] =
+{
+  {
+    "antenna",
+    1,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Gateway__RxMetadata__Antenna, has_antenna),
+    offsetof(Gateway__RxMetadata__Antenna, antenna),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "channel",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Gateway__RxMetadata__Antenna, has_channel),
+    offsetof(Gateway__RxMetadata__Antenna, channel),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "rssi",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Gateway__RxMetadata__Antenna, has_rssi),
+    offsetof(Gateway__RxMetadata__Antenna, rssi),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "snr",
+    4,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_FLOAT,
+    offsetof(Gateway__RxMetadata__Antenna, has_snr),
+    offsetof(Gateway__RxMetadata__Antenna, snr),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "encrypted_time",
+    10,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Gateway__RxMetadata__Antenna, has_encrypted_time),
+    offsetof(Gateway__RxMetadata__Antenna, encrypted_time),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+};
+static const unsigned gateway__rx_metadata__antenna__field_indices_by_name[] = {
+  0,   /* field[0] = antenna */
+  1,   /* field[1] = channel */
+  4,   /* field[4] = encrypted_time */
+  2,   /* field[2] = rssi */
+  3,   /* field[3] = snr */
+};
+static const ProtobufCIntRange gateway__rx_metadata__antenna__number_ranges[2 + 1] =
+{
+  { 1, 0 },
+  { 10, 4 },
+  { 0, 5 }
+};
+const ProtobufCMessageDescriptor gateway__rx_metadata__antenna__descriptor =
+{
+  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
+  "gateway.RxMetadata.Antenna",
+  "Antenna",
+  "Gateway__RxMetadata__Antenna",
+  "gateway",
+  sizeof(Gateway__RxMetadata__Antenna),
+  5,
+  gateway__rx_metadata__antenna__field_descriptors,
+  gateway__rx_metadata__antenna__field_indices_by_name,
+  2,  gateway__rx_metadata__antenna__number_ranges,
+  (ProtobufCMessageInit) gateway__rx_metadata__antenna__init,
+  NULL,NULL,NULL    /* reserved[123] */
+};
+static const ProtobufCFieldDescriptor gateway__rx_metadata__field_descriptors[12] =
 {
   {
     "gateway_id",
@@ -271,6 +368,18 @@ static const ProtobufCFieldDescriptor gateway__rx_metadata__field_descriptors[9]
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
     offsetof(Gateway__RxMetadata, gateway_id),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "gateway_trusted",
+    2,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BOOL,
+    offsetof(Gateway__RxMetadata, has_gateway_trusted),
+    offsetof(Gateway__RxMetadata, gateway_trusted),
     NULL,
     NULL,
     0,             /* flags */
@@ -301,6 +410,18 @@ static const ProtobufCFieldDescriptor gateway__rx_metadata__field_descriptors[9]
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
+    "encrypted_time",
+    13,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BYTES,
+    offsetof(Gateway__RxMetadata, has_encrypted_time),
+    offsetof(Gateway__RxMetadata, encrypted_time),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
     "rf_chain",
     21,
     PROTOBUF_C_LABEL_OPTIONAL,
@@ -320,6 +441,18 @@ static const ProtobufCFieldDescriptor gateway__rx_metadata__field_descriptors[9]
     offsetof(Gateway__RxMetadata, has_channel),
     offsetof(Gateway__RxMetadata, channel),
     NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "antennas",
+    30,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_MESSAGE,
+    offsetof(Gateway__RxMetadata, n_antennas),
+    offsetof(Gateway__RxMetadata, antennas),
+    &gateway__rx_metadata__antenna__descriptor,
     NULL,
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
@@ -374,24 +507,27 @@ static const ProtobufCFieldDescriptor gateway__rx_metadata__field_descriptors[9]
   },
 };
 static const unsigned gateway__rx_metadata__field_indices_by_name[] = {
-  4,   /* field[4] = channel */
-  5,   /* field[5] = frequency */
+  7,   /* field[7] = antennas */
+  6,   /* field[6] = channel */
+  4,   /* field[4] = encrypted_time */
+  8,   /* field[8] = frequency */
   0,   /* field[0] = gateway_id */
-  8,   /* field[8] = gps */
-  3,   /* field[3] = rf_chain */
-  6,   /* field[6] = rssi */
-  7,   /* field[7] = snr */
-  2,   /* field[2] = time */
-  1,   /* field[1] = timestamp */
+  1,   /* field[1] = gateway_trusted */
+  11,   /* field[11] = gps */
+  5,   /* field[5] = rf_chain */
+  9,   /* field[9] = rssi */
+  10,   /* field[10] = snr */
+  3,   /* field[3] = time */
+  2,   /* field[2] = timestamp */
 };
 static const ProtobufCIntRange gateway__rx_metadata__number_ranges[5 + 1] =
 {
   { 1, 0 },
-  { 11, 1 },
-  { 21, 3 },
-  { 31, 5 },
-  { 41, 8 },
-  { 0, 9 }
+  { 11, 2 },
+  { 21, 5 },
+  { 30, 7 },
+  { 41, 11 },
+  { 0, 12 }
 };
 const ProtobufCMessageDescriptor gateway__rx_metadata__descriptor =
 {
@@ -401,7 +537,7 @@ const ProtobufCMessageDescriptor gateway__rx_metadata__descriptor =
   "Gateway__RxMetadata",
   "gateway",
   sizeof(Gateway__RxMetadata),
-  9,
+  12,
   gateway__rx_metadata__field_descriptors,
   gateway__rx_metadata__field_indices_by_name,
   5,  gateway__rx_metadata__number_ranges,
@@ -619,7 +755,7 @@ const ProtobufCMessageDescriptor gateway__status__osmetrics__descriptor =
   (ProtobufCMessageInit) gateway__status__osmetrics__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor gateway__status__field_descriptors[16] =
+static const ProtobufCFieldDescriptor gateway__status__field_descriptors[26] =
 {
   {
     "timestamp",
@@ -640,6 +776,30 @@ static const ProtobufCFieldDescriptor gateway__status__field_descriptors[16] =
     PROTOBUF_C_TYPE_INT64,
     offsetof(Gateway__Status, has_time),
     offsetof(Gateway__Status, time),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "gateway_trusted",
+    3,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_BOOL,
+    offsetof(Gateway__Status, has_gateway_trusted),
+    offsetof(Gateway__Status, gateway_trusted),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "boot_time",
+    4,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_INT64,
+    offsetof(Gateway__Status, has_boot_time),
+    offsetof(Gateway__Status, boot_time),
     NULL,
     NULL,
     0,             /* flags */
@@ -694,12 +854,12 @@ static const ProtobufCFieldDescriptor gateway__status__field_descriptors[16] =
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
-    "region",
+    "frequency_plan",
     15,
     PROTOBUF_C_LABEL_OPTIONAL,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
-    offsetof(Gateway__Status, region),
+    offsetof(Gateway__Status, frequency_plan),
     NULL,
     NULL,
     0,             /* flags */
@@ -724,6 +884,42 @@ static const ProtobufCFieldDescriptor gateway__status__field_descriptors[16] =
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
     offsetof(Gateway__Status, router),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "fpga",
+    18,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Gateway__Status, has_fpga),
+    offsetof(Gateway__Status, fpga),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "dsp",
+    19,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Gateway__Status, has_dsp),
+    offsetof(Gateway__Status, dsp),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "hal",
+    20,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_STRING,
+    0,   /* quantifier_offset */
+    offsetof(Gateway__Status, hal),
     NULL,
     NULL,
     0,             /* flags */
@@ -802,6 +998,54 @@ static const ProtobufCFieldDescriptor gateway__status__field_descriptors[16] =
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
   {
+    "lm_ok",
+    45,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Gateway__Status, has_lm_ok),
+    offsetof(Gateway__Status, lm_ok),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "lm_st",
+    46,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Gateway__Status, has_lm_st),
+    offsetof(Gateway__Status, lm_st),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "lm_nw",
+    47,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Gateway__Status, has_lm_nw),
+    offsetof(Gateway__Status, lm_nw),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "l_pps",
+    48,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_UINT32,
+    offsetof(Gateway__Status, has_l_pps),
+    offsetof(Gateway__Status, l_pps),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
     "os",
     51,
     PROTOBUF_C_LABEL_OPTIONAL,
@@ -813,34 +1057,55 @@ static const ProtobufCFieldDescriptor gateway__status__field_descriptors[16] =
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "messages",
+    52,
+    PROTOBUF_C_LABEL_REPEATED,
+    PROTOBUF_C_TYPE_STRING,
+    offsetof(Gateway__Status, n_messages),
+    offsetof(Gateway__Status, messages),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned gateway__status__field_indices_by_name[] = {
-  7,   /* field[7] = bridge */
-  4,   /* field[4] = contact_email */
-  5,   /* field[5] = description */
-  9,   /* field[9] = gps */
-  2,   /* field[2] = ip */
-  15,   /* field[15] = os */
-  3,   /* field[3] = platform */
-  6,   /* field[6] = region */
-  8,   /* field[8] = router */
-  10,   /* field[10] = rtt */
-  11,   /* field[11] = rx_in */
-  12,   /* field[12] = rx_ok */
+  3,   /* field[3] = boot_time */
+  9,   /* field[9] = bridge */
+  6,   /* field[6] = contact_email */
+  7,   /* field[7] = description */
+  12,   /* field[12] = dsp */
+  11,   /* field[11] = fpga */
+  8,   /* field[8] = frequency_plan */
+  2,   /* field[2] = gateway_trusted */
+  14,   /* field[14] = gps */
+  13,   /* field[13] = hal */
+  4,   /* field[4] = ip */
+  23,   /* field[23] = l_pps */
+  22,   /* field[22] = lm_nw */
+  20,   /* field[20] = lm_ok */
+  21,   /* field[21] = lm_st */
+  25,   /* field[25] = messages */
+  24,   /* field[24] = os */
+  5,   /* field[5] = platform */
+  10,   /* field[10] = router */
+  15,   /* field[15] = rtt */
+  16,   /* field[16] = rx_in */
+  17,   /* field[17] = rx_ok */
   1,   /* field[1] = time */
   0,   /* field[0] = timestamp */
-  13,   /* field[13] = tx_in */
-  14,   /* field[14] = tx_ok */
+  18,   /* field[18] = tx_in */
+  19,   /* field[19] = tx_ok */
 };
-static const ProtobufCIntRange gateway__status__number_ranges[6 + 1] =
+static const ProtobufCIntRange gateway__status__number_ranges[5 + 1] =
 {
   { 1, 0 },
-  { 11, 2 },
-  { 21, 9 },
-  { 31, 10 },
-  { 41, 11 },
-  { 51, 15 },
-  { 0, 16 }
+  { 11, 4 },
+  { 31, 15 },
+  { 41, 16 },
+  { 51, 24 },
+  { 0, 26 }
 };
 const ProtobufCMessageDescriptor gateway__status__descriptor =
 {
@@ -850,10 +1115,10 @@ const ProtobufCMessageDescriptor gateway__status__descriptor =
   "Gateway__Status",
   "gateway",
   sizeof(Gateway__Status),
-  16,
+  26,
   gateway__status__field_descriptors,
   gateway__status__field_indices_by_name,
-  6,  gateway__status__number_ranges,
+  5,  gateway__status__number_ranges,
   (ProtobufCMessageInit) gateway__status__init,
   NULL,NULL,NULL    /* reserved[123] */
 };

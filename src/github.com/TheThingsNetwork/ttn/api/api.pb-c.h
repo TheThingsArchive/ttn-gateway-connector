@@ -97,10 +97,12 @@ struct  _Api__SystemStats__CPUStats
   float system;
   protobuf_c_boolean has_idle;
   float idle;
+  protobuf_c_boolean has_percentage;
+  float percentage;
 };
 #define API__SYSTEM_STATS__CPUSTATS__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&api__system_stats__cpustats__descriptor) \
-    , 0,0, 0,0, 0,0 }
+    , 0,0, 0,0, 0,0, 0,0 }
 
 
 struct  _Api__SystemStats__MemoryStats
@@ -139,10 +141,12 @@ struct  _Api__ComponentStats__CPUStats
   float system;
   protobuf_c_boolean has_idle;
   float idle;
+  protobuf_c_boolean has_percentage;
+  float percentage;
 };
 #define API__COMPONENT_STATS__CPUSTATS__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&api__component_stats__cpustats__descriptor) \
-    , 0,0, 0,0, 0,0 }
+    , 0,0, 0,0, 0,0, 0,0 }
 
 
 struct  _Api__ComponentStats__MemoryStats
@@ -152,10 +156,14 @@ struct  _Api__ComponentStats__MemoryStats
   uint64_t memory;
   protobuf_c_boolean has_swap;
   uint64_t swap;
+  protobuf_c_boolean has_heap;
+  uint64_t heap;
+  protobuf_c_boolean has_stack;
+  uint64_t stack;
 };
 #define API__COMPONENT_STATS__MEMORY_STATS__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&api__component_stats__memory_stats__descriptor) \
-    , 0,0, 0,0 }
+    , 0,0, 0,0, 0,0, 0,0 }
 
 
 struct  _Api__ComponentStats

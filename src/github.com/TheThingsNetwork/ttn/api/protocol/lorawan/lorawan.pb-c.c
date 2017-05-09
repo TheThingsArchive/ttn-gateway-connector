@@ -566,7 +566,7 @@ void   lorawan__cflist__free_unpacked
   assert(message->base.descriptor == &lorawan__cflist__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-static const ProtobufCFieldDescriptor lorawan__metadata__field_descriptors[5] =
+static const ProtobufCFieldDescriptor lorawan__metadata__field_descriptors[6] =
 {
   {
     "modulation",
@@ -628,18 +628,31 @@ static const ProtobufCFieldDescriptor lorawan__metadata__field_descriptors[5] =
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "frequency_plan",
+    16,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_ENUM,
+    offsetof(Lorawan__Metadata, has_frequency_plan),
+    offsetof(Lorawan__Metadata, frequency_plan),
+    &lorawan__frequency_plan__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned lorawan__metadata__field_indices_by_name[] = {
   2,   /* field[2] = bit_rate */
   3,   /* field[3] = coding_rate */
   1,   /* field[1] = data_rate */
   4,   /* field[4] = f_cnt */
+  5,   /* field[5] = frequency_plan */
   0,   /* field[0] = modulation */
 };
 static const ProtobufCIntRange lorawan__metadata__number_ranges[1 + 1] =
 {
   { 11, 0 },
-  { 0, 5 }
+  { 0, 6 }
 };
 const ProtobufCMessageDescriptor lorawan__metadata__descriptor =
 {
@@ -649,7 +662,7 @@ const ProtobufCMessageDescriptor lorawan__metadata__descriptor =
   "Lorawan__Metadata",
   "lorawan",
   sizeof(Lorawan__Metadata),
-  5,
+  6,
   lorawan__metadata__field_descriptors,
   lorawan__metadata__field_indices_by_name,
   1,  lorawan__metadata__number_ranges,
@@ -746,7 +759,7 @@ const ProtobufCMessageDescriptor lorawan__tx_configuration__descriptor =
   (ProtobufCMessageInit) lorawan__tx_configuration__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCFieldDescriptor lorawan__activation_metadata__field_descriptors[8] =
+static const ProtobufCFieldDescriptor lorawan__activation_metadata__field_descriptors[9] =
 {
   {
     "app_eui",
@@ -844,12 +857,25 @@ static const ProtobufCFieldDescriptor lorawan__activation_metadata__field_descri
     0,             /* flags */
     0,NULL,NULL    /* reserved1,reserved2, etc */
   },
+  {
+    "frequency_plan",
+    15,
+    PROTOBUF_C_LABEL_OPTIONAL,
+    PROTOBUF_C_TYPE_ENUM,
+    offsetof(Lorawan__ActivationMetadata, has_frequency_plan),
+    offsetof(Lorawan__ActivationMetadata, frequency_plan),
+    &lorawan__frequency_plan__descriptor,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
 };
 static const unsigned lorawan__activation_metadata__field_indices_by_name[] = {
   0,   /* field[0] = app_eui */
   7,   /* field[7] = cf_list */
   2,   /* field[2] = dev_addr */
   1,   /* field[1] = dev_eui */
+  8,   /* field[8] = frequency_plan */
   3,   /* field[3] = nwk_s_key */
   4,   /* field[4] = rx1_dr_offset */
   5,   /* field[5] = rx2_dr */
@@ -859,7 +885,7 @@ static const ProtobufCIntRange lorawan__activation_metadata__number_ranges[2 + 1
 {
   { 1, 0 },
   { 11, 4 },
-  { 0, 8 }
+  { 0, 9 }
 };
 const ProtobufCMessageDescriptor lorawan__activation_metadata__descriptor =
 {
@@ -869,7 +895,7 @@ const ProtobufCMessageDescriptor lorawan__activation_metadata__descriptor =
   "Lorawan__ActivationMetadata",
   "lorawan",
   sizeof(Lorawan__ActivationMetadata),
-  8,
+  9,
   lorawan__activation_metadata__field_descriptors,
   lorawan__activation_metadata__field_indices_by_name,
   2,  lorawan__activation_metadata__number_ranges,
@@ -1583,23 +1609,27 @@ const ProtobufCEnumDescriptor lorawan__modulation__descriptor =
   lorawan__modulation__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
-static const ProtobufCEnumValue lorawan__region__enum_values_by_number[8] =
+static const ProtobufCEnumValue lorawan__frequency_plan__enum_values_by_number[10] =
 {
-  { "EU_863_870", "LORAWAN__REGION__EU_863_870", 0 },
-  { "US_902_928", "LORAWAN__REGION__US_902_928", 1 },
-  { "CN_779_787", "LORAWAN__REGION__CN_779_787", 2 },
-  { "EU_433", "LORAWAN__REGION__EU_433", 3 },
-  { "AU_915_928", "LORAWAN__REGION__AU_915_928", 4 },
-  { "CN_470_510", "LORAWAN__REGION__CN_470_510", 5 },
-  { "AS_923", "LORAWAN__REGION__AS_923", 6 },
-  { "KR_920_923", "LORAWAN__REGION__KR_920_923", 7 },
+  { "EU_863_870", "LORAWAN__FREQUENCY_PLAN__EU_863_870", 0 },
+  { "US_902_928", "LORAWAN__FREQUENCY_PLAN__US_902_928", 1 },
+  { "CN_779_787", "LORAWAN__FREQUENCY_PLAN__CN_779_787", 2 },
+  { "EU_433", "LORAWAN__FREQUENCY_PLAN__EU_433", 3 },
+  { "AU_915_928", "LORAWAN__FREQUENCY_PLAN__AU_915_928", 4 },
+  { "CN_470_510", "LORAWAN__FREQUENCY_PLAN__CN_470_510", 5 },
+  { "AS_923", "LORAWAN__FREQUENCY_PLAN__AS_923", 6 },
+  { "KR_920_923", "LORAWAN__FREQUENCY_PLAN__KR_920_923", 7 },
+  { "AS_920_923", "LORAWAN__FREQUENCY_PLAN__AS_920_923", 61 },
+  { "AS_923_925", "LORAWAN__FREQUENCY_PLAN__AS_923_925", 62 },
 };
-static const ProtobufCIntRange lorawan__region__value_ranges[] = {
-{0, 0},{0, 8}
+static const ProtobufCIntRange lorawan__frequency_plan__value_ranges[] = {
+{0, 0},{61, 8},{0, 10}
 };
-static const ProtobufCEnumValueIndex lorawan__region__enum_values_by_name[8] =
+static const ProtobufCEnumValueIndex lorawan__frequency_plan__enum_values_by_name[10] =
 {
+  { "AS_920_923", 8 },
   { "AS_923", 6 },
+  { "AS_923_925", 9 },
   { "AU_915_928", 4 },
   { "CN_470_510", 5 },
   { "CN_779_787", 2 },
@@ -1608,19 +1638,19 @@ static const ProtobufCEnumValueIndex lorawan__region__enum_values_by_name[8] =
   { "KR_920_923", 7 },
   { "US_902_928", 1 },
 };
-const ProtobufCEnumDescriptor lorawan__region__descriptor =
+const ProtobufCEnumDescriptor lorawan__frequency_plan__descriptor =
 {
   PROTOBUF_C__ENUM_DESCRIPTOR_MAGIC,
-  "lorawan.Region",
-  "Region",
-  "Lorawan__Region",
+  "lorawan.FrequencyPlan",
+  "FrequencyPlan",
+  "Lorawan__FrequencyPlan",
   "lorawan",
-  8,
-  lorawan__region__enum_values_by_number,
-  8,
-  lorawan__region__enum_values_by_name,
-  1,
-  lorawan__region__value_ranges,
+  10,
+  lorawan__frequency_plan__enum_values_by_number,
+  10,
+  lorawan__frequency_plan__enum_values_by_name,
+  2,
+  lorawan__frequency_plan__value_ranges,
   NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
 static const ProtobufCEnumValue lorawan__major__enum_values_by_number[1] =
