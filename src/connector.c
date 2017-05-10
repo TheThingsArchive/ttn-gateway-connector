@@ -7,7 +7,8 @@
 void ttngwc_init(TTN **s, const char *id, TTNDownlinkHandler downlink_handler,
                  void *cb_arg) {
   struct Session *session = (struct Session *)malloc(sizeof(struct Session));
-
+  memset(session, 0, sizeof(struct Session));
+   
   session->id = strdup(id);
   session->key = NULL;
   session->downlink_handler = downlink_handler;
@@ -28,8 +29,9 @@ void ttngwc_cleanup(TTN *s) {
 
   MQTTClientDestroy(&session->client);
 
+  if (session->key != NULL) 
+      free(session->key);
   free(session->id);
-  free(session->key);
   free(session->read_buffer);
   free(session->send_buffer);
   free(session);
@@ -56,7 +58,6 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
 
   int err;
   MQTTPacket_connectData connect = MQTTPacket_connectData_initializer;
-  char *downlink_topic = NULL;
 
   err = NetworkConnect(&session->network, (char *)host_name, port);
   if (err != SUCCESS)
@@ -72,7 +73,8 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
 #if SEND_DISCONNECT_WILL
   Types__DisconnectMessage will = TYPES__DISCONNECT_MESSAGE__INIT;
   will.id = session->id;
-  will.key = (char *)key;
+  if (session->key)
+    will.key = session->key;
   connect.willFlag = 1;
   connect.will.topicName.cstring = "disconnect";
   connect.will.message.lenstring.len =
@@ -107,14 +109,21 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
   free(message.payload);
 #endif
 
-  asprintf(&downlink_topic, "%s/down", session->id);
-  err = MQTTSubscribe(&session->client, downlink_topic, QOS_DOWN,
+  asprintf(&session->downlink_topic, "%s/down", session->id);
+  err = MQTTSubscribe(&session->client, session->downlink_topic, QOS_DOWN,
                       &ttngwc_downlink_cb, session);
 
 exit:
-  if (err != SUCCESS && downlink_topic != NULL)
-    free(downlink_topic);
-
+  if (err != SUCCESS) {
+    if(session->downlink_topic != NULL) {
+      free(session->downlink_topic);
+      session->downlink_topic = NULL;
+    }
+    if(session->key != NULL) {
+      free(session->key);
+      session->key = NULL;
+    }
+  }
   return err;
 }
 
@@ -139,6 +148,17 @@ int ttngwc_disconnect(TTN *s) {
 
   MQTTDisconnect(&session->client);
   NetworkDisconnect(&session->network);
+
+  if(session->key != NULL) {
+    free(session->key);
+    session->key = NULL;
+  }
+
+  if(session->downlink_topic != NULL) {
+    free(session->downlink_topic);
+    session->downlink_topic = NULL;
+  }
+
 
   return 0;
 }

@@ -15,6 +15,7 @@ struct Session {
   unsigned char *send_buffer;
   char *id;
   char *key;
+  char *downlink_topic;
 };
 
 #endif
