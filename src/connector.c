@@ -30,9 +30,8 @@ void ttngwc_cleanup(TTN *s) {
   MQTTClientDestroy(&session->client);
 
   if (session->key != NULL) { 
-      free(session->key); // Free only when set (done in connect)
+      free(session->key);
   }
-  // Rest is always set (in init)
   free(session->id);
   free(session->read_buffer);
   free(session->send_buffer);
@@ -112,7 +111,7 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
   free(message.payload);
 #endif
 
-  asprintf(&session->downlink_topic, "%s/down", session->id); // after subscribe this is used as filter, store it in Session to clean after an un-subscribe or disconnect
+  asprintf(&session->downlink_topic, "%s/down", session->id);
   err = MQTTSubscribe(&session->client, session->downlink_topic, QOS_DOWN,
                       &ttngwc_downlink_cb, session);
 
