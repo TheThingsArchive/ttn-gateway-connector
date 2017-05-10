@@ -111,15 +111,15 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
   free(message.payload);
 #endif
 
-  asprintf(&session->topic, "%s/down", session->id);
-  err = MQTTSubscribe(&session->client, session->topic, QOS_DOWN,
+  asprintf(&session->downlink_topic, "%s/down", session->id); // after subscribe this is used as filter, store it in Session to clean after an un-subscribe or disconnect
+  err = MQTTSubscribe(&session->client, session->downlink_topic, QOS_DOWN,
                       &ttngwc_downlink_cb, session);
 
 exit:
   if (err != SUCCESS) {
-    if(session->topic != NULL) {
-      free(session->topic);
-      session->topic = NULL;
+    if(session->downlink_topic != NULL) {
+      free(session->downlink_topic);
+      session->downlink_topic = NULL;
     }
     if(session->key != NULL) {
       free(session->key);
@@ -156,9 +156,9 @@ int ttngwc_disconnect(TTN *s) {
     session->key = NULL;
   }
 
-  if(session->topic != NULL) {
-    free(session->topic);
-    session->topic = NULL;
+  if(session->downlink_topic != NULL) {
+    free(session->downlink_topic);
+    session->downlink_topic = NULL;
   }
 
 

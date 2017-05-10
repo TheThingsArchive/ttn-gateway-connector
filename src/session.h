@@ -15,7 +15,7 @@ struct Session {
   unsigned char *send_buffer;
   char *id;
   char *key;
-  char *topic;
+  char *downlink_topic; // after subscribe this is used as filter, remember it here to clean after an un-subscribe or disconnect
 };
 
 #endif
