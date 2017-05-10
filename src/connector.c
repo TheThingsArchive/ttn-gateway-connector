@@ -29,9 +29,8 @@ void ttngwc_cleanup(TTN *s) {
 
   MQTTClientDestroy(&session->client);
 
-  if (session->key != NULL) { 
+  if (session->key != NULL) 
       free(session->key);
-  }
   free(session->id);
   free(session->read_buffer);
   free(session->send_buffer);
@@ -74,9 +73,8 @@ int ttngwc_connect(TTN *s, const char *host_name, int port, const char *key) {
 #if SEND_DISCONNECT_WILL
   Types__DisconnectMessage will = TYPES__DISCONNECT_MESSAGE__INIT;
   will.id = session->id;
-  if (session->key) {
+  if (session->key)
     will.key = session->key;
-  }
   connect.willFlag = 1;
   connect.will.topicName.cstring = "disconnect";
   connect.will.message.lenstring.len =
