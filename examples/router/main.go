@@ -7,10 +7,10 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/TheThingsNetwork/ttn/api/gateway"
-	"github.com/TheThingsNetwork/ttn/api/protocol"
-	"github.com/TheThingsNetwork/ttn/api/protocol/lorawan"
-	"github.com/TheThingsNetwork/ttn/api/router"
+	"github.com/TheThingsNetwork/api/gateway"
+	"github.com/TheThingsNetwork/api/protocol"
+	"github.com/TheThingsNetwork/api/protocol/lorawan"
+	"github.com/TheThingsNetwork/api/router"
 	"github.com/TheThingsNetwork/ttn/core/types"
 	"github.com/eclipse/paho.mqtt.golang"
 	"github.com/golang/protobuf/proto"
@@ -51,8 +51,8 @@ func makeConfig() (*protocol.TxConfiguration, *gateway.TxConfiguration) {
 	config := configs[r.Intn(len(configs))]
 
 	protoConfig := &protocol.TxConfiguration{
-		Protocol: &protocol.TxConfiguration_Lorawan{
-			Lorawan: &lorawan.TxConfiguration{
+		Protocol: &protocol.TxConfiguration_LoRaWAN{
+			LoRaWAN: &lorawan.TxConfiguration{
 				Modulation: config.m,
 				DataRate:   config.dr,
 				CodingRate: "4/5",
@@ -88,15 +88,15 @@ func makeDownlink() *router.DownlinkMessage {
 			MType: lorawan.MType_UNCONFIRMED_DOWN,
 			Major: lorawan.Major_LORAWAN_R1,
 		},
-		Payload: &lorawan.Message_MacPayload{MacPayload: &lorawan.MACPayload{
+		Payload: &lorawan.Message_MACPayload{MACPayload: &lorawan.MACPayload{
 			FHDR: lorawan.FHDR{
 				DevAddr: types.DevAddr{1, 2, 3, 4},
 				FCnt:    fcnt,
 			},
 			FPort:      1,
-			FrmPayload: []byte(payload),
+			FRMPayload: []byte(payload),
 		}},
-		Mic: []byte{1, 2, 3, 4},
+		MIC: []byte{1, 2, 3, 4},
 	}
 	bytes, _ := message.PHYPayload().MarshalBinary()
 
@@ -104,8 +104,8 @@ func makeDownlink() *router.DownlinkMessage {
 
 	return &router.DownlinkMessage{
 		Payload:               bytes,
-		ProtocolConfiguration: protoConfig,
-		GatewayConfiguration:  gatewayConfig,
+		ProtocolConfiguration: *protoConfig,
+		GatewayConfiguration:  *gatewayConfig,
 	}
 }
 
